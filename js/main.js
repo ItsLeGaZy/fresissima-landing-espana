@@ -59,8 +59,9 @@ function checkPassword(event) {
             const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
 
             if (hashHex === correctPasswordHash) {
-                // Guardar sesión
+                // Guardar sesión con timestamp
                 sessionStorage.setItem('fresissima_auth', 'true');
+                sessionStorage.setItem('fresissima_auth_time', new Date().getTime().toString());
                 // Redirigir al catálogo
                 window.location.href = 'catalogo.html';
             } else {

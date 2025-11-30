@@ -1,0 +1,22 @@
+# Proteger carpeta de PDFs - requiere autenticación de la aplicación
+# Este archivo protege el acceso directo a los PDFs
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Bloquear acceso directo a PDFs desde fuera del dominio
+    RewriteCond %{HTTP_REFERER} !^https?://(www\.)?tudominio\.com [NC]
+    RewriteCond %{HTTP_REFERER} !^https?://(www\.)?localhost [NC]
+    RewriteCond %{REQUEST_URI} \.pdf$ [NC]
+    RewriteRule .* - [F,L]
+</IfModule>
+
+# Prevenir listado de directorios
+Options -Indexes
+
+# Configuración de headers de seguridad
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>
