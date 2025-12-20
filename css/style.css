@@ -258,6 +258,20 @@ section {
     color: var(--color-primary);
 }
 
+.nav-professional-link {
+    color: var(--color-primary) !important;
+    font-weight: 700 !important;
+    border: 1px solid var(--color-primary);
+    padding: 8px 16px;
+    margin-left: 1rem;
+    transition: all 0.3s ease;
+}
+
+.nav-professional-link:hover {
+    background: var(--color-primary);
+    color: #fff !important;
+}
+
 /* Hero Improvements */
 .hero {
     padding-top: 180px;
@@ -474,14 +488,15 @@ body {
         padding: 0.75rem 0;
     }
 
-    .header-content .btn-primary {
-        padding: 8px 16px;
-        font-size: 0.7rem;
-    }
-
     .main-nav {
         display: none;
         /* Mobile menu logic could be added here later */
+    }
+
+    .nav-professional-link {
+        margin-left: 0;
+        display: inline-block;
+        margin-top: 10px;
     }
 
     /* Hero Mobile */
