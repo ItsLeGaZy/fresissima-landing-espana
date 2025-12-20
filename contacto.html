@@ -37,7 +37,7 @@
                 <ul>
                     <li><a href="index.html">Inicio</a></li>
                     <li><a href="productos.html">Productos</a></li>
-                    <li><a href="calidad.html">Calidad</a></li>
+                    <li><a href="nosotros.html">Calidad</a></li>
                     <li><a href="contacto.html" class="active">Contacto</a></li>
                     <li><a href="#" onclick="showPasswordModal(); return false;" class="nav-professional-link"
                             style="display: flex; align-items: center; gap: 5px;">
@@ -63,11 +63,17 @@
                 expertos.
             </p>
 
-            <div class="contact-wrapper">
+            <div class="contact-wrapper fade-in-up">
                 <div class="contact-info">
-                    <h3>Información de Contacto</h3>
-                    <p>Nuestro equipo de especialistas está a su disposición para resolver cualquier duda técnica o
-                        comercial sobre nuestros productos.</p>
+                    <span
+                        style="color: var(--color-primary); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; display: block; margin-bottom: 1rem;">
+                        Soporte Directo de Fábrica
+                    </span>
+                    <h3 style="margin-bottom: 1rem;">Estamos para Ayudarte</h3>
+                    <p style="margin-bottom: 2rem;">
+                        Sin intermediarios. Hable directamente con nuestros especialistas técnicos en Italia y España
+                        para resolver dudas clínicas o gestionar pedidos complejos.
+                    </p>
                     <ul class="contact-details" style="list-style: none; padding-left: 0;">
                         <li style="display: flex; align-items: center; margin-bottom: 1rem;">
                             <div style="min-width: 24px; color: var(--color-primary); margin-right: 12px;">
@@ -80,7 +86,11 @@
                                     <polyline points="22,6 12,13 2,6"></polyline>
                                 </svg>
                             </div>
-                            <strong>Email:</strong>&nbsp;jaime@fresissima.com
+                            <div>
+                                <strong>Email Profesional:</strong><br>
+                                <a href="mailto:jaime@fresissima.com"
+                                    style="color: var(--color-text);">jaime@fresissima.com</a>
+                            </div>
                         </li>
                         <li style="display: flex; align-items: center; margin-bottom: 1rem;">
                             <div style="min-width: 24px; color: var(--color-primary); margin-right: 12px;">
@@ -92,34 +102,32 @@
                                     </path>
                                 </svg>
                             </div>
-                            <strong>Teléfono:</strong>&nbsp;+34 614 114 757
+                            <div>
+                                <strong>Línea Directa:</strong><br>
+                                +34 614 114 757
+                            </div>
                         </li>
                         <li style="display: flex; align-items: center; margin-bottom: 1rem;">
                             <div style="min-width: 24px; color: var(--color-primary); margin-right: 12px;">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round">
-                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                    <circle cx="12" cy="10" r="3"></circle>
+                                    <path
+                                        d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                                    </path>
+                                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                                    <line x1="12" y1="22.08" x2="12" y2="12"></line>
                                 </svg>
                             </div>
-                            <strong>Sede:</strong>&nbsp;Calle de la Industria, 123, Madrid
-                        </li>
-                        <li style="display: flex; align-items: center; margin-bottom: 1rem;">
-                            <div style="min-width: 24px; color: var(--color-primary); margin-right: 12px;">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <polyline points="12 6 12 12 16 14"></polyline>
-                                </svg>
+                            <div>
+                                <strong>Servicio OEM / Bespoke:</strong><br>
+                                Consultar condiciones de fabricación a medida
                             </div>
-                            <strong>Horario:</strong>&nbsp;Lun-Vie 9:00 - 18:00
                         </li>
                     </ul>
 
                     <div
-                        style="margin-top: 2rem; padding: 1.5rem; background: var(--color-bg-light); border-radius: 12px;">
+                        style="margin-top: 2rem; padding: 1.5rem; background: var(--color-bg-light); border-radius: 4px; border-left: 4px solid var(--color-primary);">
                         <h4
                             style="color: var(--color-accent); margin-bottom: 0.5rem; display: flex; align-items: center;">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
@@ -131,10 +139,10 @@
                             Área Profesional
                         </h4>
                         <p style="font-size: 0.95rem; color: var(--color-text-light);">
-                            Solicite acceso al catálogo exclusivo para clínicas dentales y profesionales colegiados.
+                            Acceso exclusivo para colegiados. Consulte precios y condiciones especiales.
                         </p>
-                        <button onclick="showPasswordModal()" class="btn btn-primary"
-                            style="margin-top: 1rem; width: 100%;">Acceso Doctores</button>
+                        <button onclick="showPasswordModal()" class="btn btn-outline"
+                            style="margin-top: 1rem; width: 100%; border-width: 1px;">Acceso Clientes</button>
                     </div>
                 </div>
 
@@ -206,7 +214,7 @@
                 <ul>
                     <li><a href="index.html" style="opacity: 0.8; color: #fff;">Inicio</a></li>
                     <li><a href="productos.html" style="opacity: 0.8; color: #fff;">Catálogo Profesional</a></li>
-                    <li><a href="calidad.html" style="opacity: 0.8; color: #fff;">Tecnología</a></li>
+                    <li><a href="nosotros.html" style="opacity: 0.8; color: #fff;">Tecnología</a></li>
                     <li><a href="contacto.html" style="opacity: 0.8; color: #fff;">Contacto</a></li>
                 </ul>
             </div>

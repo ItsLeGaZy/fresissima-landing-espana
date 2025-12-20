@@ -38,7 +38,7 @@
                 <ul>
                     <li><a href="index.html" class="active">Inicio</a></li>
                     <li><a href="productos.html">Productos</a></li>
-                    <li><a href="calidad.html">Calidad</a></li>
+                    <li><a href="nosotros.html">Calidad</a></li>
                     <li><a href="contacto.html">Contacto</a></li>
                     <li><a href="#" onclick="showPasswordModal(); return false;" class="nav-professional-link"
                             style="display: flex; align-items: center; gap: 5px;">
@@ -57,29 +57,29 @@
     <!-- Hero Section -->
     <section id="inicio" class="hero"
         style="background: radial-gradient(circle at right, #fff 0%, #f9fafb 100%); overflow: hidden;">
-        <div class="container hero-content">
+        <div class="container hero-content fade-in-up">
             <div class="hero-text">
                 <span
-                    style="color: var(--color-primary); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; display: block; margin-bottom: 1rem;">Excelencia
-                    Rotatoria Italiana</span>
-                <h1>Precisión de <br><span style="color: var(--color-primary);">5 Micras</span> en <br>Cada Intervención
-                </h1>
+                    style="color: var(--color-primary); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; display: block; margin-bottom: 1rem;">
+                    Desde 1990 • Excelencia Italiana
+                </span>
+                <h1>Diseñado con Dentistas, <br>para <span class="text-gradient">Dentistas</span>.</h1>
                 <p
                     style="font-size: 1.1rem; color: var(--color-text-light); max-width: 500px; margin-bottom: 2.5rem; line-height: 1.8;">
-                    Optimice el rendimiento de su clínica con instrumentos diseñados para la máxima durabilidad.
-                    Tecnología Disteno™: el estándar de oro en odontología restaurativa.</p>
-                <div class="hero-buttons" style="display: flex; gap: 1rem;">
-                    <a href="productos.html" class="btn btn-primary">Solicitar Catálogo
-                        2024</a>
-                    <a href="calidad.html" class="btn btn-outline">Ver Tecnología</a>
+                    Más de 34 años perfeccionando la <strong>instrumentación rotatoria de alta precisión</strong>.
+                    Tecnología CNC italiana al servicio de su clínica.
+                </p>
+                <div class="hero-buttons">
+                    <a href="productos.html" class="btn btn-primary">Catálogo 2024</a>
+                    <a href="nosotros.html" class="btn btn-outline">Nuestra Historia</a>
                 </div>
             </div>
-            <div class="hero-image">
+            <div class="hero-image hover-scale">
                 <div
                     style="position: absolute; width: 140%; height: 140%; background: var(--color-primary); opacity: 0.03; border-radius: 50%; top: -20%; right: -20%; z-index: 0;">
                 </div>
                 <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=1200"
-                    alt="Instrumentos dentales de precisión"
+                    alt="Instrumentos dentales de precisión macro"
                     style="width: 100%; height: auto; min-height: 300px; object-fit: cover; border-radius: 0; box-shadow: var(--shadow-lg); position: relative; z-index: 1;">
             </div>
         </div>
@@ -92,10 +92,10 @@
                 <div>
                     <div
                         style="font-size: 3.5rem; color: var(--color-primary); font-weight: 800; margin-bottom: 0.5rem;">
-                        3X</div>
-                    <p style="text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem; opacity: 0.8;">Más
-                        Durabilidad</p>
-                    <p style="font-size: 0.9rem; margin-top: 0.5rem;">Costo por uso reducido drásticamente</p>
+                        34</div>
+                    <p style="text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem; opacity: 0.8;">Años de
+                        Historia</p>
+                    <p style="font-size: 0.9rem; margin-top: 0.5rem;">Liderando el sector dental europeo</p>
                 </div>
                 <div>
                     <div
@@ -111,7 +111,7 @@
                         100%</div>
                     <p style="text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem; opacity: 0.8;">Made in
                         Italy</p>
-                    <p style="font-size: 0.9rem; margin-top: 0.5rem;">Certificación de origen y calidad</p>
+                    <p style="font-size: 0.9rem; margin-top: 0.5rem;">Fabricación propia sin intermediarios</p>
                 </div>
                 <div>
                     <div
@@ -168,7 +168,7 @@
                             </div>
                         </li>
                     </ul>
-                    <a href="calidad.html" class="btn btn-primary">Ficha Técnica Completa</a>
+                    <a href="nosotros.html" class="btn btn-primary">Ficha Técnica Completa</a>
                 </div>
             </div>
         </div>
@@ -177,15 +177,15 @@
     <!-- Featured Products -->
     <section id="productos" class="section-padding" style="background: var(--color-bg-light);">
         <div class="container">
-            <h2 style="text-align: center; margin-bottom: 4rem;">Soluciones de <span
-                    style="color: var(--color-primary);">Alta Gama</span></h2>
+            <h2 style="text-align: center; margin-bottom: 4rem;">Soluciones de <span class="text-gradient">Alta
+                    Gama</span></h2>
             <div class="products-grid">
                 <!-- Product 1 -->
-                <div class="product-card" style="padding: 0;">
+                <div class="product-card" style="padding: 0; overflow: hidden;">
                     <div style="height: 280px; overflow: hidden;">
                         <img src="https://images.unsplash.com/photo-1588776814546-1ffce47267a5?auto=format&fit=crop&q=80&w=800"
-                            alt="Fresas de Diamante"
-                            style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
+                            alt="Fresas de Diamante Dental" class="hover-scale"
+                            style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <div class="product-info" style="padding: 2.5rem; text-align: left;">
                         <h3 style="margin-bottom: 1rem; color: var(--color-accent);">Fresas de Diamante</h3>
@@ -197,10 +197,11 @@
                     </div>
                 </div>
                 <!-- Product 2 -->
-                <div class="product-card" style="padding: 0;">
+                <div class="product-card" style="padding: 0; overflow: hidden;">
                     <div style="height: 280px; overflow: hidden;">
                         <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&q=80&w=800"
-                            alt="Carburo de Tungsteno" style="width: 100%; height: 100%; object-fit: cover;">
+                            alt="Carburo de Tungsteno Dental" class="hover-scale"
+                            style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <div class="product-info" style="padding: 2.5rem; text-align: left;">
                         <h3 style="margin-bottom: 1rem; color: var(--color-accent);">Carburo de Tungsteno</h3>
@@ -212,10 +213,11 @@
                     </div>
                 </div>
                 <!-- Product 3 -->
-                <div class="product-card" style="padding: 0;">
+                <div class="product-card" style="padding: 0; overflow: hidden;">
                     <div style="height: 280px; overflow: hidden;">
                         <img src="https://images.unsplash.com/photo-1460672985063-6764ac8b9c74?auto=format&fit=crop&q=80&w=800"
-                            alt="Pulidores" style="width: 100%; height: 100%; object-fit: cover;">
+                            alt="Sistemas de Pulido Dental" class="hover-scale"
+                            style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <div class="product-info" style="padding: 2.5rem; text-align: left;">
                         <h3 style="margin-bottom: 1rem; color: var(--color-accent);">Sistemas de Pulido</h3>
@@ -230,10 +232,40 @@
         </div>
     </section>
 
+    <!-- Sustainability Teaser (New) -->
+    <section class="section-padding" style="background: #fff; border-bottom: 1px solid var(--color-border);">
+        <div class="container" style="display: flex; align-items: center; gap: 4rem; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 300px;">
+                <span
+                    style="color: #27ae60; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; display: block; margin-bottom: 1rem;">Eco-Iniciativa</span>
+                <h2 style="margin-bottom: 1.5rem;">Reducimos la huella, <br>no la calidad.</h2>
+                <p style="color: var(--color-text-light); margin-bottom: 2rem;">
+                    En Fresissima, el futuro es circular. Recuperamos y seleccionamos materiales para minimizar el
+                    impacto ambiental.
+                    <strong>"Tagliamo gli sprechi"</strong> es nuestro compromiso con un futuro sostenible para la
+                    odontología.
+                </p>
+                <a href="nosotros.html"
+                    style="color: #27ae60; font-weight: 700; display: flex; align-items: center; gap: 10px;">
+                    Leer más sobre Sostenibilidad
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M7 17l9.2-9.2M17 17V7H7" />
+                    </svg>
+                </a>
+            </div>
+            <div style="flex: 1; min-width: 300px; text-align: center;">
+                <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=800"
+                    alt="Sostenibilidad y Naturaleza"
+                    style="border-radius: 4px; box-shadow: var(--shadow-md); max-width: 100%;">
+            </div>
+        </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="section-padding" style="background: var(--color-bg-light);">
         <div class="container">
-            <div class="cta-box">
+            <div class="cta-box fade-in-up">
                 <div
                     style="position: absolute; width: 300px; height: 300px; background: var(--color-primary); opacity: 0.05; border-radius: 50%; top: -150px; left: -150px;">
                 </div>
@@ -242,15 +274,16 @@
                 </h2>
                 <p
                     style="font-size: 1.25rem; margin-bottom: 3.5rem; color: var(--color-text-light); max-width: 600px; margin-left: auto; margin-right: auto;">
-                    Acceda al catálogo completo de Fresissima 2024 y descubra por qué somos la elección preferida de los
-                    profesionales más exigentes.</p>
-                <div style="display: flex; gap: 1.5rem; justify-content: center;">
-                    <a href="productos.html" class="btn btn-primary">Descargar Catálogo PDF</a>
-                    <a href="contacto.html" class="btn btn-outline" style="border-width: 2px;">Hablar con un
+                    Únase a los más de 5,000 doctores que ya confían en la <strong>ingeniería rotatoria
+                        italiana</strong>. Garantía directa de fábrica.
+                </p>
+                <div class="cta-actions">
+                    <a href="productos.html" class="btn btn-primary">Ver Catálogo Digital</a>
+                    <a href="contacto.html" class="btn btn-outline" style="border-width: 1px;">Hablar con un
                         Especialista</a>
                 </div>
-                <div style="margin-top: 3rem; font-size: 0.9rem; color: #aaa;">
-                    ISO 13485 Certified • CE Medical Device • 100% Guaranteed
+                <div style="margin-top: 3rem; font-size: 0.9rem; color: #aaa; letter-spacing: 1px;">
+                    ISO 13485 CERTIFIED • CE MEDICAL DEVICE • 100% GARANTÍA DIRECTA
                 </div>
             </div>
         </div>
