@@ -73,8 +73,9 @@ git clone https://github.com/TU_USUARIO/fresissima-landing-espana.git
 ## 📧 Contacto
 
 **Fresissima España**
-- Email: info@fresissima.es
-- Teléfono: +34 900 000 000
+- Email: jaime@fresissima.com
+- Teléfono: +34 614 114 757
+- Horario: Lunes a Viernes 9:00 - 18:00
 
 ---
 
