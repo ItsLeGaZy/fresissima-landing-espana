@@ -31,7 +31,7 @@
             <div class="logo">
                 <a href="index.html">
                     <img src="https://fresissima.it/wp-content/uploads/2025/10/Logo-fresissima.png"
-                        alt="Fresissima Logo" style="height: 70px;">
+                        alt="Fresissima Logo">
                 </a>
             </div>
             <nav class="main-nav">
@@ -52,29 +52,29 @@
     <section id="inicio" class="hero"
         style="background: radial-gradient(circle at right, #fff 0%, #f9fafb 100%); overflow: hidden;">
         <div class="container hero-content">
-            <div class="hero-text" style="z-index: 2;">
+            <div class="hero-text">
                 <span
                     style="color: var(--color-primary); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; display: block; margin-bottom: 1rem;">Excelencia
                     Rotatoria Italiana</span>
-                <h1 style="color: var(--color-accent); line-height: 1.1; margin-bottom: 1.5rem;">Precisión de <br><span
-                        style="color: var(--color-primary);">5 Micras</span> en <br>Cada Intervención</h1>
+                <h1>Precisión de <br><span style="color: var(--color-primary);">5 Micras</span> en <br>Cada Intervención
+                </h1>
                 <p
                     style="font-size: 1.1rem; color: var(--color-text-light); max-width: 500px; margin-bottom: 2.5rem; line-height: 1.8;">
                     Optimice el rendimiento de su clínica con instrumentos diseñados para la máxima durabilidad.
                     Tecnología Disteno™: el estándar de oro en odontología restaurativa.</p>
-                <div class="hero-buttons">
-                    <a href="productos.html" class="btn btn-primary" style="margin-right: 1rem;">Solicitar Catálogo
+                <div class="hero-buttons" style="display: flex; gap: 1rem;">
+                    <a href="productos.html" class="btn btn-primary">Solicitar Catálogo
                         2024</a>
                     <a href="calidad.html" class="btn btn-outline">Ver Tecnología</a>
                 </div>
             </div>
-            <div class="hero-image" style="position: relative;">
+            <div class="hero-image">
                 <div
                     style="position: absolute; width: 140%; height: 140%; background: var(--color-primary); opacity: 0.03; border-radius: 50%; top: -20%; right: -20%; z-index: 0;">
                 </div>
                 <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=1200"
                     alt="Instrumentos dentales de precisión"
-                    style="width: 100%; height: 500px; object-fit: cover; border-radius: 0; box-shadow: var(--shadow-lg); position: relative; z-index: 1;">
+                    style="width: 100%; height: auto; min-height: 300px; object-fit: cover; border-radius: 0; box-shadow: var(--shadow-lg); position: relative; z-index: 1;">
             </div>
         </div>
     </section>
@@ -82,8 +82,7 @@
     <!-- Stats Section -->
     <section style="background: var(--color-accent); color: white; padding: 5rem 0;">
         <div class="container">
-            <div
-                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 4rem; text-align: center;">
+            <div class="stats-grid">
                 <div>
                     <div
                         style="font-size: 3.5rem; color: var(--color-primary); font-weight: 800; margin-bottom: 0.5rem;">
@@ -121,9 +120,9 @@
     </section>
 
     <!-- Technology Section -->
-    <section style="padding: 8rem 0; background: #fff;">
+    <section class="section-padding" style="background: #fff;">
         <div class="container">
-            <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 6rem; align-items: center;">
+            <div class="tech-grid">
                 <div class="tech-image">
                     <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=1000"
                         alt="Tecnología Disteno" style="width: 100%; border-radius: 0; box-shadow: var(--shadow-lg);">
@@ -158,13 +157,13 @@
     </section>
 
     <!-- Featured Products -->
-    <section id="productos" style="padding: 8rem 0; background: var(--color-bg-light);">
+    <section id="productos" class="section-padding" style="background: var(--color-bg-light);">
         <div class="container">
             <h2 style="text-align: center; margin-bottom: 4rem;">Soluciones de <span
                     style="color: var(--color-primary);">Alta Gama</span></h2>
             <div class="products-grid">
                 <!-- Product 1 -->
-                <div class="product-card" style="background: #fff; border: 1px solid var(--color-border); padding: 0;">
+                <div class="product-card" style="padding: 0;">
                     <div style="height: 280px; overflow: hidden;">
                         <img src="https://images.unsplash.com/photo-1588776814546-1ffce47267a5?auto=format&fit=crop&q=80&w=800"
                             alt="Fresas de Diamante"
@@ -180,7 +179,7 @@
                     </div>
                 </div>
                 <!-- Product 2 -->
-                <div class="product-card" style="background: #fff; border: 1px solid var(--color-border); padding: 0;">
+                <div class="product-card" style="padding: 0;">
                     <div style="height: 280px; overflow: hidden;">
                         <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&q=80&w=800"
                             alt="Carburo de Tungsteno" style="width: 100%; height: 100%; object-fit: cover;">
@@ -195,7 +194,7 @@
                     </div>
                 </div>
                 <!-- Product 3 -->
-                <div class="product-card" style="background: #fff; border: 1px solid var(--color-border); padding: 0;">
+                <div class="product-card" style="padding: 0;">
                     <div style="height: 280px; overflow: hidden;">
                         <img src="https://images.unsplash.com/photo-1460672985063-6764ac8b9c74?auto=format&fit=crop&q=80&w=800"
                             alt="Pulidores" style="width: 100%; height: 100%; object-fit: cover;">
@@ -214,10 +213,9 @@
     </section>
 
     <!-- CTA Section -->
-    <section style="padding: 8rem 0; background: var(--color-bg-light);">
+    <section class="section-padding" style="background: var(--color-bg-light);">
         <div class="container">
-            <div
-                style="background: #fff; border: 1px solid var(--color-border); padding: 5rem; text-align: center; position: relative; overflow: hidden;">
+            <div class="cta-box">
                 <div
                     style="position: absolute; width: 300px; height: 300px; background: var(--color-primary); opacity: 0.05; border-radius: 50%; top: -150px; left: -150px;">
                 </div>
@@ -271,7 +269,7 @@
         <div class="footer-bottom"
             style="border-top: 1px solid rgba(255,255,255,0.05); margin-top: 4rem; padding-top: 2rem;">
             <div class="container"
-                style="display: flex; justify-content: space-between; align-items: center; opacity: 0.5; font-size: 0.8rem;">
+                style="display: flex; justify-content: space-between; align-items: center; opacity: 0.5; font-size: 0.8rem; flex-wrap: wrap; gap: 1rem;">
                 <p>&copy; 2024 Fresissima España. Gruppo DAM S.r.l. Todos los derechos reservados.</p>
                 <div style="display: flex; gap: 1.5rem;">
                     <span>IT</span>
@@ -283,14 +281,13 @@
     </footer>
 
     <!-- Password Modal -->
-    <div id="passwordModal" class="modal-overlay"
-        style="display: none; background: rgba(0,0,0,0.8); backdrop-filter: blur(5px);">
-        <div class="modal-content" style="border-radius: 0; padding: 4rem;">
+    <div id="passwordModal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
             <div class="modal-header">
                 <h2
                     style="color: var(--color-accent); font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">
                     Área <span style="color: var(--color-primary);">Profesional</span></h2>
-                <button class="modal-close" onclick="hidePasswordModal()" style="font-size: 2rem;">&times;</button>
+                <button class="modal-close" onclick="hidePasswordModal()">&times;</button>
             </div>
             <p style="color: var(--color-text-light); margin: 2rem 0; font-size: 1.1rem;">Contenido exclusivo para
                 odontólogos y depósitos dentales. Introduzca su credencial de acceso.</p>
@@ -300,7 +297,7 @@
                         style="text-transform: uppercase; font-size: 0.75rem; font-weight: 700; color: var(--color-accent);">Contraseña
                         de Acceso:</label>
                     <input type="password" id="password" name="password" placeholder="••••••••" required autofocus
-                        style="border-radius: 0; padding: 15px; border: 2px solid var(--color-border); font-size: 1rem;">
+                        style="width: 100%; border-radius: 0; padding: 15px; border: 2px solid var(--color-border); font-size: 1rem;">
                 </div>
                 <div id="error-message" style="color: #e74c3c; margin-top: 1rem; display: none; font-weight: 600;">
                     ❌ Acceso denegado. Verifique su contraseña.
