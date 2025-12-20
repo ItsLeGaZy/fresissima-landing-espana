@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visor de Catálogo - Fresissima</title>
+    <!-- PDF.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script>
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            margin: 0;
+            background-color: #525659;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .viewer-header {
+            background-color: #323639;
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+        }
+
+        .viewer-controls {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .btn-viewer {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-viewer:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-viewer:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        #page-info {
+            font-family: var(--font-main);
+            font-size: 0.9rem;
+        }
+
+        .canvas-container {
+            flex: 1;
+            overflow: auto;
+            display: flex;
+            justify-content: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        #the-canvas {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            background: white;
+            max-width: 100%;
+        }
+
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            z-index: 1000;
+            flex-direction: column;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid var(--color-accent);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 1rem;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="loading" class="loading-overlay">
+        <div class="spinner"></div>
+        <p>Cargando Catálogo Digital...</p>
+    </div>
+
+    <header class="viewer-header">
+        <div class="viewer-title">
+            <a href="catalogo.html" class="btn-viewer">← Volver al Catálogo</a>
+        </div>
+        <div class="viewer-controls">
+            <button id="prev" class="btn-viewer">❮ Anterior</button>
+            <span id="page-info">Página <span id="page_num">--</span> de <span id="page_count">--</span></span>
+            <button id="next" class="btn-viewer">Siguiente ❯</button>
+        </div>
+        <div class="viewer-actions">
+            <!-- Zoom controls could go here -->
+            <button id="zoom_in" class="btn-viewer">+</button>
+            <button id="zoom_out" class="btn-viewer">-</button>
+        </div>
+    </header>
+
+    <div class="canvas-container">
+        <canvas id="the-canvas"></canvas>
+    </div>
+
+    <script>
+        // Obtener fichero PDF de la URL ?file=...
+        const urlParams = new URLSearchParams(window.location.search);
+        const url = urlParams.get('file');
+
+        if (!url) {
+            alert('No se especificó ningún archivo de catálogo.');
+            window.location.href = 'catalogo.html';
+        }
+
+        let pdfDoc = null,
+            pageNum = 1,
+            pageRendering = false,
+            pageNumPending = null,
+            scale = 1.5,
+            canvas = document.getElementById('the-canvas'),
+            ctx = canvas.getContext('2d');
+
+        /**
+         * Get page info from document, resize canvas accordingly, and render page.
+         * @param num Page number.
+         */
+        function renderPage(num) {
+            pageRendering = true;
+            // Fetch page
+            pdfDoc.getPage(num).then(function (page) {
+                var viewport = page.getViewport({ scale: scale });
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
+
+                // Render PDF page into canvas context
+                var renderContext = {
+                    canvasContext: ctx,
+                    viewport: viewport
+                };
+                var renderTask = page.render(renderContext);
+
+                // Wait for render to finish
+                renderTask.promise.then(function () {
+                    pageRendering = false;
+                    document.getElementById('loading').style.display = 'none';
+                    if (pageNumPending !== null) {
+                        renderPage(pageNumPending);
+                        pageNumPending = null;
+                    }
+                });
+            });
+
+            // Update page counters
+            document.getElementById('page_num').textContent = num;
+
+            // Actualizar estado de botones
+            document.getElementById('prev').disabled = num <= 1;
+            document.getElementById('next').disabled = num >= pdfDoc.numPages;
+        }
+
+        /**
+         * If another page rendering in progress, waits until the rendering is
+         * finised. Otherwise, executes rendering immediately.
+         */
+        function queueRenderPage(num) {
+            if (pageRendering) {
+                pageNumPending = num;
+            } else {
+                renderPage(num);
+            }
+        }
+
+        /**
+         * Displays previous page.
+         */
+        function onPrevPage() {
+            if (pageNum <= 1) {
+                return;
+            }
+            pageNum--;
+            queueRenderPage(pageNum);
+        }
+        document.getElementById('prev').addEventListener('click', onPrevPage);
+
+        /**
+         * Displays next page.
+         */
+        function onNextPage() {
+            if (pageNum >= pdfDoc.numPages) {
+                return;
+            }
+            pageNum++;
+            queueRenderPage(pageNum);
+        }
+        document.getElementById('next').addEventListener('click', onNextPage);
+
+        /**
+         * Zoom controls
+         */
+        document.getElementById('zoom_in').addEventListener('click', () => {
+            scale += 0.2;
+            renderPage(pageNum);
+        });
+
+        document.getElementById('zoom_out').addEventListener('click', () => {
+            if (scale > 0.5) {
+                scale -= 0.2;
+                renderPage(pageNum);
+            }
+        });
+
+        // Asynchronously downloads PDF.
+        pdfjsLib.getDocument(url).promise.then(function (pdfDoc_) {
+            pdfDoc = pdfDoc_;
+            document.getElementById('page_count').textContent = pdfDoc.numPages;
+
+            // Initial/first page rendering
+            renderPage(pageNum);
+        }).catch(function (error) {
+            console.error('Error loading PDF:', error);
+            alert('Error al cargar el catálogo. Por favor verifique que el archivo existe.');
+            document.getElementById('loading').style.display = 'none';
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'ArrowLeft') onPrevPage();
+            if (event.key === 'ArrowRight') onNextPage();
+        });
+    </script>
+</body>
+
+</html>

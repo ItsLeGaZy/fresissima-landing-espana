@@ -7,3 +7,9 @@ node_modules/
 *.swp
 *.swo
 *~
+
+# Unused large assets
+Fresissima/Logos/
+
+# AI Artifacts/Temporary
+.gemini/
