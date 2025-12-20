@@ -265,6 +265,9 @@ section {
 .main-nav ul {
     display: flex;
     gap: 2.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .main-nav a {
@@ -441,6 +444,18 @@ section {
 .footer-brand h3 {
     color: var(--color-primary);
     margin-bottom: 1rem;
+}
+
+.footer-links ul,
+.footer-legal ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li,
+.footer-legal li {
+    margin-bottom: 0.8rem;
 }
 
 .footer-links h4,
