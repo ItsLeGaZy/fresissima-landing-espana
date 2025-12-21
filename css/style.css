@@ -423,11 +423,10 @@ section {
 
 /* Footer */
 .main-footer {
-    background-color: #f8f9fa;
-    /* Lighter footer for modern look, or use dark if preferred */
-    color: #333;
-    padding: 4rem 0 0;
-    border-top: 1px solid #eee;
+    background-color: var(--color-accent);
+    color: #fff;
+    padding: 6rem 0 2rem;
+    border: none;
     margin-top: auto;
 }
 
@@ -446,7 +445,7 @@ section {
 }
 
 .footer-brand h3 {
-    color: var(--color-primary);
+    color: #fff;
     margin-bottom: 1rem;
 }
 
@@ -466,7 +465,10 @@ section {
 .footer-legal h4 {
     margin-bottom: 1.5rem;
     font-size: 1.1rem;
-    color: #1a1a1a;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
 }
 
 .footer-links a,
