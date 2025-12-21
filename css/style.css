@@ -228,6 +228,59 @@ a {
 /* Section Styling */
 section {
     padding: var(--spacing-xl) 0;
+    position: relative;
+    /* For dividers */
+}
+
+/* Zebra Layout Utilties */
+.bg-light {
+    background-color: var(--color-bg-light);
+}
+
+.bg-white {
+    background-color: var(--color-bg-white);
+}
+
+.section-divider {
+    width: 60px;
+    height: 4px;
+    background: var(--color-primary);
+    margin: 2rem auto;
+    border-radius: 2px;
+    opacity: 0.8;
+}
+
+.section-divider-light {
+    width: 60px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 2rem auto;
+    border-radius: 2px;
+}
+
+.text-highlight {
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+/* Premium Feature Grid */
+.feature-grid-premium {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 4rem;
+    align-items: flex-start;
+}
+
+.feature-item-minimal {
+    text-align: left;
+    padding: 2rem;
+    border-left: 2px solid var(--color-border);
+    transition: var(--transition-normal);
+}
+
+.feature-item-minimal:hover {
+    border-left-color: var(--color-primary);
+    background: linear-gradient(to right, rgba(255, 107, 53, 0.02), transparent);
 }
 
 .section-title {
