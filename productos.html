@@ -53,328 +53,202 @@
         </div>
     </header>
 
-    <!-- Products Section -->
-    <main style="background-color: var(--color-bg-white); flex: 1;">
-        <section style="padding-top: 140px; padding-bottom: 80px;">
+    <main style="background-color: var(--color-bg-white); flex: 1; padding-top: 100px;">
+
+        <!-- Intro Header -->
+        <section class="bg-white" style="padding-bottom: 2rem;">
             <div class="container">
-                <h1 class="section-title">Nuestras Colecciones</h1>
+                <h1 class="section-title text-center">Colecciones Clínicas</h1>
                 <p
-                    style="text-align: center; max-width: 700px; margin: 0 auto 3rem; color: var(--color-text-light); font-size: 1.1rem;">
-                    Instrumentos dentales rotatorios de la más alta calidad. Fabricados en Italia con tecnología CNC de
-                    precisión micrométrica.
+                    style="text-align: center; max-width: 700px; margin: 0 auto; color: var(--color-text-light); font-size: 1.1rem;">
+                    Ingeniería de corte ajustada a cada tejido. Descubra la precisión de nuestros instrumentos
+                    rotatorios, desde el desbaste inicial hasta el pulido espejo.
                 </p>
+            </div>
+        </section>
 
-                <div class="products-grid fade-in-up">
-                    <!-- Product Card 1 -->
-                    <div class="product-card" style="padding: 0; overflow: hidden;">
-                        <div style="height: 220px; overflow: hidden;">
-                            <img src="https://images.unsplash.com/photo-1588776814546-1ffce47267a5?auto=format&fit=crop&q=80&w=800"
-                                alt="Fresas de Diamante Premium" class="hover-scale"
-                                style="width: 100%; height: 100%; object-fit: cover;">
+        <!-- 1. Diamond Family (White) -->
+        <section id="diamante" class="section-padding bg-white">
+            <div class="container">
+                <div class="feature-grid-premium" style="align-items: center;">
+                    <div class="tech-content">
+                        <span class="text-highlight">PREPARACIÓN & ACABADO</span>
+                        <h2 class="section-title" style="text-align: left; margin-left: 0;">Diamante Premium Natural
+                        </h2>
+                        <div class="section-divider" style="margin-left: 0;"></div>
+                        <p style="font-size: 1.05rem; color: #555; margin-bottom: 1.5rem;">
+                            Corte preciso en esmalte y cerámica. Utilizamos diamante natural seleccionado con
+                            granulometrías estrictamente controladas para garantizar una abrasión rápida sin generar
+                            calor excesivo.
+                        </p>
+                        <ul class="feature-list">
+                            <li>
+                                <strong style="color: var(--color-primary);">Granulometría Uniforme:</strong>
+                                Superficies más lisas, menos retoques.
+                            </li>
+                            <li>
+                                <strong style="color: var(--color-primary);">Aglutinante Galvánico:</strong> Retención
+                                superior del diamante, mayor vida útil.
+                            </li>
+                        </ul>
+                        <div style="margin-top: 2rem;">
+                            <a href="#" onclick="showPasswordModal(); return false;" class="btn btn-primary">Descargar
+                                Vademécum Diamante</a>
                         </div>
-                        <div class="product-info" style="padding: 2rem;">
-                            <h3 style="color: var(--color-accent); margin-bottom: 0.5rem;">Diamante Premium FG</h3>
-                            <p style="font-size: 0.95rem; color: var(--color-text-light); margin-bottom: 1.5rem;">
-                                Aglutinante galvánico de alta densidad y diamante natural seleccionado. Corte frío y
-                                constante.
-                            </p>
-                            <ul
-                                style="margin: 1rem 0; color: var(--color-text-light); font-size: 0.9rem; list-style: none; padding-left: 0;">
-                                <li style="display: flex; align-items: center; margin-bottom: 0.5rem;">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" style="color: var(--color-primary); margin-right: 8px;">
-                                        <polyline points="20 6 9 17 4 12"></polyline>
-                                    </svg>
-                                    Diamante Natural Seleccionado
-                                </li>
-                                <li style="display: flex; align-items: center; margin-bottom: 0.5rem;">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" style="color: var(--color-primary); margin-right: 8px;">
-                                        <polyline points="20 6 9 17 4 12"></polyline>
-                                    </svg>
-                                    Eficiencia de Corte Superior
-                                </li>
-                                <li style="display: flex; align-items: center; margin-bottom: 0.5rem;">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" style="color: var(--color-primary); margin-right: 8px;">
-                                        <polyline points="20 6 9 17 4 12"></polyline>
-                                    </svg>
-                                    Autoclavable 134°C
-                                </li>
-                            </ul>
-                            <a href="#" onclick="showPasswordModal(); return false;" class="btn-text">Ver
-                                Especificaciones
+                    </div>
+                    <div class="tech-image">
+                        <img src="https://images.unsplash.com/photo-1588776814546-1ffce47267a5?auto=format&fit=crop&q=80&w=800"
+                            alt="Fresas de Diamante Macro" style="border-radius: 8px; box-shadow: var(--shadow-lg);">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Carbide Family (Grey) -->
+        <section id="tungsteno" class="section-padding bg-light">
+            <div class="container">
+                <div class="feature-grid-premium" style="align-items: center; direction: rtl;"> <!-- Visual flip -->
+                    <div class="tech-content" style="direction: ltr;">
+                        <span class="text-highlight">CORTE Y CIRUGÍA</span>
+                        <h2 class="section-title" style="text-align: left; margin-left: 0;">Carburo de Tungsteno K89
+                        </h2>
+                        <div class="section-divider" style="margin-left: 0;"></div>
+                        <p style="font-size: 1.05rem; color: #555; margin-bottom: 1.5rem;">
+                            Eliminación eficiente de dentina, metal y hueso. Nuestra aleación K89 ofrece el equilibrio
+                            perfecto entre dureza y elasticidad para evitar fracturas bajo carga.
+                        </p>
+                        <ul class="feature-list">
+                            <li>
+                                <strong style="color: var(--color-primary);">Diseño Monobloque:</strong> Concentricidad
+                                absoluta, cero vibración.
+                            </li>
+                            <li>
+                                <strong style="color: var(--color-primary);">Corte Transversal Inteligente:</strong>
+                                Evacuación rápida de viruta.
+                            </li>
+                        </ul>
+                        <div style="margin-top: 2rem;">
+                            <a href="#" onclick="showPasswordModal(); return false;" class="btn btn-primary">Descargar
+                                Vademécum Carburo</a>
+                        </div>
+                    </div>
+                    <div class="tech-image" style="direction: ltr;">
+                        <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&q=80&w=800"
+                            alt="Fresa Carburo Tungsteno" style="border-radius: 8px; box-shadow: var(--shadow-lg);">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Polish & Kits (White) -->
+        <section id="pulido" class="section-padding bg-white">
+            <div class="container">
+                <h2 class="section-title text-center">Kits y Especialidades</h2>
+                <div class="section-divider"></div>
+
+                <div class="products-grid"
+                    style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); margin-top: 3rem;">
+                    <!-- Polish -->
+                    <div class="product-card hover-lift">
+                        <div style="padding: 2rem;">
+                            <h3 style="color: var(--color-accent); margin-bottom: 1rem;">Sistemas de Pulido</h3>
+                            <p style="color: #666; margin-bottom: 1.5rem;">Del acabado al brillo espejo en solo dos
+                                pasos. Siliconas impregnadas de diamante para cerámica y resina.</p>
+                            <a href="#" onclick="showPasswordModal(); return false;" class="btn-text">Ver Protocolo de
+                                Brillo &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- Endo -->
+                    <div class="product-card hover-lift">
+                        <div style="padding: 2rem;">
+                            <h3 style="color: var(--color-accent); margin-bottom: 1rem;">Endodoncia y Acceso</h3>
+                            <p style="color: #666; margin-bottom: 1.5rem;">Kits simplificados para apertura cameral
+                                segura y localización de conductos calcificados.</p>
+                            <a href="#" onclick="showPasswordModal(); return false;" class="btn-text">Ver Kit Endo
                                 &rarr;</a>
                         </div>
                     </div>
-
-                    <!-- Product Card 2 -->
-                    <div class="product-card" style="padding: 0; overflow: hidden;">
-                        <div style="height: 220px; overflow: hidden;">
-                            <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&q=80&w=800"
-                                alt="Carburo de Tungsteno HP" class="hover-scale"
-                                style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
-                        <div class="product-info" style="padding: 2rem;">
-                            <h3 style="color: var(--color-accent); margin-bottom: 0.5rem;">Carburo de Tungsteno</h3>
-                            <p style="font-size: 0.95rem; color: var(--color-text-light); margin-bottom: 1.5rem;">
-                                Diseño monobloque para máxima concentricidad. Filos optimizados para reducir la
-                                vibración.
-                            </p>
-                            <ul
-                                style="margin: 1rem 0; color: var(--color-text-light); font-size: 0.9rem; list-style: none; padding-left: 0;">
-                                <li style="display: flex; align-items: center; margin-bottom: 0.5rem;">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" style="color: var(--color-primary); margin-right: 8px;">
-                                        <polyline points="20 6 9 17 4 12"></polyline>
-                                    </svg>
-                                    Construcción Monobloque
-                                </li>
-                                <li style="display: flex; align-items: center; margin-bottom: 0.5rem;">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" style="color: var(--color-primary); margin-right: 8px;">
-                                        <polyline points="20 6 9 17 4 12"></polyline>
-                                    </svg>
-                                    Máxima Concentricidad
-                                </li>
-                                <li style="display: flex; align-items: center; margin-bottom: 0.5rem;">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" style="color: var(--color-primary); margin-right: 8px;">
-                                        <polyline points="20 6 9 17 4 12"></polyline>
-                                    </svg>
-                                    Certificación ISO
-                                </li>
-                            </ul>
-                            <a href="#" onclick="showPasswordModal(); return false;" class="btn-text">Ver
-                                Especificaciones
-                                &rarr;</a>
-                        </div>
-                    </div>
-
-                    <!-- Product Card 3 -->
-                    <div class="product-card" style="padding: 0; overflow: hidden;">
-                        <div style="height: 220px; overflow: hidden;">
-                            <img src="https://images.unsplash.com/photo-1460672985063-6764ac8b9c74?auto=format&fit=crop&q=80&w=800"
-                                alt="Sistemas de Pulido" class="hover-scale"
-                                style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
-                        <div class="product-info" style="padding: 2rem;">
-                            <h3 style="color: var(--color-accent); margin-bottom: 0.5rem;">Sistemas de Pulido</h3>
-                            <p style="font-size: 0.95rem; color: var(--color-text-light); margin-bottom: 1.5rem;">
-                                Acabado espejo en cerámica y composite. Sistema de dos pasos para resultados estéticos
-                                superiores.
-                            </p>
-                            <ul
-                                style="margin: 1rem 0; color: var(--color-text-light); font-size: 0.9rem; list-style: none; padding-left: 0;">
-                                <li style="display: flex; align-items: center; margin-bottom: 0.5rem;">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" style="color: var(--color-primary); margin-right: 8px;">
-                                        <polyline points="20 6 9 17 4 12"></polyline>
-                                    </svg>
-                                    Granulometría 25μm
-                                </li>
-                                <li style="display: flex; align-items: center; margin-bottom: 0.5rem;">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" style="color: var(--color-primary); margin-right: 8px;">
-                                        <polyline points="20 6 9 17 4 12"></polyline>
-                                    </svg>
-                                    Brillo Espejo Natural
-                                </li>
-                                <li style="display: flex; align-items: center; margin-bottom: 0.5rem;">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" style="color: var(--color-primary); margin-right: 8px;">
-                                        <polyline points="20 6 9 17 4 12"></polyline>
-                                    </svg>
-                                    Uso Universal
-                                </li>
-                            </ul>
-                            <a href="#" onclick="showPasswordModal(); return false;" class="btn-text">Ver
-                                Especificaciones
-                                &rarr;</a>
-                        </div>
-                    </div>
-
-                    <!-- Product Card 4 -->
-                    <div class="product-card" style="padding: 0; overflow: hidden;">
-                        <div style="height: 220px; overflow: hidden;">
-                            <img src="https://images.unsplash.com/photo-1579684453423-f84349ca60df?auto=format&fit=crop&q=80&w=800"
-                                alt="Kit Endodoncia" class="hover-scale"
-                                style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
-                        <div class="product-info" style="padding: 2rem;">
-                            <h3 style="color: var(--color-accent); margin-bottom: 0.5rem;">Kit Endodoncia Specialist
-                            </h3>
-                            <p style="font-size: 0.95rem; color: var(--color-text-light); margin-bottom: 1.5rem;">
-                                Selección esencial para apertura de cámara y acceso de conductos. Visibilidad mejorada.
-                            </p>
-                            <ul
-                                style="margin: 1rem 0; color: var(--color-text-light); font-size: 0.9rem; list-style: none; padding-left: 0;">
-                                <li style="display: flex; align-items: center; margin-bottom: 0.5rem;">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" style="color: var(--color-primary); margin-right: 8px;">
-                                        <polyline points="20 6 9 17 4 12"></polyline>
-                                    </svg>
-                                    12 Instrumentos Específicos
-                                </li>
-                                <li style="display: flex; align-items: center; margin-bottom: 0.5rem;">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" style="color: var(--color-primary); margin-right: 8px;">
-                                        <polyline points="20 6 9 17 4 12"></polyline>
-                                    </svg>
-                                    Estuche Autoclavable
-                                </li>
-                                <li style="display: flex; align-items: center; margin-bottom: 0.5rem;">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" style="color: var(--color-primary); margin-right: 8px;">
-                                        <polyline points="20 6 9 17 4 12"></polyline>
-                                    </svg>
-                                    Alta Visibilidad
-                                </li>
-                            </ul>
-                            <a href="#" onclick="showPasswordModal(); return false;" class="btn-text">Ver
-                                Especificaciones
-                                &rarr;</a>
-                        </div>
-                    </div>
-
-                    <!-- Product Card 5 -->
-                    <div class="product-card" style="padding: 0; overflow: hidden;">
-                        <div style="height: 220px; overflow: hidden;">
-                            <img src="https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?auto=format&fit=crop&q=80&w=800"
-                                alt="Kit Prótesis" class="hover-scale"
-                                style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
-                        <div class="product-info" style="padding: 2rem;">
-                            <h3 style="color: var(--color-accent); margin-bottom: 0.5rem;">Kit Prótesis Master</h3>
-                            <p style="font-size: 0.95rem; color: var(--color-text-light); margin-bottom: 1.5rem;">
-                                Protocolo completo para preparación de muñones, carillas y coronas. Ajuste marginal
-                                perfecto.
-                            </p>
-                            <ul
-                                style="margin: 1rem 0; color: var(--color-text-light); font-size: 0.9rem; list-style: none; padding-left: 0;">
-                                <li style="display: flex; align-items: center; margin-bottom: 0.5rem;">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" style="color: var(--color-primary); margin-right: 8px;">
-                                        <polyline points="20 6 9 17 4 12"></polyline>
-                                    </svg>
-                                    18 Instrumentos
-                                </li>
-                                <li style="display: flex; align-items: center; margin-bottom: 0.5rem;">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" style="color: var(--color-primary); margin-right: 8px;">
-                                        <polyline points="20 6 9 17 4 12"></polyline>
-                                    </svg>
-                                    Combinación Diamante + Carburo
-                                </li>
-                                <li style="display: flex; align-items: center; margin-bottom: 0.5rem;">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" style="color: var(--color-primary); margin-right: 8px;">
-                                        <polyline points="20 6 9 17 4 12"></polyline>
-                                    </svg>
-                                    Protocolo Clínico Incluido
-                                </li>
-                            </ul>
-                            <a href="#" onclick="showPasswordModal(); return false;" class="btn-text">Ver
-                                Especificaciones
-                                &rarr;</a>
-                        </div>
-                    </div>
-
-                    <!-- Product Card 6 -->
-                    <div class="product-card" style="padding: 0; overflow: hidden;">
-                        <div style="height: 220px; overflow: hidden;">
-                            <img src="https://images.unsplash.com/photo-1550572017-ed108bc277c4?auto=format&fit=crop&q=80&w=800"
-                                alt="Cirugía" class="hover-scale" style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
-                        <div class="product-info" style="padding: 2rem;">
-                            <h3 style="color: var(--color-accent); margin-bottom: 0.5rem;">Fresas Quirúrgicas</h3>
-                            <p style="font-size: 0.95rem; color: var(--color-text-light); margin-bottom: 1.5rem;">
-                                Corte frío y controlado para cirugía oral e implantología. Acero inoxidable de grado
-                                médico.
-                            </p>
-                            <ul
-                                style="margin: 1rem 0; color: var(--color-text-light); font-size: 0.9rem; list-style: none; padding-left: 0;">
-                                <li style="display: flex; align-items: center; margin-bottom: 0.5rem;">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" style="color: var(--color-primary); margin-right: 8px;">
-                                        <polyline points="20 6 9 17 4 12"></polyline>
-                                    </svg>
-                                    Baja Generación Térmica
-                                </li>
-                                <li style="display: flex; align-items: center; margin-bottom: 0.5rem;">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" style="color: var(--color-primary); margin-right: 8px;">
-                                        <polyline points="20 6 9 17 4 12"></polyline>
-                                    </svg>
-                                    Acero Inoxidable Quirúrgico
-                                </li>
-                                <li style="display: flex; align-items: center; margin-bottom: 0.5rem;">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" style="color: var(--color-primary); margin-right: 8px;">
-                                        <polyline points="20 6 9 17 4 12"></polyline>
-                                    </svg>
-                                    Seguridad Certificada
-                                </li>
-                            </ul>
-                            <a href="#" onclick="showPasswordModal(); return false;" class="btn-text">Ver
-                                Especificaciones
+                    <!-- Surgery -->
+                    <div class="product-card hover-lift">
+                        <div style="padding: 2rem;">
+                            <h3 style="color: var(--color-accent); margin-bottom: 1rem;">Cirugía Oral</h3>
+                            <p style="color: #666; margin-bottom: 1.5rem;">Fresas Zekrya, Lindemann y de hueso con corte
+                                frío para máxima preservación biológica.</p>
+                            <a href="#" onclick="showPasswordModal(); return false;" class="btn-text">Ver Quirúrgicas
                                 &rarr;</a>
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <!-- Dual CTA Section -->
+        <!-- 4. Educational Guide (Dark/Accent) -->
+        <section id="guia" style="background: var(--color-accent); color: white; padding: 5rem 0;">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <span
+                        style="color: var(--color-primary); font-weight: 700; letter-spacing: 2px; text-transform: uppercase;">Docencia
+                        Clínica</span>
+                    <h2 style="font-size: 2.5rem; margin-top: 1rem;">Cómo elegir su fresa ideal</h2>
+                </div>
+
+                <div class="stats-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem;">
+                    <div style="text-align: left;">
+                        <h4 style="color: var(--color-primary); font-size: 1.2rem; margin-bottom: 1rem;">1. Material
+                        </h4>
+                        <ul style="list-style: none; padding: 0; font-size: 0.95rem; opacity: 0.9;">
+                            <li style="margin-bottom: 0.5rem;"><strong>Diamante:</strong> Esmalte y Cerámica.</li>
+                            <li><strong>Carburo:</strong> Dentina, Metal, Hueso.</li>
+                        </ul>
+                    </div>
+                    <div style="text-align: left;">
+                        <h4 style="color: var(--color-primary); font-size: 1.2rem; margin-bottom: 1rem;">2.
+                            Granulometría</h4>
+                        <ul style="list-style: none; padding: 0; font-size: 0.95rem; opacity: 0.9;">
+                            <li style="margin-bottom: 0.5rem;"><span
+                                    style="color: black; background: white; padding: 0 4px; border-radius: 2px;">⬛ Super
+                                    Grueso</span>: Desbaste rápido.</li>
+                            <li style="margin-bottom: 0.5rem;"><span
+                                    style="color: green; background: white; padding: 0 4px; border-radius: 2px;">🟩
+                                    Grueso</span>: Preparación.</li>
+                            <li style="margin-bottom: 0.5rem;"><span
+                                    style="color: #3498db; background: white; padding: 0 4px; border-radius: 2px;">🟦
+                                    Medio</span>: Universal.</li>
+                            <li style="margin-bottom: 0.5rem;"><span
+                                    style="color: red; background: white; padding: 0 4px; border-radius: 2px;">🟥
+                                    Fino</span>: Acabado.</li>
+                            <li><span style="color: #f1c40f; background: white; padding: 0 4px; border-radius: 2px;">🟨
+                                    Extra Fino</span>: Pulido.</li>
+                        </ul>
+                    </div>
+                    <div style="text-align: left;">
+                        <h4 style="color: var(--color-primary); font-size: 1.2rem; margin-bottom: 1rem;">3. Velocidad
+                        </h4>
+                        <ul style="list-style: none; padding: 0; font-size: 0.95rem; opacity: 0.9;">
+                            <li style="margin-bottom: 0.5rem;"><strong>Turbina:</strong> >300k rpm (Diamante).</li>
+                            <li><strong>Contra-ángulo:</strong>
+                                <40k rpm (Dentina/Pulido).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dual CTA Section -->
+        <section class="section-padding bg-white">
+            <div class="container">
                 <div
-                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 4rem;">
-
-                    <!-- Catalog CTA -->
-                    <div
-                        style="background: var(--color-bg-light); padding: 3rem; border-radius: 20px; text-align: center; border: 1px solid var(--color-border); box-shadow: var(--shadow-md);">
-                        <h2 style="color: var(--color-primary); margin-bottom: 1rem; font-size: 1.8rem;">Catálogo
-                            Profesional 2024</h2>
-                        <p style="color: var(--color-text-light); margin-bottom: 2rem; font-size: 1rem;">
-                            Acceda a la gama completa con referencias y precios exclusivos para clínicas certificadas.
-                        </p>
-                        <a href="#" onclick="showPasswordModal(); return false;" class="btn btn-primary">
-                            Acceder al Área Privada
-                        </a>
-                    </div>
-
-                    <!-- Customization / OEM CTA -->
-                    <div
-                        style="background: #2c3e50; padding: 3rem; border-radius: 20px; text-align: center; color: white; box-shadow: var(--shadow-lg);">
-                        <span
-                            style="color: var(--color-primary); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; display: block; margin-bottom: 1rem;">
-                            Servicio Bespoke
-                        </span>
-                        <h2 style="color: white; margin-bottom: 1rem; font-size: 1.8rem;">Personalización & OEM</h2>
-                        <p style="color: #bdc3c7; margin-bottom: 2rem; font-size: 1rem;">
-                            ¿Necesita una geometría de corte específica? Fabricamos fresas a medida bajo sus
-                            especificaciones clínicas.
-                        </p>
-                        <a href="contacto.html" class="btn btn-outline" style="border-color: white; color: white;">
-                            Consultar Departamento Técnico
-                        </a>
-                    </div>
-
+                    style="background: var(--color-bg-light); padding: 4rem; border-radius: 20px; text-align: center; border: 1px solid var(--color-border); box-shadow: var(--shadow-lg);">
+                    <h2 style="color: var(--color-accent); margin-bottom: 1rem; font-size: 2rem;">¿Listo para elevar su
+                        práctica?</h2>
+                    <p
+                        style="color: var(--color-text-light); margin-bottom: 2.5rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                        Descargue el catálogo completo 2024 con todas las referencias ISO, protocolos de uso y tablas de
+                        velocidad.
+                    </p>
+                    <a href="#" onclick="showPasswordModal(); return false;" class="btn btn-primary btn-lg">
+                        Acceder al Área Profesional
+                    </a>
                 </div>
             </div>
         </section>
