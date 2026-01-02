@@ -9,7 +9,7 @@
     /* Deep Charcoal for professional contrast */
     --color-text-main: #1A1A1A;
     /* Stronger readability */
-    --color-text-light: #666666;
+    --color-text-light: #4a4a4a;
     --color-bg-white: #FFFFFF;
     --color-bg-light: #F9FAFB;
     /* Ultra clean light grey */
@@ -455,10 +455,10 @@ section {
     align-items: center;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 991px) {
     .about-grid {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 3rem;
     }
 }
 
