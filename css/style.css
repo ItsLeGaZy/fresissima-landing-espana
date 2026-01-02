@@ -102,6 +102,11 @@ a {
 }
 
 /* ... existing ul, img ... */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
 
 /* Utilities */
 .container {
@@ -285,6 +290,22 @@ section {
 
     .feature-grid-premium .tech-content {
         order: 1 !important;
+    }
+}
+
+/* Desktop Reverse Order */
+@media (min-width: 992px) {
+    .feature-grid-premium.order-reverse .tech-content {
+        order: 2;
+    }
+
+    .feature-grid-premium.order-reverse .tech-image {
+        order: 1;
+    }
+
+    .feature-grid-premium {
+        align-items: center;
+        /* Move alignment to CSS */
     }
 }
 
