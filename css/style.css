@@ -271,6 +271,23 @@ section {
     align-items: flex-start;
 }
 
+@media (max-width: 991px) {
+    .feature-grid-premium {
+        grid-template-columns: 1fr !important;
+        gap: 2rem;
+    }
+
+    .feature-grid-premium .tech-image {
+        order: -1 !important;
+        /* Always image first on mobile */
+        margin-bottom: 1rem;
+    }
+
+    .feature-grid-premium .tech-content {
+        order: 1 !important;
+    }
+}
+
 .feature-item-minimal {
     text-align: left;
     padding: 2rem;
