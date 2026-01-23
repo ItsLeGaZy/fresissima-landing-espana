@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instrumentación por Workflow | Fresissima España</title>
+    <meta name="description"
+        content="Catálogo de instrumentación rotatoria organizado por workflow clínico. Conservadora, Prótesis, Endodoncia, Cirugía, Ortodoncia, Pulido.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap"
+        rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://fresissima.it/wp-content/uploads/2025/10/favicon-fresissima-150x150.png"
+        sizes="192x192">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css?v=4.1">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <img src="https://fresissima.it/wp-content/uploads/2025/10/Logo-fresissima.png" alt="Fresissima">
+            </a>
+
+            <nav class="nav">
+                <a href="index.html">Inicio</a>
+                <a href="instrumentacion.html" class="active">Instrumentación</a>
+                <a href="fabricacion.html">Fabricación</a>
+                <a href="contacto.html">Contacto</a>
+                <a href="#" onclick="showPasswordModal(); return false;">Área Clínica</a>
+            </nav>
+
+            <button class="menu-btn" onclick="toggleMobileNav()" aria-label="Menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav" id="mobileNav">
+        <a href="index.html">Inicio</a>
+        <a href="instrumentacion.html">Instrumentación</a>
+        <a href="fabricacion.html">Fabricación</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="#" onclick="showPasswordModal(); return false;">Área Clínica</a>
+    </nav>
+
+    <main>
+        <!-- Page Header -->
+        <section class="section bg-white">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">Catálogo Clínico</span>
+                    <h1>Instrumentación por Workflow</h1>
+                    <div class="divider divider-center"></div>
+                    <p class="lead max-w-2xl mx-auto text-center">
+                        No listamos productos. Organizamos soluciones por procedimiento clínico.
+                        Cada workflow tiene su problema, su material y su resultado.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conservadora -->
+        <section id="conservadora" class="section bg-grey-50">
+            <div class="container">
+                <div class="grid grid-2" style="align-items: center;">
+                    <div>
+                        <span class="section-label">Workflow</span>
+                        <h2>Conservadora</h2>
+                        <div class="divider"></div>
+
+                        <div class="mb-6">
+                            <h4 class="text-primary mb-2">Problema Clínico</h4>
+                            <p class="text-secondary">
+                                Remoción incompleta de caries. Márgenes irregulares en cavidad. Sensibilidad
+                                postoperatoria por control térmico deficiente.
+                            </p>
+                        </div>
+
+                        <div class="mb-6">
+                            <h4 class="text-primary mb-2">Resultado Esperado</h4>
+                            <p class="text-secondary">
+                                Cavidad limpia con márgenes definidos. Preservación de estructura sana. Adhesión óptima
+                                sin sensibilidad.
+                            </p>
+                        </div>
+
+                        <div class="mb-6">
+                            <h4 class="text-primary mb-2">Solución Fresissima</h4>
+                            <ul class="flex flex-col gap-2">
+                                <li class="flex items-start gap-2">
+                                    <span class="text-primary font-bold">→</span>
+                                    <span><strong>Clase I-V:</strong> Diamante grano medio para apertura. Carburo para
+                                        remoción selectiva de dentina.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-primary font-bold">→</span>
+                                    <span><strong>Preparación adhesiva:</strong> Fresas de acabado fino para margen
+                                        nítido.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-primary font-bold">→</span>
+                                    <span><strong>Material:</strong> Diamante natural + Tungsteno K89</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <a href="#" onclick="showPasswordModal(); return false;" class="btn btn-primary">Descargar
+                            Vademécum Conservadora</a>
+                    </div>
+
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1588776813677-77c85c0b8b4d?auto=format&fit=crop&q=80&w=600"
+                            alt="Instrumental conservadora" class="rounded-lg shadow-lg w-full">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Prótesis -->
+        <section id="protesis" class="section bg-white">
+            <div class="container">
+                <div class="grid grid-2" style="align-items: center;">
+                    <div style="order: 2;">
+                        <span class="section-label">Workflow</span>
+                        <h2>Prótesis / Prostodoncia</h2>
+                        <div class="divider"></div>
+
+                        <div class="mb-6">
+                            <h4 class="text-primary mb-2">Problema Clínico</h4>
+                            <p class="text-secondary">
+                                Márgenes imprecisos. Línea de terminación irregular. Vibración excesiva que dificulta el
+                                control cervical.
+                            </p>
+                        </div>
+
+                        <div class="mb-6">
+                            <h4 class="text-primary mb-2">Resultado Esperado</h4>
+                            <p class="text-secondary">
+                                Chamfer o shoulder definido. Ajuste pasivo de la restauración. Sin retoque en
+                                laboratorio.
+                            </p>
+                        </div>
+
+                        <div class="mb-6">
+                            <h4 class="text-primary mb-2">Solución Fresissima</h4>
+                            <ul class="flex flex-col gap-2">
+                                <li class="flex items-start gap-2">
+                                    <span class="text-primary font-bold">→</span>
+                                    <span><strong>Preparación muñón:</strong> Diamante grueso para reducción
+                                        oclusal/axial.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-primary font-bold">→</span>
+                                    <span><strong>Chamfer/Shoulder:</strong> Fresas torpedo y cónicas de acabado.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-primary font-bold">→</span>
+                                    <span><strong>Zirconio:</strong> Disteno para ajuste sin microfracturas.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <a href="#" onclick="showPasswordModal(); return false;" class="btn btn-primary">Descargar
+                            Vademécum Prótesis</a>
+                    </div>
+
+                    <div style="order: 1;">
+                        <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&q=80&w=600"
+                            alt="Instrumental prótesis" class="rounded-lg shadow-lg w-full">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Endodoncia -->
+        <section id="endodoncia" class="section bg-grey-50">
+            <div class="container">
+                <div class="grid grid-2" style="align-items: center;">
+                    <div>
+                        <span class="section-label">Workflow</span>
+                        <h2>Endodoncia</h2>
+                        <div class="divider"></div>
+
+                        <div class="mb-6">
+                            <h4 class="text-primary mb-2">Problema Clínico</h4>
+                            <p class="text-secondary">
+                                Acceso cameral descentrado. Dificultad para localizar conductos calcificados.
+                                Perforación por mala visibilidad.
+                            </p>
+                        </div>
+
+                        <div class="mb-6">
+                            <h4 class="text-primary mb-2">Resultado Esperado</h4>
+                            <p class="text-secondary">
+                                Acceso recto y centrado. Visualización clara del suelo cameral. Localización segura de
+                                conductos.
+                            </p>
+                        </div>
+
+                        <div class="mb-6">
+                            <h4 class="text-primary mb-2">Solución Fresissima</h4>
+                            <ul class="flex flex-col gap-2">
+                                <li class="flex items-start gap-2">
+                                    <span class="text-primary font-bold">→</span>
+                                    <span><strong>Acceso cameral:</strong> Fresas Endo-Z y de apertura con punta
+                                        inactiva.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-primary font-bold">→</span>
+                                    <span><strong>Localización:</strong> Ultrasónicas y de refinamiento cameral.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-primary font-bold">→</span>
+                                    <span><strong>Retratamiento:</strong> Fresas para remoción de postes y
+                                        gutapercha.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <a href="#" onclick="showPasswordModal(); return false;" class="btn btn-primary">Descargar
+                            Vademécum Endo</a>
+                    </div>
+
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=600"
+                            alt="Instrumental endodoncia" class="rounded-lg shadow-lg w-full">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cirugía -->
+        <section id="cirugia" class="section bg-white">
+            <div class="container">
+                <div class="grid grid-2" style="align-items: center;">
+                    <div style="order: 2;">
+                        <span class="section-label">Workflow</span>
+                        <h2>Cirugía Oral</h2>
+                        <div class="divider"></div>
+
+                        <div class="mb-6">
+                            <h4 class="text-primary mb-2">Problema Clínico</h4>
+                            <p class="text-secondary">
+                                Necrosis ósea por sobrecalentamiento. Fractura de fresas en hueso denso. Evacuación
+                                deficiente de hueso.
+                            </p>
+                        </div>
+
+                        <div class="mb-6">
+                            <h4 class="text-primary mb-2">Resultado Esperado</h4>
+                            <p class="text-secondary">
+                                Osteotomía limpia. Preservación de cortical. Cicatrización ósea óptima.
+                            </p>
+                        </div>
+
+                        <div class="mb-6">
+                            <h4 class="text-primary mb-2">Solución Fresissima</h4>
+                            <ul class="flex flex-col gap-2">
+                                <li class="flex items-start gap-2">
+                                    <span class="text-primary font-bold">→</span>
+                                    <span><strong>Zekrya:</strong> Para odontosección y cortical.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-primary font-bold">→</span>
+                                    <span><strong>Lindemann:</strong> Corte de hueso con irrigación.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-primary font-bold">→</span>
+                                    <span><strong>Tungsteno K89:</strong> Resistencia sin fractura en hueso
+                                        denso.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <a href="#" onclick="showPasswordModal(); return false;" class="btn btn-primary">Descargar
+                            Vademécum Cirugía</a>
+                    </div>
+
+                    <div style="order: 1;">
+                        <img src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?auto=format&fit=crop&q=80&w=600"
+                            alt="Instrumental cirugía" class="rounded-lg shadow-lg w-full">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ortodoncia -->
+        <section id="ortodoncia" class="section bg-grey-50">
+            <div class="container">
+                <div class="grid grid-2" style="align-items: center;">
+                    <div>
+                        <span class="section-label">Workflow</span>
+                        <h2>Ortodoncia</h2>
+                        <div class="divider"></div>
+
+                        <div class="mb-6">
+                            <h4 class="text-primary mb-2">Problema Clínico</h4>
+                            <p class="text-secondary">
+                                Restos de adhesivo tras debonding. Daño al esmalte durante remoción de brackets. Manchas
+                                visibles.
+                            </p>
+                        </div>
+
+                        <div class="mb-6">
+                            <h4 class="text-primary mb-2">Resultado Esperado</h4>
+                            <p class="text-secondary">
+                                Esmalte limpio sin arañazos. Superficie lista para retención. Sin manchas residuales.
+                            </p>
+                        </div>
+
+                        <div class="mb-6">
+                            <h4 class="text-primary mb-2">Solución Fresissima</h4>
+                            <ul class="flex flex-col gap-2">
+                                <li class="flex items-start gap-2">
+                                    <span class="text-primary font-bold">→</span>
+                                    <span><strong>Remoción adhesivo:</strong> Carburo de tungsteno multilaminar.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-primary font-bold">→</span>
+                                    <span><strong>Pulido:</strong> Copas y discos de silicona impregnados.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-primary font-bold">→</span>
+                                    <span><strong>Stripping:</strong> Discos diamantados de diferentes granos.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <a href="#" onclick="showPasswordModal(); return false;" class="btn btn-primary">Descargar
+                            Vademécum Orto</a>
+                    </div>
+
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1606265752439-1f18756aa5fc?auto=format&fit=crop&q=80&w=600"
+                            alt="Instrumental ortodoncia" class="rounded-lg shadow-lg w-full">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pulido -->
+        <section id="pulido" class="section bg-white">
+            <div class="container">
+                <div class="grid grid-2" style="align-items: center;">
+                    <div style="order: 2;">
+                        <span class="section-label">Workflow</span>
+                        <h2>Pulido y Acabado</h2>
+                        <div class="divider"></div>
+
+                        <div class="mb-6">
+                            <h4 class="text-primary mb-2">Problema Clínico</h4>
+                            <p class="text-secondary">
+                                Superficie rugosa que acumula placa. Falta de brillo natural. Demasiados pasos de
+                                pulido.
+                            </p>
+                        </div>
+
+                        <div class="mb-6">
+                            <h4 class="text-primary mb-2">Resultado Esperado</h4>
+                            <p class="text-secondary">
+                                Brillo espejo en 2 pasos. Superficie lisa. Estética natural inmediata.
+                            </p>
+                        </div>
+
+                        <div class="mb-6">
+                            <h4 class="text-primary mb-2">Solución Fresissima</h4>
+                            <ul class="flex flex-col gap-2">
+                                <li class="flex items-start gap-2">
+                                    <span class="text-primary font-bold">→</span>
+                                    <span><strong>Composite:</strong> Sistema 2 pasos con silicona impregnada de
+                                        diamante.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-primary font-bold">→</span>
+                                    <span><strong>Cerámica:</strong> Pulidores específicos para feldespato y
+                                        disilicato.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-primary font-bold">→</span>
+                                    <span><strong>Zirconio:</strong> Pulidores para brillo sin
+                                        sobrecalentamiento.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <a href="#" onclick="showPasswordModal(); return false;" class="btn btn-primary">Descargar
+                            Vademécum Pulido</a>
+                    </div>
+
+                    <div style="order: 1;">
+                        <img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&q=80&w=600"
+                            alt="Instrumental pulido" class="rounded-lg shadow-lg w-full">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Protocol Section -->
+        <section class="section bg-grey-900">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label text-primary">Protocolo de Selección</span>
+                    <h2 class="text-white">Material → Granulometría → RPM</h2>
+                    <div class="divider divider-center"></div>
+                </div>
+
+                <div class="grid grid-3">
+                    <div class="tech-card">
+                        <span class="tech-label">Paso 1</span>
+                        <h3>Material</h3>
+                        <p class="mb-4"><strong class="text-white">Diamante Natural</strong><br>Para esmalte y cerámica.
+                            Corte por abrasión.</p>
+                        <p class="mb-0"><strong class="text-white">Carburo K89</strong><br>Para dentina, metal, hueso.
+                            Corte por lámina.</p>
+                    </div>
+
+                    <div class="tech-card">
+                        <span class="tech-label">Paso 2</span>
+                        <h3>Granulometría ISO</h3>
+                        <p class="mono text-grey-400">
+                            <span class="inline-block w-full mb-1">■ Super Grueso (Negro)</span>
+                            <span class="inline-block w-full mb-1">■ Grueso (Verde)</span>
+                            <span class="inline-block w-full mb-1">■ Medio (Azul)</span>
+                            <span class="inline-block w-full mb-1">■ Fino (Rojo)</span>
+                            <span class="inline-block w-full">■ Extra Fino (Amarillo)</span>
+                        </p>
+                    </div>
+
+                    <div class="tech-card">
+                        <span class="tech-label">Paso 3</span>
+                        <h3>RPM Óptimas</h3>
+                        <p class="mb-4"><strong class="text-white">Turbina (FG)</strong><br>> 300.000 rpm<br>Solo
+                            Diamante / Carburo FG</p>
+                        <p class="mb-0"><strong class="text-white">Contra-ángulo (RA)</strong><br>
+                            < 40.000 rpm<br>Dentina / Pulido / Profilaxis
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta">
+            <div class="container">
+                <div class="max-w-2xl mx-auto">
+                    <h2>¿Necesitas asesoría técnica?</h2>
+                    <p class="lead">
+                        Solicita una visita clínica. Analizamos tu workflow actual y proponemos soluciones específicas.
+                    </p>
+                    <div class="cta-buttons">
+                        <a href="contacto.html" class="btn btn-primary btn-lg">Solicitar Visita Clínica</a>
+                        <a href="https://wa.me/34614114757" target="_blank" class="btn whatsapp-btn btn-lg">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                            </svg>
+                            Hablar por WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="https://fresissima.it/wp-content/uploads/2025/10/Logo-fresissima.png" alt="Fresissima"
+                        class="footer-logo">
+                    <p>Instrumentación rotatoria para doctores que exigen control, tacto y precisión. 34 años de cultura
+                        clínica italiana.</p>
+                </div>
+
+                <div class="footer-links">
+                    <h4 class="footer-title">Navegación</h4>
+                    <a href="index.html">Inicio</a>
+                    <a href="instrumentacion.html">Instrumentación</a>
+                    <a href="fabricacion.html">Fabricación</a>
+                    <a href="contacto.html">Contacto</a>
+                </div>
+
+                <div class="footer-links">
+                    <h4 class="footer-title">Legal</h4>
+                    <a href="#">Aviso Legal</a>
+                    <a href="#">Privacidad</a>
+                    <a href="#">Certificaciones ISO</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2024 Fresissima España. Gruppo DAM S.r.l.</p>
+                <div class="flex gap-4">
+                    <span>IT</span>
+                    <span>ES</span>
+                    <span>EN</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Password Modal -->
+    <div id="passwordModal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <button class="modal-close" onclick="hidePasswordModal()">&times;</button>
+            <h2 class="text-primary mb-4">Área Clínica</h2>
+            <p class="text-secondary mb-6">Acceso exclusivo para profesionales. Introduce tu credencial.</p>
+            <form onsubmit="checkPassword(event)">
+                <div class="form-group">
+                    <label class="form-label" for="password">Contraseña</label>
+                    <input type="password" id="password" name="password" class="form-input" placeholder="••••••••"
+                        required autofocus>
+                </div>
+                <div id="error-message" class="text-primary font-semibold mt-4 hidden">
+                    Acceso denegado. Verifique su contraseña.
+                </div>
+                <button type="submit" class="btn btn-primary btn-block mt-6">Acceder</button>
+            </form>
+            <p class="text-muted text-sm mt-6">
+                ¿Sin acceso? <a href="contacto.html" class="text-primary font-semibold">Solicítalo aquí</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        function toggleMobileNav() {
+            document.getElementById('mobileNav').classList.toggle('active');
+        }
+    </script>
+</body>
+
+</html>

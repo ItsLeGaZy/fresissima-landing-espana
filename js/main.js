@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('Fresissima Web App Loaded');
+    console.log('Fresissima Clinical v4.0');
 
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -7,37 +7,49 @@ document.addEventListener('DOMContentLoaded', () => {
             const href = this.getAttribute('href');
             if (href !== '#' && href.length > 1) {
                 e.preventDefault();
-                document.querySelector(href).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
             }
         });
     });
 
     // Navbar scroll effect
-    const header = document.querySelector('.main-header');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
+    const header = document.querySelector('.header');
+    if (header) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    }
 });
 
 // Password Modal Functions
 function showPasswordModal() {
     const modal = document.getElementById('passwordModal');
-    modal.style.display = 'flex';
-    document.getElementById('password').value = '';
-    document.getElementById('error-message').style.display = 'none';
+    if (modal) {
+        modal.classList.remove('hidden');
+        const passwordInput = document.getElementById('password');
+        const errorMessage = document.getElementById('error-message');
+        if (passwordInput) passwordInput.value = '';
+        if (errorMessage) errorMessage.classList.add('hidden');
+        if (passwordInput) passwordInput.focus();
+    }
 }
 
 function hidePasswordModal() {
     const modal = document.getElementById('passwordModal');
-    modal.style.display = 'none';
-    document.getElementById('password').value = '';
-    document.getElementById('error-message').style.display = 'none';
+    if (modal) {
+        modal.classList.add('hidden');
+        const passwordInput = document.getElementById('password');
+        const errorMessage = document.getElementById('error-message');
+        if (passwordInput) passwordInput.value = '';
+        if (errorMessage) errorMessage.classList.add('hidden');
+    }
 }
 
 function checkPassword(event) {
@@ -66,14 +78,16 @@ function checkPassword(event) {
                 window.location.href = 'catalogo.html';
             } else {
                 // Mostrar error
-                document.getElementById('error-message').style.display = 'block';
+                const errorMessage = document.getElementById('error-message');
+                if (errorMessage) errorMessage.classList.remove('hidden');
                 document.getElementById('password').value = '';
                 document.getElementById('password').focus();
             }
         })
         .catch(error => {
             console.error('Error al validar contraseña:', error);
-            document.getElementById('error-message').style.display = 'block';
+            const errorMessage = document.getElementById('error-message');
+            if (errorMessage) errorMessage.classList.remove('hidden');
         });
 }
 
@@ -91,3 +105,11 @@ document.addEventListener('keydown', function (event) {
         hidePasswordModal();
     }
 });
+
+// Mobile Navigation Toggle
+function toggleMobileNav() {
+    const mobileNav = document.getElementById('mobileNav');
+    if (mobileNav) {
+        mobileNav.classList.toggle('active');
+    }
+}

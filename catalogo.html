@@ -4,400 +4,491 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo Profesional - Fresissima España</title>
+    <title>Biblioteca Digital | Fresissima España</title>
     <meta name="robots" content="noindex, nofollow">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap"
         rel="stylesheet">
 
+    <!-- Favicon -->
+    <link rel="icon" href="https://fresissima.it/wp-content/uploads/2025/10/favicon-fresissima-150x150.png"
+        sizes="192x192">
+
     <!-- Styles -->
-    <link rel="stylesheet" href="css/style.css?v=2.4">
+    <link rel="stylesheet" href="css/style.css?v=4.1">
+
     <style>
-        .protected-content {
-            min-height: 100vh;
-            padding: 100px 0 50px;
-        }
-
+        /* Catalog specific styles */
         .catalog-header {
+            padding: var(--space-16) 0 var(--space-8);
             text-align: center;
-            margin-bottom: 3rem;
+            background: linear-gradient(135deg, var(--grey-900) 0%, var(--grey-800) 100%);
+            color: var(--white);
+            margin-top: var(--header-height);
         }
 
-        .catalog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
+        .catalog-header h1 {
+            color: var(--white);
+            margin-bottom: var(--space-2);
         }
 
-        .catalog-item {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow-md);
-            transition: var(--transition-normal);
-        }
-
-        .catalog-item:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .catalog-item h3 {
-            color: var(--color-primary);
-            margin-bottom: 1rem;
-        }
-
-        .price {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--color-accent);
-            margin: 1rem 0;
-        }
-
-        .download-btn {
-            margin-top: 1.5rem;
-            width: 100%;
+        .catalog-header p {
+            color: var(--grey-400);
+            margin: 0;
         }
 
         .logout-btn {
             position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1001;
-        }
-
-        .section-divider {
-            border-top: 2px solid var(--color-bg-light);
-            margin: 4rem 0;
-        }
-
-        .download-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition-normal);
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            cursor: pointer;
-            /* Pointer cursor for links */
-        }
-
-        .download-card:hover {
-            transform: translateX(5px);
+            top: calc(var(--header-height) + var(--space-4));
+            right: var(--space-4);
+            z-index: 100;
+            background: var(--white) !important;
             box-shadow: var(--shadow-md);
         }
 
-        .download-icon {
-            font-size: 2.5rem;
-            color: var(--color-accent);
+        .catalog-section {
+            padding: var(--space-10) 0;
         }
 
-        .download-info {
+        .catalog-section-title {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            margin-bottom: var(--space-6);
+            padding-bottom: var(--space-4);
+            border-bottom: 2px solid var(--grey-200);
+        }
+
+        .catalog-section-title svg {
+            color: var(--primary);
+        }
+
+        .catalog-grid {
+            display: grid;
+            gap: var(--space-4);
+            grid-template-columns: 1fr;
+        }
+
+        @media (min-width: 768px) {
+            .catalog-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .catalog-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .catalog-card {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+            padding: var(--space-5);
+            background: var(--white);
+            border: 1px solid var(--grey-200);
+            border-radius: 8px;
+            transition: all var(--transition-fast);
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .catalog-card:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .catalog-card-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--grey-100);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .catalog-card-icon svg {
+            width: 28px;
+            height: 28px;
+            color: var(--primary);
+        }
+
+        .catalog-card-icon.price svg {
+            color: #22C55E;
+        }
+
+        .catalog-card-icon.price {
+            background: rgba(34, 197, 94, 0.1);
+        }
+
+        .catalog-card-content {
             flex: 1;
+            min-width: 0;
         }
 
-        .download-info h4 {
-            color: var(--color-primary);
-            margin-bottom: 0.3rem;
+        .catalog-card-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-1);
         }
 
-        .download-info p {
-            color: var(--color-text-light);
-            font-size: 0.9rem;
+        .catalog-card-desc {
+            font-size: 0.875rem;
+            color: var(--text-muted);
         }
 
-        .file-size {
-            color: var(--color-text-light);
-            font-size: 0.85rem;
-            margin-left: auto;
-            background: #eee;
-            padding: 2px 8px;
-            border-radius: 10px;
+        .catalog-card-action {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            white-space: nowrap;
         }
 
-        /* New Style for View Effect */
-        .view-label {
-            display: inline-block;
-            font-size: 0.8rem;
-            color: white;
-            background: var(--color-primary);
-            padding: 4px 12px;
-            border-radius: 20px;
-            margin-left: 10px;
+        .catalog-card:hover .catalog-card-action {
+            text-decoration: underline;
+        }
+
+        .catalog-footer {
+            text-align: center;
+            padding: var(--space-12) 0;
+            background: var(--grey-50);
+            border-top: 1px solid var(--grey-200);
+        }
+
+        .catalog-footer h3 {
+            margin-bottom: var(--space-2);
+        }
+
+        .catalog-footer p {
+            color: var(--text-muted);
+            margin-bottom: var(--space-6);
         }
     </style>
 </head>
 
 <body>
-    <!-- Scripts de protección de sesión mantienen igual -->
+    <!-- Session Protection -->
     <script>
-        // PROTECCIÓN MEJORADA - Validación inmediata
         (function () {
             const isAuthenticated = sessionStorage.getItem('fresissima_auth');
             const authTime = sessionStorage.getItem('fresissima_auth_time');
             const currentTime = new Date().getTime();
 
-            // Verificar si la autenticación existe y no ha expirado (2 horas)
-            if (isAuthenticated !== 'true' || !authTime || (currentTime - authTime) > 7200000) {
+            if (isAuthenticated !== 'true' || !authTime || (currentTime - parseInt(authTime)) > 7200000) {
                 sessionStorage.removeItem('fresissima_auth');
                 sessionStorage.removeItem('fresissima_auth_time');
-                // Uncomment in production: window.location.replace('index.html');
+                window.location.replace('index.html');
             }
         })();
     </script>
 
-    <a href="index.html" onclick="logout()" class="btn btn-outline logout-btn" style="background:white;">
-        Cerrar Sesión
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-            style="margin-left: 5px;">
-            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <img src="https://fresissima.it/wp-content/uploads/2025/10/Logo-fresissima.png" alt="Fresissima">
+            </a>
+
+            <nav class="nav">
+                <a href="index.html">Inicio</a>
+                <a href="instrumentacion.html">Instrumentación</a>
+                <a href="fabricacion.html">Fabricación</a>
+                <a href="contacto.html">Contacto</a>
+            </nav>
+
+            <button class="menu-btn" onclick="toggleMobileNav()" aria-label="Menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav" id="mobileNav">
+        <a href="index.html">Inicio</a>
+        <a href="instrumentacion.html">Instrumentación</a>
+        <a href="fabricacion.html">Fabricación</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
+
+    <!-- Logout Button -->
+    <a href="index.html" onclick="logout()" class="btn btn-outline logout-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+            <polyline points="16 17 21 12 16 7"></polyline>
+            <line x1="21" y1="12" x2="9" y2="12"></line>
         </svg>
+        Salir
     </a>
 
-    <main style="background-color: var(--color-bg-white); flex: 1;">
-        <div class="container protected-content">
-            <div class="catalog-header">
-                <h1 style="font-size: 3rem; margin-bottom: 1rem;">Biblioteca Digital</h1>
-                <p>Acceso exclusivo a catálogos técnicos y listas de precios oficiales.</p>
+    <main>
+        <!-- Header -->
+        <section class="catalog-header">
+            <div class="container">
+                <span class="section-label text-primary">Acceso Profesional</span>
+                <h1>Biblioteca Digital</h1>
+                <p>Vademécums técnicos y listas de precios oficiales</p>
             </div>
+        </section>
 
-            <h2 style="color: var(--color-primary); margin-bottom: 2rem; font-size: 2rem;">📚 Vademécums Quirúrgicos
-            </h2>
-            <div class="catalog-grid">
+        <!-- Vademecums Section -->
+        <section class="catalog-section bg-white">
+            <div class="container">
+                <div class="catalog-section-title">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                    </svg>
+                    <h2>Vademécums Técnicos</h2>
+                </div>
 
-                <a href="visor.html?file=Fresissima/SPA_VADEMECUM_chirurgia_test7_rev8_SPAGNOLO.pdf"
-                    class="download-card">
-                    <div class="download-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M2 12h20"></path>
-                            <path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6"></path>
-                            <path d="M12 2v10"></path>
-                            <path d="M18 6L6 18"></path>
-                        </svg>
-                    </div>
-                    <div class="download-info">
-                        <h4>Vademécum Cirugía Oral</h4>
-                        <p>Catálogo digital interactivo</p>
-                    </div>
-                    <span class="view-label">Ver Online</span>
-                </a>
+                <div class="catalog-grid">
+                    <a href="visor.html?file=Fresissima/SPA_VADEMECUM_chirurgia_test7_rev8_SPAGNOLO.pdf"
+                        class="catalog-card">
+                        <div class="catalog-card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                            </svg>
+                        </div>
+                        <div class="catalog-card-content">
+                            <div class="catalog-card-title">Cirugía Oral</div>
+                            <div class="catalog-card-desc">Fresas quirúrgicas y protocolos</div>
+                        </div>
+                        <span class="catalog-card-action">Ver →</span>
+                    </a>
 
-                <a href="visor.html?file=Fresissima/SPA_VADEMECUM_endodonzia_test1_rev4_spagnolo.pdf"
-                    class="download-card">
-                    <div class="download-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                        </svg>
-                    </div>
-                    <div class="download-info">
-                        <h4>Vademécum Endodoncia</h4>
-                        <p>Visualizar en navegador</p>
-                    </div>
-                    <span class="view-label">Ver Online</span>
-                </a>
+                    <a href="visor.html?file=Fresissima/SPA_VADEMECUM_endodonzia_test1_rev4_spagnolo.pdf"
+                        class="catalog-card">
+                        <div class="catalog-card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                            </svg>
+                        </div>
+                        <div class="catalog-card-content">
+                            <div class="catalog-card-title">Endodoncia</div>
+                            <div class="catalog-card-desc">Acceso cameral y localización</div>
+                        </div>
+                        <span class="catalog-card-action">Ver →</span>
+                    </a>
 
-                <a href="visor.html?file=Fresissima/SPA_VADEMECUM_ortodonzia_test1_rev2_SPAGNOLO.pdf"
-                    class="download-card">
-                    <div class="download-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <path d="M8 12h8"></path>
-                            <path d="M12 8v8"></path>
-                        </svg>
-                    </div>
-                    <div class="download-info">
-                        <h4>Vademécum Ortodoncia</h4>
-                        <p>Visualizar en navegador</p>
-                    </div>
-                    <span class="view-label">Ver Online</span>
-                </a>
+                    <a href="visor.html?file=Fresissima/SPA_VADEMECUM_ortodonzia_test1_rev2_SPAGNOLO.pdf"
+                        class="catalog-card">
+                        <div class="catalog-card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                            </svg>
+                        </div>
+                        <div class="catalog-card-content">
+                            <div class="catalog-card-title">Ortodoncia</div>
+                            <div class="catalog-card-desc">Brackets y stripping</div>
+                        </div>
+                        <span class="catalog-card-action">Ver →</span>
+                    </a>
 
-                <a href="visor.html?file=Fresissima/vademecum_prov_spa.pdf" class="download-card">
-                    <div class="download-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="m2 4 3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14"></path>
-                        </svg>
-                    </div>
-                    <div class="download-info">
-                        <h4>Vademécum Prótesis</h4>
-                        <p>Visualizar en navegador</p>
-                    </div>
-                    <span class="view-label">Ver Online</span>
-                </a>
+                    <a href="visor.html?file=Fresissima/vademecum_prov_spa.pdf" class="catalog-card">
+                        <div class="catalog-card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                            </svg>
+                        </div>
+                        <div class="catalog-card-content">
+                            <div class="catalog-card-title">Prótesis</div>
+                            <div class="catalog-card-desc">Preparación y márgenes</div>
+                        </div>
+                        <span class="catalog-card-action">Ver →</span>
+                    </a>
 
-                <a href="visor.html?file=Fresissima/SPA_VADEMECUM_orafi_rev1.pdf" class="download-card">
-                    <div class="download-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path
-                                d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                    <a href="visor.html?file=Fresissima/vademecum_zirconia_spa_media_100dpi.pdf" class="catalog-card">
+                        <div class="catalog-card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                            </svg>
+                        </div>
+                        <div class="catalog-card-content">
+                            <div class="catalog-card-title">Zirconia</div>
+                            <div class="catalog-card-desc">CAD/CAM sin microfracturas</div>
+                        </div>
+                        <span class="catalog-card-action">Ver →</span>
+                    </a>
+
+                    <a href="visor.html?file=Fresissima/2022_11_ESP_Web_Vademecum_Tagliacorone.pdf"
+                        class="catalog-card">
+                        <div class="catalog-card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                            </svg>
+                        </div>
+                        <div class="catalog-card-content">
+                            <div class="catalog-card-title">Tagliacorone</div>
+                            <div class="catalog-card-desc">Cortadores de coronas</div>
+                        </div>
+                        <span class="catalog-card-action">Ver →</span>
+                    </a>
+
+                    <a href="visor.html?file=Fresissima/SPA_VADEMECUM_orafi_rev1.pdf" class="catalog-card">
+                        <div class="catalog-card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                            </svg>
+                        </div>
+                        <div class="catalog-card-content">
+                            <div class="catalog-card-title">Orfebrería</div>
+                            <div class="catalog-card-desc">Aplicaciones industriales</div>
+                        </div>
+                        <span class="catalog-card-action">Ver →</span>
+                    </a>
+
+                    <a href="visor.html?file=Fresissima/vademecum_vet_spa.pdf" class="catalog-card">
+                        <div class="catalog-card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                            </svg>
+                        </div>
+                        <div class="catalog-card-content">
+                            <div class="catalog-card-title">Veterinaria</div>
+                            <div class="catalog-card-desc">Aplicaciones animales</div>
+                        </div>
+                        <span class="catalog-card-action">Ver →</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Price Lists Section -->
+        <section class="catalog-section bg-grey-50">
+            <div class="container">
+                <div class="catalog-section-title">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2">
+                        <line x1="12" y1="1" x2="12" y2="23"></line>
+                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                    </svg>
+                    <h2>Listas de Precios</h2>
+                </div>
+
+                <div class="catalog-grid">
+                    <a href="visor.html?file=Fresissima/Price-list-FRESISSIMA-18-11.pdf" class="catalog-card">
+                        <div class="catalog-card-icon price">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                            </svg>
+                        </div>
+                        <div class="catalog-card-content">
+                            <div class="catalog-card-title">Fresissima</div>
+                            <div class="catalog-card-desc">Tarifa completa fresas</div>
+                        </div>
+                        <span class="catalog-card-action" style="color: #22C55E;">Ver →</span>
+                    </a>
+
+                    <a href="visor.html?file=Fresissima/Price-list-DENTAG-09-2025.pdf" class="catalog-card">
+                        <div class="catalog-card-icon price">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                            </svg>
+                        </div>
+                        <div class="catalog-card-content">
+                            <div class="catalog-card-title">Dentag</div>
+                            <div class="catalog-card-desc">Tarifa accesorios</div>
+                        </div>
+                        <span class="catalog-card-action" style="color: #22C55E;">Ver →</span>
+                    </a>
+
+                    <a href="visor.html?file=Fresissima/Price-list-VIBRA-09-2025.pdf" class="catalog-card">
+                        <div class="catalog-card-icon price">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                            </svg>
+                        </div>
+                        <div class="catalog-card-content">
+                            <div class="catalog-card-title">Vibra</div>
+                            <div class="catalog-card-desc">Tarifa ultrasonidos</div>
+                        </div>
+                        <span class="catalog-card-action" style="color: #22C55E;">Ver →</span>
+                    </a>
+
+                    <a href="visor.html?file=Fresissima/Price-list-XTRUMENTS-2025-1.pdf" class="catalog-card">
+                        <div class="catalog-card-icon price">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                            </svg>
+                        </div>
+                        <div class="catalog-card-content">
+                            <div class="catalog-card-title">Xtruments</div>
+                            <div class="catalog-card-desc">Tarifa instrumental</div>
+                        </div>
+                        <span class="catalog-card-action" style="color: #22C55E;">Ver →</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <section class="catalog-footer">
+            <div class="container">
+                <h3>¿Necesitas el PDF para imprimir?</h3>
+                <p>Contacta directamente con nuestro especialista técnico.</p>
+                <div class="flex gap-3 justify-center flex-wrap">
+                    <a href="mailto:jaime@fresissima.com" class="btn btn-primary">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
                             </path>
-                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                            <polyline points="22,6 12,13 2,6"></polyline>
                         </svg>
-                    </div>
-                    <div class="download-info">
-                        <h4>Vademécum Orfebrería</h4>
-                        <p>Visualizar en navegador</p>
-                    </div>
-                    <span class="view-label">Ver Online</span>
-                </a>
-
-                <a href="visor.html?file=Fresissima/vademecum_zirconia_spa_media_100dpi.pdf" class="download-card">
-                    <div class="download-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
-                            <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
-                            <path d="M4 22h16"></path>
-                            <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path>
-                            <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path>
-                            <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path>
-                        </svg>
-                    </div>
-                    <div class="download-info">
-                        <h4>Vademécum Zirconia</h4>
-                        <p>Visualizar en navegador</p>
-                    </div>
-                    <span class="view-label">Ver Online</span>
-                </a>
-
-                <a href="visor.html?file=Fresissima/2022_11_ESP_Web_Vademecum_Tagliacorone.pdf" class="download-card">
-                    <div class="download-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <path d="m14.59 13.55-5.18 5.18a3.25 3.25 0 0 0 0 4.6L16 17l-1.41-1.45"></path>
-                            <path d="M5.8 5.8a10 10 0 0 1 14.2 0"></path>
-                        </svg>
-                    </div>
-                    <div class="download-info">
-                        <h4>Vademécum Tagliacorone</h4>
-                        <p>Visualizar en navegador</p>
-                    </div>
-                    <span class="view-label">Ver Online</span>
-                </a>
-
-                <a href="visor.html?file=Fresissima/vademecum_vet_spa.pdf" class="download-card">
-                    <div class="download-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M10 2v2"></path>
-                            <path d="M14 2v2"></path>
+                        Email Soporte
+                    </a>
+                    <a href="https://wa.me/34614114757" target="_blank" class="btn whatsapp-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                             <path
-                                d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1">
-                            </path>
-                            <path d="M6 2v2"></path>
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
                         </svg>
-                    </div>
-                    <div class="download-info">
-                        <h4>Vademécum Veterinaria</h4>
-                        <p>Visualizar en navegador</p>
-                    </div>
-                    <span class="view-label">Ver Online</span>
-                </a>
+                        WhatsApp
+                    </a>
+                </div>
             </div>
-
-            <!-- Divider -->
-            <div class="section-divider"></div>
-
-            <!-- LISTAS DE PRECIOS -->
-            <h2 style="color: var(--color-primary); margin-bottom: 2rem; font-size: 2rem;">💶 Listas de Precios</h2>
-            <div style="display: grid; gap: 1rem; margin-bottom: 3rem;">
-                <a href="visor.html?file=Fresissima/Price-list-FRESISSIMA-18-11.pdf" class="download-card">
-                    <div class="download-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                            <polyline points="14 2 14 8 20 8"></polyline>
-                            <line x1="12" y1="18" x2="12" y2="12"></line>
-                            <line x1="9" y1="15" x2="15" y2="15"></line>
-                        </svg>
-                    </div>
-                    <div class="download-info">
-                        <h4>Lista de Precios FRESISSIMA</h4>
-                        <p>Visualizar tarifa completa</p>
-                    </div>
-                    <span class="view-label">Ver Online</span>
-                </a>
-
-                <a href="visor.html?file=Fresissima/Price-list-DENTAG-09-2025.pdf" class="download-card">
-                    <div class="download-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                            <polyline points="14 2 14 8 20 8"></polyline>
-                            <line x1="12" y1="18" x2="12" y2="12"></line>
-                            <line x1="9" y1="15" x2="15" y2="15"></line>
-                        </svg>
-                    </div>
-                    <div class="download-info">
-                        <h4>Lista de Precios DENTAG</h4>
-                        <p>Visualizar tarifa</p>
-                    </div>
-                    <span class="view-label">Ver Online</span>
-                </a>
-                <a href="visor.html?file=Fresissima/Price-list-VIBRA-09-2025.pdf" class="download-card">
-                    <div class="download-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                            <polyline points="14 2 14 8 20 8"></polyline>
-                            <line x1="12" y1="18" x2="12" y2="12"></line>
-                            <line x1="9" y1="15" x2="15" y2="15"></line>
-                        </svg>
-                    </div>
-                    <div class="download-info">
-                        <h4>Lista de Precios VIBRA</h4>
-                        <p>Visualizar tarifa</p>
-                    </div>
-                    <span class="view-label">Ver Online</span>
-                </a>
-                <a href="visor.html?file=Fresissima/Price-list-XTRUMENTS-2025-1.pdf" class="download-card">
-                    <div class="download-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                            <polyline points="14 2 14 8 20 8"></polyline>
-                            <line x1="12" y1="18" x2="12" y2="12"></line>
-                            <line x1="9" y1="15" x2="15" y2="15"></line>
-                        </svg>
-                    </div>
-                    <div class="download-info">
-                        <h4>Lista de Precios XTRUMENTS</h4>
-                        <p>Visualizar tarifa</p>
-                    </div>
-                    <span class="view-label">Ver Online</span>
-                </a>
-            </div>
-
-            <!-- Contacto directo -->
-            <div style="text-align: center; margin-top: 3rem;">
-                <h3>¿Necesitas descargar el archivo original?</h3>
-                <p style="color: var(--color-text-light); margin: 1rem 0;">Si necesitas el PDF para imprimir, contacta
-                    directamente con nuestro especialista.</p>
-                <a href="mailto:jaime@fresissima.com" class="btn btn-primary">Contactar Soporte Técnico</a>
-            </div>
-        </div>
+        </section>
     </main>
 
+    <script src="js/main.js"></script>
     <script>
+        function toggleMobileNav() {
+            document.getElementById('mobileNav').classList.toggle('active');
+        }
+
         function logout() {
             sessionStorage.removeItem('fresissima_auth');
-            sessionStorage.removeItem('fresissima_time');
+            sessionStorage.removeItem('fresissima_auth_time');
             window.location.replace('index.html');
         }
     </script>

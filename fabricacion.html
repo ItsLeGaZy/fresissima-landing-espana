@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fabricación y Tecnología | Fresissima España</title>
+    <meta name="description"
+        content="Por qué la fabricación importa. CNC micrométrico, Tungsteno K89, Diamante natural, Tecnología Disteno. ISO 13485. Made in Italy.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap"
+        rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://fresissima.it/wp-content/uploads/2025/10/favicon-fresissima-150x150.png"
+        sizes="192x192">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css?v=4.1">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <img src="https://fresissima.it/wp-content/uploads/2025/10/Logo-fresissima.png" alt="Fresissima">
+            </a>
+
+            <nav class="nav">
+                <a href="index.html">Inicio</a>
+                <a href="instrumentacion.html">Instrumentación</a>
+                <a href="fabricacion.html" class="active">Fabricación</a>
+                <a href="contacto.html">Contacto</a>
+                <a href="#" onclick="showPasswordModal(); return false;">Área Clínica</a>
+            </nav>
+
+            <button class="menu-btn" onclick="toggleMobileNav()" aria-label="Menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav" id="mobileNav">
+        <a href="index.html">Inicio</a>
+        <a href="instrumentacion.html">Instrumentación</a>
+        <a href="fabricacion.html">Fabricación</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="#" onclick="showPasswordModal(); return false;">Área Clínica</a>
+    </nav>
+
+    <main>
+        <!-- Page Header -->
+        <section class="section bg-white">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">Por qué la fabricación importa</span>
+                    <h1>Material · Proceso · Resultado</h1>
+                    <div class="divider divider-center"></div>
+                    <p class="lead max-w-2xl mx-auto text-center">
+                        Cada decisión de fabricación tiene un impacto directo en tu clínica.
+                        Márgenes. Longevidad. Adhesión. Control.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CNC Section -->
+        <section id="cnc" class="section bg-grey-50">
+            <div class="container">
+                <div class="grid grid-2" style="align-items: center;">
+                    <div>
+                        <span class="section-label">Fabricación</span>
+                        <h2>CNC de 5 Ejes</h2>
+                        <div class="divider"></div>
+
+                        <p class="lead mb-6">
+                            Producción localizada en Italia con tecnología CNC de última generación.
+                            Tolerancias de micras. Ciclo productivo trazado y monitorizado en tiempo real.
+                        </p>
+
+                        <div class="grid grid-2 gap-4">
+                            <div class="card card-accent p-4">
+                                <h4 class="text-primary mb-2 text-lg">Concentricidad < 5μ</h4>
+                                        <p class="text-secondary text-sm mb-0">
+                                            Control unitario de cada fresa. Rotación perfectamente estable. Sin
+                                            vibración.
+                                        </p>
+                            </div>
+
+                            <div class="card card-accent p-4">
+                                <h4 class="text-primary mb-2 text-lg">Filos Consistentes</h4>
+                                <p class="text-secondary text-sm mb-0">
+                                    Geometría computarizada. Corte predecible incluso tras múltiples esterilizaciones.
+                                </p>
+                            </div>
+
+                            <div class="card card-accent p-4">
+                                <h4 class="text-primary mb-2 text-lg">Trazabilidad Total</h4>
+                                <p class="text-secondary text-sm mb-0">
+                                    Cada lote documentado. Verificación dimensional y funcional.
+                                </p>
+                            </div>
+
+                            <div class="card card-accent p-4">
+                                <h4 class="text-primary mb-2 text-lg">Personalización</h4>
+                                <p class="text-secondary text-sm mb-0">
+                                    Diámetros, geometrías, acabados. Fabricación a medida para tu clínica.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="mt-6">
+                            <p class="text-secondary text-sm">
+                                <strong>Impacto Clínico:</strong> Márgenes nítidos. Sin chatter. Línea de terminación
+                                definida para ajuste pasivo.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1565688534245-05d6b5be184a?auto=format&fit=crop&q=80&w=600"
+                            alt="CNC Fresissima" class="rounded-lg shadow-lg w-full">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Materials Section -->
+        <section id="materiales" class="section bg-white">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">Materiales</span>
+                    <h2>Tungsteno K89 + Diamante Natural</h2>
+                    <div class="divider divider-center"></div>
+                </div>
+
+                <div class="grid grid-2">
+                    <!-- Tungsteno -->
+                    <div class="card p-6">
+                        <span class="tech-label inline-block mb-4">Carburo</span>
+                        <h3 class="mb-4">Tungsteno K89</h3>
+
+                        <div class="mb-4">
+                            <h4 class="text-primary text-sm mb-2">Propiedades</h4>
+                            <ul class="flex flex-col gap-2 text-secondary">
+                                <li class="flex items-start gap-2">
+                                    <span class="text-primary">→</span>
+                                    <span>Alta densidad molecular</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-primary">→</span>
+                                    <span>Resistencia extrema a la torsión</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-primary">→</span>
+                                    <span>Integridad estructural del filo</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="mb-4">
+                            <h4 class="text-primary text-sm mb-2">Aplicaciones</h4>
+                            <p class="text-secondary text-sm">
+                                Dentina, metal, hueso. Corte por lámina. Ideal para cirugía y remoción de estructuras
+                                metálicas.
+                            </p>
+                        </div>
+
+                        <div class="bg-grey-50 p-4 rounded">
+                            <h4 class="text-primary text-sm mb-2">Impacto Clínico</h4>
+                            <p class="text-secondary text-sm mb-0">
+                                Corte estable sin fractura. Longevidad post-esterilización. Reducción de consumo de
+                                fresas.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Diamante -->
+                    <div class="card p-6">
+                        <span class="tech-label inline-block mb-4">Diamante</span>
+                        <h3 class="mb-4">Diamante Natural Policristalino</h3>
+
+                        <div class="mb-4">
+                            <h4 class="text-primary text-sm mb-2">Propiedades</h4>
+                            <ul class="flex flex-col gap-2 text-secondary">
+                                <li class="flex items-start gap-2">
+                                    <span class="text-primary">→</span>
+                                    <span>Aristas de corte agudas</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-primary">→</span>
+                                    <span>Granulometría uniforme</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-primary">→</span>
+                                    <span>Aglutinante galvánico reforzado</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="mb-4">
+                            <h4 class="text-primary text-sm mb-2">Aplicaciones</h4>
+                            <p class="text-secondary text-sm">
+                                Esmalte, cerámica, zirconio. Corte por abrasión. Preparaciones protésicas y acabado.
+                            </p>
+                        </div>
+
+                        <div class="bg-grey-50 p-4 rounded">
+                            <h4 class="text-primary text-sm mb-2">Impacto Clínico</h4>
+                            <p class="text-secondary text-sm mb-0">
+                                Abrasión fría. Sin necrosis pulpar. Acabado homogéneo sin estrías.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Disteno Technology -->
+        <section id="disteno" class="section bg-grey-900">
+            <div class="container">
+                <div class="grid grid-2" style="align-items: center;">
+                    <div>
+                        <span class="section-label text-primary">Tecnología Patentada</span>
+                        <h2 class="text-white">DISTENO™</h2>
+                        <div class="divider"></div>
+
+                        <p class="lead text-grey-400 mb-6">
+                            Cuando el diamante encuentra el carburo de tungsteno.
+                            Proceso brevettato que fusiona diamante natural policristalino con carburo de tungsteno.
+                        </p>
+
+                        <div class="grid grid-2 gap-4 mb-6">
+                            <div>
+                                <h4 class="text-white mb-2">Resistencia Extrema</h4>
+                                <p class="text-grey-400 text-sm mb-0">
+                                    Al desgaste. Ideal para operaciones repetidas y materiales de alta dureza.
+                                </p>
+                            </div>
+
+                            <div>
+                                <h4 class="text-white mb-2">Corte Limpio</h4>
+                                <p class="text-grey-400 text-sm mb-0">
+                                    Reduce tiempo operativo. Sin microfracturas en materiales restauradores.
+                                </p>
+                            </div>
+
+                            <div>
+                                <h4 class="text-white mb-2">Disipación Térmica</h4>
+                                <p class="text-grey-400 text-sm mb-0">
+                                    Mejora seguridad y fiabilidad. Sin sobrecalentamiento pulpar.
+                                </p>
+                            </div>
+
+                            <div>
+                                <h4 class="text-white mb-2">Reducción de Consumo</h4>
+                                <p class="text-grey-400 text-sm mb-0">
+                                    Mayor duración que estándar de mercado. Eficiencia económica.
+                                </p>
+                            </div>
+                        </div>
+
+                        <a href="contacto.html" class="btn btn-primary">Solicitar Demo Clínica</a>
+                    </div>
+
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1581093458791-9d16e6f72f09?auto=format&fit=crop&q=80&w=600"
+                            alt="Tecnología Disteno" class="rounded-lg shadow-lg w-full">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Monoblock -->
+        <section id="monoblock" class="section bg-white">
+            <div class="container">
+                <div class="grid grid-2" style="align-items: center;">
+                    <div style="order: 2;">
+                        <span class="section-label">Diseño</span>
+                        <h2>Fabricación Monoblock</h2>
+                        <div class="divider"></div>
+
+                        <p class="lead mb-6">
+                            Eje único de rotación. Eliminación de uniones y soldaduras.
+                            Concentricidad garantizada.
+                        </p>
+
+                        <div class="mb-6">
+                            <h4 class="text-primary mb-2">Física</h4>
+                            <p class="text-secondary">
+                                Un solo cuerpo mecanizado elimina desviaciones angulares.
+                                La masa se distribuye uniformemente alrededor del eje.
+                            </p>
+                        </div>
+
+                        <div class="mb-6">
+                            <h4 class="text-primary mb-2">Efecto Clínico</h4>
+                            <ul class="flex flex-col gap-2 text-secondary">
+                                <li class="flex items-start gap-2">
+                                    <span class="text-primary font-bold">→</span>
+                                    <span><strong>Sin vibración:</strong> Control táctil preciso</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-primary font-bold">→</span>
+                                    <span><strong>Sin fatiga manual:</strong> Sesiones largas sin tensión</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-primary font-bold">→</span>
+                                    <span><strong>Márgenes definidos:</strong> Sin chatter en línea de
+                                        terminación</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="order: 1;">
+                        <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&q=80&w=600"
+                            alt="Fabricación Monoblock" class="rounded-lg shadow-lg w-full">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ISO & Traceability -->
+        <section id="iso" class="section bg-grey-50">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">Certificaciones</span>
+                    <h2>ISO 13485 · CE Medical Device</h2>
+                    <div class="divider divider-center"></div>
+                </div>
+
+                <div class="grid grid-3">
+                    <div class="card p-6 text-center">
+                        <div class="mb-4">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5" class="mx-auto text-primary">
+                                <path d="M9 12l2 2 4-4"></path>
+                                <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c2.12 0 4.07.74 5.62 1.98">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3 class="mb-2">ISO 13485</h3>
+                        <p class="text-secondary text-sm mb-0">
+                            Sistema de gestión de calidad para dispositivos médicos. Auditado anualmente.
+                        </p>
+                    </div>
+
+                    <div class="card p-6 text-center">
+                        <div class="mb-4">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5" class="mx-auto text-primary">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="mb-2">CE Medical Device</h3>
+                        <p class="text-secondary text-sm mb-0">
+                            Conformidad europea para dispositivos médicos. Clase IIa.
+                        </p>
+                    </div>
+
+                    <div class="card p-6 text-center">
+                        <div class="mb-4">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5" class="mx-auto text-primary">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="3" y1="9" x2="21" y2="9"></line>
+                                <line x1="9" y1="21" x2="9" y2="9"></line>
+                            </svg>
+                        </div>
+                        <h3 class="mb-2">Trazabilidad Total</h3>
+                        <p class="text-secondary text-sm mb-0">
+                            Cada lote identificado. Verificación dimensional y funcional documentada.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sustainability -->
+        <section id="sostenibilidad" class="section bg-white">
+            <div class="container">
+                <div class="grid grid-2" style="align-items: center;">
+                    <div>
+                        <span class="section-label" style="color: #22C55E;">Sostenibilidad</span>
+                        <h2>Reciclaje de Materiales</h2>
+                        <p class="text-muted text-sm" style="font-style: italic;">"Tagliamo gli sprechi" — Cortamos el
+                            desperdicio</p>
+                        <div class="divider" style="background: #22C55E;"></div>
+
+                        <p class="lead mb-6">
+                            Programa de economía circular. Recuperamos fresas usadas y reciclamos los materiales.
+                        </p>
+
+                        <ul class="flex flex-col gap-4 mb-6">
+                            <li class="flex items-start gap-3">
+                                <span style="color: #22C55E;" class="font-bold text-lg">01</span>
+                                <div>
+                                    <strong class="block mb-1">Recuperación de Fresas</strong>
+                                    <span class="text-secondary text-sm">Puedes devolvernos las fresas usadas para
+                                        reciclaje de materiales.</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span style="color: #22C55E;" class="font-bold text-lg">02</span>
+                                <div>
+                                    <strong class="block mb-1">Selección de Materiales</strong>
+                                    <span class="text-secondary text-sm">Recuperamos y clasificamos tungsteno y otros
+                                        metales.</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span style="color: #22C55E;" class="font-bold text-lg">03</span>
+                                <div>
+                                    <strong class="block mb-1">Incentivo</strong>
+                                    <span class="text-secondary text-sm">Programa de intercambio con condiciones
+                                        especiales.</span>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <a href="contacto.html" class="btn btn-outline" style="border-color: #22C55E; color: #22C55E;">
+                            Información del Programa
+                        </a>
+                    </div>
+
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=600"
+                            alt="Sostenibilidad Fresissima" class="rounded-lg shadow-lg w-full">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta">
+            <div class="container">
+                <div class="max-w-2xl mx-auto">
+                    <h2>¿Quieres conocer el proceso?</h2>
+                    <p class="lead">
+                        Solicita una visita a nuestras instalaciones o una demostración clínica en tu consulta.
+                    </p>
+                    <div class="cta-buttons">
+                        <a href="contacto.html" class="btn btn-primary btn-lg">Solicitar Visita</a>
+                        <a href="https://wa.me/34614114757" target="_blank" class="btn whatsapp-btn btn-lg">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                            </svg>
+                            Hablar por WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="https://fresissima.it/wp-content/uploads/2025/10/Logo-fresissima.png" alt="Fresissima"
+                        class="footer-logo">
+                    <p>Instrumentación rotatoria para doctores que exigen control, tacto y precisión. 34 años de cultura
+                        clínica italiana.</p>
+                </div>
+
+                <div class="footer-links">
+                    <h4 class="footer-title">Navegación</h4>
+                    <a href="index.html">Inicio</a>
+                    <a href="instrumentacion.html">Instrumentación</a>
+                    <a href="fabricacion.html">Fabricación</a>
+                    <a href="contacto.html">Contacto</a>
+                </div>
+
+                <div class="footer-links">
+                    <h4 class="footer-title">Legal</h4>
+                    <a href="#">Aviso Legal</a>
+                    <a href="#">Privacidad</a>
+                    <a href="#">Certificaciones ISO</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2024 Fresissima España. Gruppo DAM S.r.l.</p>
+                <div class="flex gap-4">
+                    <span>IT</span>
+                    <span>ES</span>
+                    <span>EN</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Password Modal -->
+    <div id="passwordModal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <button class="modal-close" onclick="hidePasswordModal()">&times;</button>
+            <h2 class="text-primary mb-4">Área Clínica</h2>
+            <p class="text-secondary mb-6">Acceso exclusivo para profesionales. Introduce tu credencial.</p>
+            <form onsubmit="checkPassword(event)">
+                <div class="form-group">
+                    <label class="form-label" for="password">Contraseña</label>
+                    <input type="password" id="password" name="password" class="form-input" placeholder="••••••••"
+                        required autofocus>
+                </div>
+                <div id="error-message" class="text-primary font-semibold mt-4 hidden">
+                    Acceso denegado. Verifique su contraseña.
+                </div>
+                <button type="submit" class="btn btn-primary btn-block mt-6">Acceder</button>
+            </form>
+            <p class="text-muted text-sm mt-6">
+                ¿Sin acceso? <a href="contacto.html" class="text-primary font-semibold">Solicítalo aquí</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        function toggleMobileNav() {
+            document.getElementById('mobileNav').classList.toggle('active');
+        }
+    </script>
+</body>
+
+</html>
