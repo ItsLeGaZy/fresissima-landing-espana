@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Precios 2026 | Fresissima España</title>
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap"
+        rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://fresissima.it/wp-content/uploads/2025/10/favicon-fresissima-150x150.png"
+        sizes="192x192">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css?v=4.1">
+
+    <style>
+        /* Price page specific styles - matching catalog.html design */
+        .price-header {
+            padding: var(--space-16) 0 var(--space-8);
+            text-align: center;
+            background: linear-gradient(135deg, var(--grey-900) 0%, var(--grey-800) 100%);
+            color: var(--white);
+            margin-top: var(--header-height);
+        }
+
+        .price-header h1 {
+            color: var(--white);
+            margin-bottom: var(--space-2);
+        }
+
+        .price-header p {
+            color: var(--grey-400);
+            margin: 0;
+        }
+
+        .back-btn {
+            position: fixed;
+            top: calc(var(--header-height) + var(--space-4));
+            right: var(--space-4);
+            z-index: 100;
+            background: var(--white) !important;
+            box-shadow: var(--shadow-md);
+        }
+
+        .price-section {
+            padding: var(--space-10) 0;
+        }
+
+        /* Search Box */
+        .search-container {
+            background: var(--white);
+            border: 1px solid var(--grey-200);
+            border-radius: 8px;
+            padding: var(--space-6);
+            margin-bottom: var(--space-6);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .search-title {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            margin-bottom: var(--space-4);
+        }
+
+        .search-title svg {
+            color: var(--primary);
+        }
+
+        .search-title h2 {
+            margin: 0;
+            font-size: 1.25rem;
+        }
+
+        .search-box {
+            display: flex;
+            gap: var(--space-4);
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .search-input-wrapper {
+            flex: 1;
+            min-width: 200px;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: var(--space-3) var(--space-4);
+            padding-left: 2.5rem;
+            font-size: 1rem;
+            border: 2px solid var(--grey-200);
+            border-radius: 6px;
+            transition: border-color var(--transition-fast);
+            font-family: var(--font-sans);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: var(--space-3);
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--grey-400);
+            pointer-events: none;
+        }
+
+        .results-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+            padding: var(--space-2) var(--space-4);
+            background: var(--grey-100);
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .results-badge strong {
+            color: var(--primary);
+        }
+
+        /* Price Table */
+        .price-table-container {
+            background: var(--white);
+            border: 1px solid var(--grey-200);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .price-table thead {
+            background: var(--grey-900);
+            color: var(--white);
+        }
+
+        .price-table th {
+            padding: var(--space-4);
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .price-table tbody tr {
+            border-bottom: 1px solid var(--grey-100);
+            transition: background-color var(--transition-fast);
+        }
+
+        .price-table tbody tr:hover {
+            background-color: var(--grey-50);
+        }
+
+        .price-table td {
+            padding: var(--space-3) var(--space-4);
+        }
+
+        .item-code {
+            font-family: var(--font-mono);
+            font-weight: 500;
+            color: var(--grey-800);
+        }
+
+        .item-price {
+            font-weight: 600;
+            color: #22C55E;
+        }
+
+        .item-packaging {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        .highlight {
+            background-color: #FEF08A;
+            padding: 0.1em 0.2em;
+            border-radius: 2px;
+        }
+
+        /* Empty state */
+        .empty-state {
+            text-align: center;
+            padding: var(--space-16);
+            color: var(--text-muted);
+        }
+
+        .empty-state svg {
+            width: 64px;
+            height: 64px;
+            margin-bottom: var(--space-4);
+            opacity: 0.5;
+        }
+
+        .empty-state h3 {
+            margin-bottom: var(--space-2);
+            color: var(--text-secondary);
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: var(--space-3);
+            padding: var(--space-4);
+            background: var(--grey-50);
+            border-top: 1px solid var(--grey-200);
+        }
+
+        .pagination button {
+            padding: var(--space-2) var(--space-4);
+            border: 1px solid var(--grey-200);
+            background: var(--white);
+            border-radius: 6px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+
+        .pagination button:hover:not(:disabled) {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .pagination button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .page-info {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        .price-footer {
+            text-align: center;
+            padding: var(--space-12) 0;
+            background: var(--grey-50);
+            border-top: 1px solid var(--grey-200);
+        }
+
+        .price-footer h3 {
+            margin-bottom: var(--space-2);
+        }
+
+        .price-footer p {
+            color: var(--text-muted);
+            margin-bottom: var(--space-6);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .price-table-container {
+                overflow-x: auto;
+            }
+
+            .price-table {
+                min-width: 500px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Session Protection -->
+    <script>
+        (function () {
+            const isAuthenticated = sessionStorage.getItem('fresissima_auth');
+            const authTime = sessionStorage.getItem('fresissima_auth_time');
+            const currentTime = new Date().getTime();
+
+            if (isAuthenticated !== 'true' || !authTime || (currentTime - parseInt(authTime)) > 7200000) {
+                sessionStorage.removeItem('fresissima_auth');
+                sessionStorage.removeItem('fresissima_auth_time');
+                window.location.replace('index.html');
+            }
+        })();
+    </script>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <img src="https://fresissima.it/wp-content/uploads/2025/10/Logo-fresissima.png" alt="Fresissima">
+            </a>
+
+            <nav class="nav">
+                <a href="index.html">Inicio</a>
+                <a href="instrumentacion.html">Instrumentación</a>
+                <a href="fabricacion.html">Fabricación</a>
+                <a href="contacto.html">Contacto</a>
+            </nav>
+
+            <button class="menu-btn" onclick="toggleMobileNav()" aria-label="Menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav" id="mobileNav">
+        <a href="index.html">Inicio</a>
+        <a href="instrumentacion.html">Instrumentación</a>
+        <a href="fabricacion.html">Fabricación</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
+
+    <!-- Back Button -->
+    <a href="catalogo.html" class="btn btn-outline back-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12H5"></path>
+            <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        Volver
+    </a>
+
+    <main>
+        <!-- Header -->
+        <section class="price-header">
+            <div class="container">
+                <span class="section-label text-primary">Tarifa Oficial</span>
+                <h1>Lista de Precios 2026</h1>
+                <p>Buscador rápido de productos Fresissima</p>
+            </div>
+        </section>
+
+        <!-- Search & Table -->
+        <section class="price-section bg-white">
+            <div class="container">
+                <!-- Search Box -->
+                <div class="search-container">
+                    <div class="search-title">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.3-4.3"></path>
+                        </svg>
+                        <h2>Buscar Producto</h2>
+                    </div>
+                    <div class="search-box">
+                        <div class="search-input-wrapper">
+                            <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="m21 21-4.3-4.3"></path>
+                            </svg>
+                            <input type="text" id="searchInput" class="search-input"
+                                placeholder="Buscar código: 801-010, H1, etc...">
+                        </div>
+                        <div class="results-badge">
+                            <span><strong id="showingCount">0</strong> de <strong id="totalCount">0</strong>
+                                productos</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Table -->
+                <div class="price-table-container">
+                    <table class="price-table" id="priceTable">
+                        <thead>
+                            <tr>
+                                <th>Código Artículo</th>
+                                <th>Empaquetado</th>
+                                <th>Precio Unitario</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                            <!-- Dynamic content -->
+                        </tbody>
+                    </table>
+
+                    <div id="emptyState" class="empty-state" style="display: none;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.3-4.3"></path>
+                        </svg>
+                        <h3>No se encontraron resultados</h3>
+                        <p>Prueba con otro término de búsqueda</p>
+                    </div>
+
+                    <div class="pagination" id="pagination">
+                        <button id="prevBtn">← Anterior</button>
+                        <span class="page-info" id="pageInfo">Página 1 de 1</span>
+                        <button id="nextBtn">Siguiente →</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <section class="price-footer">
+            <div class="container">
+                <h3>¿Necesitas el PDF completo?</h3>
+                <p>Descarga directamente o contacta con soporte técnico.</p>
+                <div class="flex gap-3 justify-center flex-wrap">
+                    <a href="Fresissima/Price-list-FRESISSIMA-2026.pdf" target="_blank" class="btn btn-primary">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        Descargar PDF
+                    </a>
+                    <a href="https://wa.me/34614114757" target="_blank" class="btn whatsapp-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                        </svg>
+                        WhatsApp
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Price Data -->
+    <script src="js/prices-data.js"></script>
+
+    <script>
+        // State
+        let filteredData = [...PRICE_DATA];
+        let currentPage = 1;
+        const itemsPerPage = 50;
+
+        // Elements
+        const searchInput = document.getElementById('searchInput');
+        const tableBody = document.getElementById('tableBody');
+        const emptyState = document.getElementById('emptyState');
+        const priceTable = document.getElementById('priceTable');
+        const pagination = document.getElementById('pagination');
+        const showingCount = document.getElementById('showingCount');
+        const totalCount = document.getElementById('totalCount');
+        const pageInfo = document.getElementById('pageInfo');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        // Initialize
+        function init() {
+            totalCount.textContent = PRICE_DATA.length;
+            renderTable();
+            updateCounts();
+        }
+
+        // Render table
+        function renderTable() {
+            const start = (currentPage - 1) * itemsPerPage;
+            const end = start + itemsPerPage;
+            const pageData = filteredData.slice(start, end);
+            const searchTerm = searchInput.value.toLowerCase().trim();
+
+            if (pageData.length === 0) {
+                priceTable.style.display = 'none';
+                emptyState.style.display = 'block';
+                pagination.style.display = 'none';
+                return;
+            }
+
+            priceTable.style.display = 'table';
+            emptyState.style.display = 'none';
+            pagination.style.display = 'flex';
+
+            tableBody.innerHTML = pageData.map(item => {
+                const [code, packaging, price] = item;
+                const highlightedCode = highlightText(code, searchTerm);
+
+                return `
+                    <tr>
+                        <td class="item-code">${highlightedCode}</td>
+                        <td class="item-packaging">${packaging}</td>
+                        <td class="item-price">${price}</td>
+                    </tr>
+                `;
+            }).join('');
+
+            updatePagination();
+        }
+
+        // Highlight search term
+        function highlightText(text, term) {
+            if (!term) return text;
+            const regex = new RegExp(`(${escapeRegex(term)})`, 'gi');
+            return text.replace(regex, '<span class="highlight">$1</span>');
+        }
+
+        function escapeRegex(str) {
+            return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        }
+
+        // Update counts
+        function updateCounts() {
+            showingCount.textContent = filteredData.length;
+        }
+
+        // Update pagination
+        function updatePagination() {
+            const totalPages = Math.ceil(filteredData.length / itemsPerPage) || 1;
+            pageInfo.textContent = `Página ${currentPage} de ${totalPages}`;
+            prevBtn.disabled = currentPage <= 1;
+            nextBtn.disabled = currentPage >= totalPages;
+        }
+
+        // Search handler
+        function handleSearch() {
+            const term = searchInput.value.toLowerCase().trim();
+
+            if (term === '') {
+                filteredData = [...PRICE_DATA];
+            } else {
+                filteredData = PRICE_DATA.filter(item =>
+                    item[0].toLowerCase().includes(term) ||
+                    item[1].toLowerCase().includes(term) ||
+                    item[2].toLowerCase().includes(term)
+                );
+            }
+
+            currentPage = 1;
+            renderTable();
+            updateCounts();
+        }
+
+        // Debounce
+        function debounce(func, wait) {
+            let timeout;
+            return function (...args) {
+                clearTimeout(timeout);
+                timeout = setTimeout(() => func.apply(this, args), wait);
+            };
+        }
+
+        // Event listeners
+        searchInput.addEventListener('input', debounce(handleSearch, 200));
+
+        prevBtn.addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                renderTable();
+                window.scrollTo({ top: 200, behavior: 'smooth' });
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+            if (currentPage < totalPages) {
+                currentPage++;
+                renderTable();
+                window.scrollTo({ top: 200, behavior: 'smooth' });
+            }
+        });
+
+        // Mobile nav
+        function toggleMobileNav() {
+            document.getElementById('mobileNav').classList.toggle('active');
+        }
+
+        // Init
+        init();
+    </script>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

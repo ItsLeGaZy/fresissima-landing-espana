@@ -57,12 +57,12 @@ function checkPassword(event) {
 
     const password = document.getElementById('password').value;
 
-    // Hash SHA-256 de la contraseña real (Fresissima2025!)
+    // Hash SHA-256 de la contraseña real (1234)
     // Para cambiar la contraseña: 
     // 1. Ve a https://emn178.github.io/online-tools/sha256.html
     // 2. Ingresa tu nueva contraseña
     // 3. Copia el hash generado y reemplaza el valor abajo
-    const correctPasswordHash = 'e301dd5226d5308734f84ab4989c30d5d449ed7bd2376287c1da47b0d5554cf6';
+    const correctPasswordHash = '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4';
 
     // Calcular hash de la contraseña ingresada
     crypto.subtle.digest('SHA-256', new TextEncoder().encode(password))
