@@ -1,0 +1,35 @@
+// Vibra Price Data 2026
+// Auto-generated from PDF
+// Total products: 29
+
+const PRICE_DATA_VIBRA = [
+  ["VIBRA A1 EU  3, 2 € 88,95 VIBRA PERIO KIT EU/US PS10 - PKB L - PKB R", "1", "€ 157,75"],
+  ["VIBRA A1 HV EU  3, 2 € 100,60 VIBRA PKB EU L", "3, 2 +", "€ 111,20"],
+  ["VIBRA A1 HV US  3, 2 € 100,60 VIBRA PKB EU R", "3, 2 +", "€ 111,20"],
+  ["VIBRA A1 US  3, 2 € 88,95 VIBRA PKB US L", "3, 2 +", "€ 111,20"],
+  ["VIBRA B3 EU  3, 2 € 74,10 VIBRA PKB US R", "3, 2 +", "€ 111,20"],
+  ["VIBRA B3 US  3, 2 € 74,10 VIBRAP2LEU  3,", "2", "€ 105,65"],
+  ["VIBRA P1S HV EU  3, 2 € 100,60 VIBRAP2LUS  3,", "2", "€ 105,65"],
+  ["VIBRA P1S HV US  3, 2 € 100,60 VIBRAP2REU  3,", "2", "€ 105,65"],
+  ["VIBRA PEEKASSO Tips PEEK 25, 12 + € 28,55 VIBRAP2RUS  3,", "2", "€ 105,65"],
+  ["VIBRA PS10 EU  3, 2 € 105,65 VIBRAPS10EUDIAC Tip+Wrench→ € 179,80", "3, 2 +", "€ 153,60"],
+  ["VIBRA PS10 US  3, 2 € 105,65 VIBRAPS10EUDIAF Tip+Wrench→ € 179,80", "3, 2 +", "€ 153,60"],
+  ["VIBRACHUCK120EU Mandrel PEEKASSO 3, 2 + € 105,90 VIBRAPS10EUDIAM Tip+Wrench→ € 179,80", "3, 2 +", "€ 153,60"],
+  ["VIBRACHUCK120US Mandrel PEEKASSO 3, 2 + € 105,90 VIBRAPS10USDIAC Tip+Wrench→ € 179,80", "3, 2 +", "€ 153,60"],
+  ["VIBRADKO A1 EU  3, 2 € 100,60 VIBRAPS10USDIAF Tip+Wrench→ € 179,80", "3, 2 +", "€ 153,60"],
+  ["VIBRADKO A1 US  3, 2 € 100,60 VIBRAPS10USDIAM Tip+Wrench→ € 179,80", "3, 2 +", "€ 153,60"],
+  ["VIBRADKO P1S HV EU  3,", "2", "€ 112,30"],
+  ["VIBRADKO P1S HV US  3,", "2", "€ 112,30"],
+  ["VIBRADKO PS10EU  3,", "2", "€ 127,10"],
+  ["VIBRADKO PS10US  3,", "2", "€ 127,10"],
+  ["VIBRADKOA1 HVUS  3,", "2", "€ 105,65"],
+  ["VIBRADKO BD013 EU", "3, 2 +", "€ 153,60"],
+  ["VIBRADKO BD013 US", "3, 2 +", "€ 153,60"],
+  ["VIBRAE24EUDIAM", "3, 2 +", "€ 153,60"],
+  ["VIBRAE24USDIAM  3, 2 + € 153,60 VIBRA 856DIA.IT ITALIAN fastening", "3, 2 +", "€ 137,70"],
+  ["VIBRAE31EU  3, 2 € 105,65 VIBRADKO OTS IT ITALIAN fastening", "3, 2 +", "€ 137,70"],
+  ["VIBRAE31EUDIAM  3, 2 + € 153,60 VIBRAOTSFIT ITALIAN fastening", "3, 2 +", "€ 137,70"],
+  ["VIBRAE31US  3, 2 € 105,65 VIBRAOTSL IT ITALIAN fastening", "3, 2 +", "€ 137,70"],
+  ["VIBRAE31USDIAM  3, 2 + € 153,60 VIBRAOTSR IT ITALIAN fastening", "3, 2 +", "€ 137,70"],
+  ["VIBRA KEY EU", "1", "€ 46,55"],
+];
