@@ -1,0 +1,847 @@
+[
+  {
+    "page": 1,
+    "table": 1,
+    "row": 1,
+    "cells": [
+      "Homogeneous Category",
+      "HYGIENE&PROPHYL"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 2,
+    "row": 1,
+    "cells": [
+      "Homogeneous Category",
+      "PERIODONTOLOGY"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 3,
+    "row": 1,
+    "cells": [
+      "Item Annotation Packaging Unit Price",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "page": 1,
+    "table": 3,
+    "row": 2,
+    "cells": [
+      "VIBRA A1 EU",
+      "(vuoto)",
+      "3, 2",
+      "€ 88,95"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 3,
+    "row": 3,
+    "cells": [
+      "VIBRA A1 HV EU",
+      "(vuoto)",
+      "3, 2",
+      "€ 100,60"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 3,
+    "row": 4,
+    "cells": [
+      "VIBRA A1 HV US",
+      "(vuoto)",
+      "3, 2",
+      "€ 100,60"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 3,
+    "row": 5,
+    "cells": [
+      "VIBRA A1 US",
+      "(vuoto)",
+      "3, 2",
+      "€ 88,95"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 3,
+    "row": 6,
+    "cells": [
+      "VIBRA B3 EU",
+      "(vuoto)",
+      "3, 2",
+      "€ 74,10"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 3,
+    "row": 7,
+    "cells": [
+      "VIBRA B3 US",
+      "(vuoto)",
+      "3, 2",
+      "€ 74,10"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 3,
+    "row": 8,
+    "cells": [
+      "VIBRA P1S HV EU",
+      "(vuoto)",
+      "3, 2",
+      "€ 100,60"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 3,
+    "row": 9,
+    "cells": [
+      "VIBRA P1S HV US",
+      "(vuoto)",
+      "3, 2",
+      "€ 100,60"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 3,
+    "row": 10,
+    "cells": [
+      "VIBRA PEEKASSO",
+      "Tips PEEK",
+      "25, 12 +",
+      "€ 28,55"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 3,
+    "row": 11,
+    "cells": [
+      "VIBRA PS10 EU",
+      "(vuoto)",
+      "3, 2",
+      "€ 105,65"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 3,
+    "row": 12,
+    "cells": [
+      "VIBRA PS10 US",
+      "(vuoto)",
+      "3, 2",
+      "€ 105,65"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 3,
+    "row": 13,
+    "cells": [
+      "VIBRACHUCK120EU",
+      "Mandrel PEEKASSO",
+      "3, 2 +",
+      "€ 105,90"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 3,
+    "row": 14,
+    "cells": [
+      "VIBRACHUCK120US",
+      "Mandrel PEEKASSO",
+      "3, 2 +",
+      "€ 105,90"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 3,
+    "row": 15,
+    "cells": [
+      "VIBRADKO A1 EU",
+      "(vuoto)",
+      "3, 2",
+      "€ 100,60"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 3,
+    "row": 16,
+    "cells": [
+      "VIBRADKO A1 US",
+      "(vuoto)",
+      "3, 2",
+      "€ 100,60"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 3,
+    "row": 17,
+    "cells": [
+      "VIBRADKO P1S HV EU",
+      "(vuoto)",
+      "3, 2",
+      "€ 112,30"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 3,
+    "row": 18,
+    "cells": [
+      "VIBRADKO P1S HV US",
+      "(vuoto)",
+      "3, 2",
+      "€ 112,30"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 3,
+    "row": 19,
+    "cells": [
+      "VIBRADKO PS10EU",
+      "(vuoto)",
+      "3, 2",
+      "€ 127,10"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 3,
+    "row": 20,
+    "cells": [
+      "VIBRADKO PS10US",
+      "(vuoto)",
+      "3, 2",
+      "€ 127,10"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 3,
+    "row": 21,
+    "cells": [
+      "VIBRADKOA1 HVEU",
+      "(vuoto)",
+      "3, 2",
+      "€ 105,65"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 3,
+    "row": 22,
+    "cells": [
+      "VIBRADKOA1 HVUS",
+      "(vuoto)",
+      "3, 2",
+      "€ 105,65"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 4,
+    "row": 1,
+    "cells": [
+      "Item Annotation Packaging Unit Price",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "page": 1,
+    "table": 4,
+    "row": 2,
+    "cells": [
+      "VIBRA PERIO KIT EU/US",
+      "PS10 - PKB L - PKB R",
+      "1",
+      "€ 157,75"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 4,
+    "row": 3,
+    "cells": [
+      "VIBRA PKB EU L",
+      "(vuoto)",
+      "3, 2 +",
+      "€ 111,20"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 4,
+    "row": 4,
+    "cells": [
+      "VIBRA PKB EU R",
+      "(vuoto)",
+      "3, 2 +",
+      "€ 111,20"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 4,
+    "row": 5,
+    "cells": [
+      "VIBRA PKB US L",
+      "(vuoto)",
+      "3, 2 +",
+      "€ 111,20"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 4,
+    "row": 6,
+    "cells": [
+      "VIBRA PKB US R",
+      "(vuoto)",
+      "3, 2 +",
+      "€ 111,20"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 4,
+    "row": 7,
+    "cells": [
+      "VIBRAP2LEU",
+      "(vuoto)",
+      "3, 2",
+      "€ 105,65"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 4,
+    "row": 8,
+    "cells": [
+      "VIBRAP2LUS",
+      "(vuoto)",
+      "3, 2",
+      "€ 105,65"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 4,
+    "row": 9,
+    "cells": [
+      "VIBRAP2REU",
+      "(vuoto)",
+      "3, 2",
+      "€ 105,65"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 4,
+    "row": 10,
+    "cells": [
+      "VIBRAP2RUS",
+      "(vuoto)",
+      "3, 2",
+      "€ 105,65"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 4,
+    "row": 11,
+    "cells": [
+      "VIBRAPS10EUDIAC",
+      "Tip+Wrench→ € 179,80",
+      "3, 2 +",
+      "€ 153,60"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 4,
+    "row": 12,
+    "cells": [
+      "VIBRAPS10EUDIAF",
+      "Tip+Wrench→ € 179,80",
+      "3, 2 +",
+      "€ 153,60"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 4,
+    "row": 13,
+    "cells": [
+      "VIBRAPS10EUDIAM",
+      "Tip+Wrench→ € 179,80",
+      "3, 2 +",
+      "€ 153,60"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 4,
+    "row": 14,
+    "cells": [
+      "VIBRAPS10USDIAC",
+      "Tip+Wrench→ € 179,80",
+      "3, 2 +",
+      "€ 153,60"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 4,
+    "row": 15,
+    "cells": [
+      "VIBRAPS10USDIAF",
+      "Tip+Wrench→ € 179,80",
+      "3, 2 +",
+      "€ 153,60"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 4,
+    "row": 16,
+    "cells": [
+      "VIBRAPS10USDIAM",
+      "Tip+Wrench→ € 179,80",
+      "3, 2 +",
+      "€ 153,60"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 5,
+    "row": 1,
+    "cells": [
+      "Homogeneous Category",
+      "RESTORATIVE"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 6,
+    "row": 1,
+    "cells": [
+      "Item Annotation Packaging Unit Price",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "page": 1,
+    "table": 6,
+    "row": 2,
+    "cells": [
+      "VIBRADKO BD013 EU",
+      "(vuoto)",
+      "3, 2 +",
+      "€ 153,60"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 6,
+    "row": 3,
+    "cells": [
+      "VIBRADKO BD013 US",
+      "(vuoto)",
+      "3, 2 +",
+      "€ 153,60"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 7,
+    "row": 1,
+    "cells": [
+      "Homogeneous Category",
+      "ENDODONTICS"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 8,
+    "row": 1,
+    "cells": [
+      "Item Annotation Packaging Unit Price",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "page": 1,
+    "table": 8,
+    "row": 2,
+    "cells": [
+      "VIBRAE24EU",
+      "(vuoto)",
+      "3, 2",
+      "€ 105,65"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 8,
+    "row": 3,
+    "cells": [
+      "VIBRAE24EUDIAM",
+      "(vuoto)",
+      "3, 2 +",
+      "€ 153,60"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 8,
+    "row": 4,
+    "cells": [
+      "VIBRAE24US",
+      "(vuoto)",
+      "3, 2",
+      "€ 105,65"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 8,
+    "row": 5,
+    "cells": [
+      "VIBRAE24USDIAM",
+      "(vuoto)",
+      "3, 2 +",
+      "€ 153,60"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 8,
+    "row": 6,
+    "cells": [
+      "VIBRAE31EU",
+      "(vuoto)",
+      "3, 2",
+      "€ 105,65"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 8,
+    "row": 7,
+    "cells": [
+      "VIBRAE31EUDIAM",
+      "(vuoto)",
+      "3, 2 +",
+      "€ 153,60"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 8,
+    "row": 8,
+    "cells": [
+      "VIBRAE31US",
+      "(vuoto)",
+      "3, 2",
+      "€ 105,65"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 8,
+    "row": 9,
+    "cells": [
+      "VIBRAE31USDIAM",
+      "(vuoto)",
+      "3, 2 +",
+      "€ 153,60"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 9,
+    "row": 1,
+    "cells": [
+      "Homogeneous Category",
+      "SURGERY"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 10,
+    "row": 1,
+    "cells": [
+      "Item Annotation Packaging Unit Price",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "page": 1,
+    "table": 10,
+    "row": 2,
+    "cells": [
+      "VIBRA 856DIA.IT",
+      "ITALIAN fastening",
+      "3, 2 +",
+      "€ 137,70"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 10,
+    "row": 3,
+    "cells": [
+      "VIBRADKO OTS IT",
+      "ITALIAN fastening",
+      "3, 2 +",
+      "€ 137,70"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 10,
+    "row": 4,
+    "cells": [
+      "VIBRAOTSFIT",
+      "ITALIAN fastening",
+      "3, 2 +",
+      "€ 137,70"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 10,
+    "row": 5,
+    "cells": [
+      "VIBRAOTSL IT",
+      "ITALIAN fastening",
+      "3, 2 +",
+      "€ 137,70"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 10,
+    "row": 6,
+    "cells": [
+      "VIBRAOTSR IT",
+      "ITALIAN fastening",
+      "3, 2 +",
+      "€ 137,70"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 11,
+    "row": 1,
+    "cells": [
+      "Homogeneous Category",
+      "SUNDRIES"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 12,
+    "row": 1,
+    "cells": [
+      "Item Annotation Packaging Unit Price",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "page": 1,
+    "table": 12,
+    "row": 2,
+    "cells": [
+      "TKD TITANUS E",
+      "Scaler EU (sc.max 5%)",
+      "1",
+      "€ 421,85"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 12,
+    "row": 3,
+    "cells": [
+      "TKD TITANUS S",
+      "Scaler US (sc.max 5%)",
+      "1",
+      "€ 444,10"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 12,
+    "row": 4,
+    "cells": [
+      "VIBRA BOX",
+      "(vuoto)",
+      "1",
+      "€ 81,15"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 12,
+    "row": 5,
+    "cells": [
+      "VIBRA GENIUS K",
+      "Only if sold with inserts",
+      "1",
+      "€ 47,60"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 12,
+    "row": 6,
+    "cells": [
+      "",
+      "",
+      "12, 6",
+      "€ 68,80"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 12,
+    "row": 7,
+    "cells": [
+      "VIBRA GENIUS S",
+      "Only if sold with inserts",
+      "1",
+      "€ 47,60"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 12,
+    "row": 8,
+    "cells": [
+      "",
+      "",
+      "12, 6",
+      "€ 68,80"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 12,
+    "row": 9,
+    "cells": [
+      "VIBRA KEY EU",
+      "(vuoto)",
+      "1",
+      "€ 46,55"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 12,
+    "row": 10,
+    "cells": [
+      "",
+      "",
+      "with inserts",
+      "€ 37,00"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 12,
+    "row": 11,
+    "cells": [
+      "VIBRA KEY US",
+      "(vuoto)",
+      "1",
+      "€ 46,55"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 12,
+    "row": 12,
+    "cells": [
+      "",
+      "",
+      "with inserts",
+      "€ 37,00"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 12,
+    "row": 13,
+    "cells": [
+      "VIBRA PNP",
+      "(vuoto)",
+      "1",
+      "€ 63,50"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 13,
+    "row": 1,
+    "cells": [
+      "GENIUS K compatibility"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 13,
+    "row": 2,
+    "cells": [
+      "Kavo (SonicFlex) Komet (SF1LM) TKD (Sonosurgery e Airson) Sirona (solo Siroair L) W&H (Synea) NSK (TiMax) Morita (AirSolfy)"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 14,
+    "row": 1,
+    "cells": [
+      "GENIUS S compatibility (Sirosonic) (Sirosonic L) Sirona (Sirosonic TL)"
+    ]
+  },
+  {
+    "page": 1,
+    "table": 14,
+    "row": 2,
+    "cells": [
+      "(Periosonic)"
+    ]
+  }
+]
