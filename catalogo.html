@@ -19,7 +19,7 @@
         sizes="192x192">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="css/style.css?v=4.1">
+    <link rel="stylesheet" href="css/style.css?v=5.0">
 
     <style>
         /* Catalog specific styles */
@@ -174,331 +174,360 @@
             color: var(--text-muted);
             margin-bottom: var(--space-6);
         }
+
+        body {
+            padding-bottom: 80px;
+        }
+
+        .b2b-header {
+            background: var(--grey-900, #1A202C);
+            color: white;
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .b2b-header img {
+            height: 20px;
+            filter: brightness(0) invert(1);
+        }
+
+        .b2b-header span {
+            font-weight: 600;
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        .tab-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 64px;
+            background: white;
+            border-top: 1px solid #E2E8F0;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding-bottom: env(safe-area-inset-bottom, 0);
+            z-index: 100;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .tab-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.2rem;
+            text-decoration: none;
+            color: #718096;
+            font-size: 0.6rem;
+            font-weight: 600;
+            padding: 0.5rem 0.75rem;
+            border-radius: 8px;
+            touch-action: manipulation;
+        }
+
+        .tab-item.active {
+            color: #FF6B35;
+        }
+
+        .tab-item:active {
+            background: #F0F4F8;
+        }
+
+        .tab-icon {
+            font-size: 1.35rem;
+            line-height: 1;
+        }
+
+        .catalog-header {
+            margin-top: 0;
+        }
     </style>
 </head>
 
-<body>
-    <!-- Session Protection -->
-    <script>
-        (function () {
-            const isAuthenticated = sessionStorage.getItem('fresissima_auth');
-            const authTime = sessionStorage.getItem('fresissima_auth_time');
-            const currentTime = new Date().getTime();
-
-            if (isAuthenticated !== 'true' || !authTime || (currentTime - parseInt(authTime)) > 7200000) {
-                sessionStorage.removeItem('fresissima_auth');
-                sessionStorage.removeItem('fresissima_auth_time');
-                window.location.replace('index.html');
-            }
-        })();
-    </script>
-
-    <!-- Header -->
-    <header class="header">
-        <div class="container header-inner">
-            <a href="index.html" class="logo">
-                <img src="https://fresissima.it/wp-content/uploads/2025/10/Logo-fresissima.png" alt="Fresissima">
-            </a>
-
-            <nav class="nav">
-                <a href="index.html">Inicio</a>
-                <a href="instrumentacion.html">Instrumentación</a>
-                <a href="fabricacion.html">Fabricación</a>
-                <a href="contacto.html">Contacto</a>
-            </nav>
-
-            <button class="menu-btn" onclick="toggleMobileNav()" aria-label="Menú">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </header>
-
-    <!-- Mobile Navigation -->
-    <nav class="mobile-nav" id="mobileNav">
-        <a href="index.html">Inicio</a>
-        <a href="instrumentacion.html">Instrumentación</a>
-        <a href="fabricacion.html">Fabricación</a>
-        <a href="contacto.html">Contacto</a>
-    </nav>
-
-    <!-- Logout Button -->
-    <a href="index.html" onclick="logout()" class="btn btn-outline logout-btn">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
-            <polyline points="16 17 21 12 16 7"></polyline>
-            <line x1="21" y1="12" x2="9" y2="12"></line>
-        </svg>
-        Salir
+<!-- B2B Header -->
+<header class="b2b-header">
+    <a href="index.html" style="text-decoration:none;color:white;display:flex;align-items:center;gap:0.5rem;">
+        <img src="https://fresissima.it/wp-content/uploads/2025/10/Logo-fresissima.png" alt="Fresissima">
+        <span>PDFs y Vademécums</span>
     </a>
+</header>
 
-    <main>
-        <!-- Header -->
-        <section class="catalog-header">
-            <div class="container">
-                <span class="section-label text-primary">Acceso Profesional</span>
-                <h1>Biblioteca Digital</h1>
-                <p>Vademécums técnicos y listas de precios oficiales</p>
+<main>
+    <!-- Header -->
+    <section class="catalog-header">
+        <div class="container">
+            <span class="section-label text-primary">Acceso Profesional</span>
+            <h1>Biblioteca Digital</h1>
+            <p>Vademécums técnicos y listas de precios oficiales</p>
+        </div>
+    </section>
+
+    <!-- Vademecums Section -->
+    <section class="catalog-section bg-white">
+        <div class="container">
+            <div class="catalog-section-title">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                </svg>
+                <h2>Vademécums Técnicos</h2>
             </div>
-        </section>
 
-        <!-- Vademecums Section -->
-        <section class="catalog-section bg-white">
-            <div class="container">
-                <div class="catalog-section-title">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-                    </svg>
-                    <h2>Vademécums Técnicos</h2>
-                </div>
-
-                <div class="catalog-grid">
-                    <a href="visor.html?file=Fresissima/SPA_VADEMECUM_chirurgia_test7_rev8_SPAGNOLO.pdf"
-                        class="catalog-card">
-                        <div class="catalog-card-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
-                                <polyline points="14 2 14 8 20 8"></polyline>
-                            </svg>
-                        </div>
-                        <div class="catalog-card-content">
-                            <div class="catalog-card-title">Cirugía Oral</div>
-                            <div class="catalog-card-desc">Fresas quirúrgicas y protocolos</div>
-                        </div>
-                        <span class="catalog-card-action">Ver →</span>
-                    </a>
-
-                    <a href="visor.html?file=Fresissima/SPA_VADEMECUM_endodonzia_test1_rev4_spagnolo.pdf"
-                        class="catalog-card">
-                        <div class="catalog-card-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
-                                <polyline points="14 2 14 8 20 8"></polyline>
-                            </svg>
-                        </div>
-                        <div class="catalog-card-content">
-                            <div class="catalog-card-title">Endodoncia</div>
-                            <div class="catalog-card-desc">Acceso cameral y localización</div>
-                        </div>
-                        <span class="catalog-card-action">Ver →</span>
-                    </a>
-
-                    <a href="visor.html?file=Fresissima/SPA_VADEMECUM_ortodonzia_test1_rev2_SPAGNOLO.pdf"
-                        class="catalog-card">
-                        <div class="catalog-card-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
-                                <polyline points="14 2 14 8 20 8"></polyline>
-                            </svg>
-                        </div>
-                        <div class="catalog-card-content">
-                            <div class="catalog-card-title">Ortodoncia</div>
-                            <div class="catalog-card-desc">Brackets y stripping</div>
-                        </div>
-                        <span class="catalog-card-action">Ver →</span>
-                    </a>
-
-                    <a href="visor.html?file=Fresissima/vademecum_prov_spa.pdf" class="catalog-card">
-                        <div class="catalog-card-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
-                                <polyline points="14 2 14 8 20 8"></polyline>
-                            </svg>
-                        </div>
-                        <div class="catalog-card-content">
-                            <div class="catalog-card-title">Prótesis</div>
-                            <div class="catalog-card-desc">Preparación y márgenes</div>
-                        </div>
-                        <span class="catalog-card-action">Ver →</span>
-                    </a>
-
-                    <a href="visor.html?file=Fresissima/vademecum_zirconia_spa_media_100dpi.pdf" class="catalog-card">
-                        <div class="catalog-card-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
-                                <polyline points="14 2 14 8 20 8"></polyline>
-                            </svg>
-                        </div>
-                        <div class="catalog-card-content">
-                            <div class="catalog-card-title">Zirconia</div>
-                            <div class="catalog-card-desc">CAD/CAM sin microfracturas</div>
-                        </div>
-                        <span class="catalog-card-action">Ver →</span>
-                    </a>
-
-                    <a href="visor.html?file=Fresissima/2022_11_ESP_Web_Vademecum_Tagliacorone.pdf"
-                        class="catalog-card">
-                        <div class="catalog-card-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
-                                <polyline points="14 2 14 8 20 8"></polyline>
-                            </svg>
-                        </div>
-                        <div class="catalog-card-content">
-                            <div class="catalog-card-title">Tagliacorone</div>
-                            <div class="catalog-card-desc">Cortadores de coronas</div>
-                        </div>
-                        <span class="catalog-card-action">Ver →</span>
-                    </a>
-
-                    <a href="visor.html?file=Fresissima/SPA_VADEMECUM_orafi_rev1.pdf" class="catalog-card">
-                        <div class="catalog-card-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
-                                <polyline points="14 2 14 8 20 8"></polyline>
-                            </svg>
-                        </div>
-                        <div class="catalog-card-content">
-                            <div class="catalog-card-title">Orfebrería</div>
-                            <div class="catalog-card-desc">Aplicaciones industriales</div>
-                        </div>
-                        <span class="catalog-card-action">Ver →</span>
-                    </a>
-
-                    <a href="visor.html?file=Fresissima/vademecum_vet_spa.pdf" class="catalog-card">
-                        <div class="catalog-card-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
-                                <polyline points="14 2 14 8 20 8"></polyline>
-                            </svg>
-                        </div>
-                        <div class="catalog-card-content">
-                            <div class="catalog-card-title">Veterinaria</div>
-                            <div class="catalog-card-desc">Aplicaciones animales</div>
-                        </div>
-                        <span class="catalog-card-action">Ver →</span>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Price Lists Section -->
-        <section class="catalog-section bg-grey-50">
-            <div class="container">
-                <div class="catalog-section-title">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2">
-                        <line x1="12" y1="1" x2="12" y2="23"></line>
-                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                    </svg>
-                    <h2>Listas de Precios</h2>
-                </div>
-
-                <div class="catalog-grid">
-                    <a href="precios.html" class="catalog-card" style="border: 2px solid #22C55E;">
-                        <div class="catalog-card-icon price">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <circle cx="11" cy="11" r="8"></circle>
-                                <path d="m21 21-4.3-4.3"></path>
-                            </svg>
-                        </div>
-                        <div class="catalog-card-content">
-                            <div class="catalog-card-title">🔍 Buscador Fresissima 2026</div>
-                            <div class="catalog-card-desc">Busca precios por código al instante</div>
-                        </div>
-                        <span class="catalog-card-action" style="color: #22C55E;">Buscar →</span>
-                    </a>
-                    <a href="visor.html?file=Fresissima/Price-list-FRESISSIMA-2026.pdf" class="catalog-card">
-                        <div class="catalog-card-icon price">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                <polyline points="14 2 14 8 20 8"></polyline>
-                                <line x1="16" y1="13" x2="8" y2="13"></line>
-                                <line x1="16" y1="17" x2="8" y2="17"></line>
-                            </svg>
-                        </div>
-                        <div class="catalog-card-content">
-                            <div class="catalog-card-title">Fresissima 2026 (PDF)</div>
-                            <div class="catalog-card-desc">Tarifa completa en PDF</div>
-                        </div>
-                        <span class="catalog-card-action" style="color: #22C55E;">Ver →</span>
-                    </a>
-
-                    <a href="precios-dentag.html" class="catalog-card" style="border: 2px solid #22C55E;">
-                        <div class="catalog-card-icon price">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <circle cx="11" cy="11" r="8"></circle>
-                                <path d="m21 21-4.3-4.3"></path>
-                            </svg>
-                        </div>
-                        <div class="catalog-card-content">
-                            <div class="catalog-card-title">🔍 Buscador Dentag 2026</div>
-                            <div class="catalog-card-desc">Busca precios por código al instante</div>
-                        </div>
-                        <span class="catalog-card-action" style="color: #22C55E;">Buscar →</span>
-                    </a>
-
-                    <a href="precios-vibra.html" class="catalog-card" style="border: 2px solid #22C55E;">
-                        <div class="catalog-card-icon price">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <circle cx="11" cy="11" r="8"></circle>
-                                <path d="m21 21-4.3-4.3"></path>
-                            </svg>
-                        </div>
-                        <div class="catalog-card-content">
-                            <div class="catalog-card-title">🔍 Buscador Vibra 2026</div>
-                            <div class="catalog-card-desc">Busca precios por código al instante</div>
-                        </div>
-                        <span class="catalog-card-action" style="color: #22C55E;">Buscar →</span>
-                    </a>
-
-                    <a href="precios-xtruments.html" class="catalog-card" style="border: 2px solid #22C55E;">
-                        <div class="catalog-card-icon price">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <circle cx="11" cy="11" r="8"></circle>
-                                <path d="m21 21-4.3-4.3"></path>
-                            </svg>
-                        </div>
-                        <div class="catalog-card-content">
-                            <div class="catalog-card-title">🔍 Buscador Xtruments 2026</div>
-                            <div class="catalog-card-desc">Busca precios por código al instante</div>
-                        </div>
-                        <span class="catalog-card-action" style="color: #22C55E;">Buscar →</span>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <section class="catalog-footer">
-            <div class="container">
-                <h3>¿Necesitas el PDF para imprimir?</h3>
-                <p>Contacta directamente con nuestro especialista técnico.</p>
-                <div class="flex gap-3 justify-center flex-wrap">
-                    <a href="mailto:jaime@fresissima.com" class="btn btn-primary">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
-                            </path>
-                            <polyline points="22,6 12,13 2,6"></polyline>
+            <div class="catalog-grid">
+                <a href="visor.html?file=Fresissima/SPA_VADEMECUM_chirurgia_test7_rev8_SPAGNOLO.pdf"
+                    class="catalog-card">
+                    <div class="catalog-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
                         </svg>
-                        Email Soporte
-                    </a>
-                    <a href="https://wa.me/34614114757" target="_blank" class="btn whatsapp-btn">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                    </div>
+                    <div class="catalog-card-content">
+                        <div class="catalog-card-title">Cirugía Oral</div>
+                        <div class="catalog-card-desc">Fresas quirúrgicas y protocolos</div>
+                    </div>
+                    <span class="catalog-card-action">Ver →</span>
+                </a>
+
+                <a href="visor.html?file=Fresissima/SPA_VADEMECUM_endodonzia_test1_rev4_spagnolo.pdf"
+                    class="catalog-card">
+                    <div class="catalog-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
                         </svg>
-                        WhatsApp
-                    </a>
-                </div>
+                    </div>
+                    <div class="catalog-card-content">
+                        <div class="catalog-card-title">Endodoncia</div>
+                        <div class="catalog-card-desc">Acceso cameral y localización</div>
+                    </div>
+                    <span class="catalog-card-action">Ver →</span>
+                </a>
+
+                <a href="visor.html?file=Fresissima/SPA_VADEMECUM_ortodonzia_test1_rev2_SPAGNOLO.pdf"
+                    class="catalog-card">
+                    <div class="catalog-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                        </svg>
+                    </div>
+                    <div class="catalog-card-content">
+                        <div class="catalog-card-title">Ortodoncia</div>
+                        <div class="catalog-card-desc">Brackets y stripping</div>
+                    </div>
+                    <span class="catalog-card-action">Ver →</span>
+                </a>
+
+                <a href="visor.html?file=Fresissima/vademecum_prov_spa.pdf" class="catalog-card">
+                    <div class="catalog-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                        </svg>
+                    </div>
+                    <div class="catalog-card-content">
+                        <div class="catalog-card-title">Prótesis</div>
+                        <div class="catalog-card-desc">Preparación y márgenes</div>
+                    </div>
+                    <span class="catalog-card-action">Ver →</span>
+                </a>
+
+                <a href="visor.html?file=Fresissima/vademecum_zirconia_spa_media_100dpi.pdf" class="catalog-card">
+                    <div class="catalog-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                        </svg>
+                    </div>
+                    <div class="catalog-card-content">
+                        <div class="catalog-card-title">Zirconia</div>
+                        <div class="catalog-card-desc">CAD/CAM sin microfracturas</div>
+                    </div>
+                    <span class="catalog-card-action">Ver →</span>
+                </a>
+
+                <a href="visor.html?file=Fresissima/2022_11_ESP_Web_Vademecum_Tagliacorone.pdf" class="catalog-card">
+                    <div class="catalog-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                        </svg>
+                    </div>
+                    <div class="catalog-card-content">
+                        <div class="catalog-card-title">Tagliacorone</div>
+                        <div class="catalog-card-desc">Cortadores de coronas</div>
+                    </div>
+                    <span class="catalog-card-action">Ver →</span>
+                </a>
+
+                <a href="visor.html?file=Fresissima/SPA_VADEMECUM_orafi_rev1.pdf" class="catalog-card">
+                    <div class="catalog-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                        </svg>
+                    </div>
+                    <div class="catalog-card-content">
+                        <div class="catalog-card-title">Orfebrería</div>
+                        <div class="catalog-card-desc">Aplicaciones industriales</div>
+                    </div>
+                    <span class="catalog-card-action">Ver →</span>
+                </a>
+
+                <a href="visor.html?file=Fresissima/vademecum_vet_spa.pdf" class="catalog-card">
+                    <div class="catalog-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                        </svg>
+                    </div>
+                    <div class="catalog-card-content">
+                        <div class="catalog-card-title">Veterinaria</div>
+                        <div class="catalog-card-desc">Aplicaciones animales</div>
+                    </div>
+                    <span class="catalog-card-action">Ver →</span>
+                </a>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <script src="js/main.js"></script>
-    <script>
-        function toggleMobileNav() {
-            document.getElementById('mobileNav').classList.toggle('active');
-        }
+    <!-- Price Lists Section -->
+    <section class="catalog-section bg-grey-50">
+        <div class="container">
+            <div class="catalog-section-title">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2">
+                    <line x1="12" y1="1" x2="12" y2="23"></line>
+                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                </svg>
+                <h2>Listas de Precios</h2>
+            </div>
 
-        function logout() {
-            sessionStorage.removeItem('fresissima_auth');
-            sessionStorage.removeItem('fresissima_auth_time');
-            window.location.replace('index.html');
-        }
-    </script>
+            <div class="catalog-grid">
+                <a href="precios.html" class="catalog-card" style="border: 2px solid #22C55E;">
+                    <div class="catalog-card-icon price">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.3-4.3"></path>
+                        </svg>
+                    </div>
+                    <div class="catalog-card-content">
+                        <div class="catalog-card-title">🔍 Buscador Fresissima 2026</div>
+                        <div class="catalog-card-desc">Busca precios por código al instante</div>
+                    </div>
+                    <span class="catalog-card-action" style="color: #22C55E;">Buscar →</span>
+                </a>
+                <a href="visor.html?file=Fresissima/Price-list-FRESISSIMA-2026.pdf" class="catalog-card">
+                    <div class="catalog-card-icon price">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                        </svg>
+                    </div>
+                    <div class="catalog-card-content">
+                        <div class="catalog-card-title">Fresissima 2026 (PDF)</div>
+                        <div class="catalog-card-desc">Tarifa completa en PDF</div>
+                    </div>
+                    <span class="catalog-card-action" style="color: #22C55E;">Ver →</span>
+                </a>
+
+                <a href="precios-dentag.html" class="catalog-card" style="border: 2px solid #22C55E;">
+                    <div class="catalog-card-icon price">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.3-4.3"></path>
+                        </svg>
+                    </div>
+                    <div class="catalog-card-content">
+                        <div class="catalog-card-title">🔍 Buscador Dentag 2026</div>
+                        <div class="catalog-card-desc">Busca precios por código al instante</div>
+                    </div>
+                    <span class="catalog-card-action" style="color: #22C55E;">Buscar →</span>
+                </a>
+
+                <a href="precios-vibra.html" class="catalog-card" style="border: 2px solid #22C55E;">
+                    <div class="catalog-card-icon price">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.3-4.3"></path>
+                        </svg>
+                    </div>
+                    <div class="catalog-card-content">
+                        <div class="catalog-card-title">🔍 Buscador Vibra 2026</div>
+                        <div class="catalog-card-desc">Busca precios por código al instante</div>
+                    </div>
+                    <span class="catalog-card-action" style="color: #22C55E;">Buscar →</span>
+                </a>
+
+                <a href="precios-xtruments.html" class="catalog-card" style="border: 2px solid #22C55E;">
+                    <div class="catalog-card-icon price">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.3-4.3"></path>
+                        </svg>
+                    </div>
+                    <div class="catalog-card-content">
+                        <div class="catalog-card-title">🔍 Buscador Xtruments 2026</div>
+                        <div class="catalog-card-desc">Busca precios por código al instante</div>
+                    </div>
+                    <span class="catalog-card-action" style="color: #22C55E;">Buscar →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <section class="catalog-footer">
+        <div class="container">
+            <h3>¿Necesitas el PDF para imprimir?</h3>
+            <p>Contacta directamente con nuestro especialista técnico.</p>
+            <div class="flex gap-3 justify-center flex-wrap">
+                <a href="mailto:jaime@fresissima.com" class="btn btn-primary">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                        </path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    Email Soporte
+                </a>
+                <a href="https://wa.me/34614114757" target="_blank" class="btn whatsapp-btn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                    </svg>
+                    WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Bottom Tab Bar -->
+<nav class="tab-bar">
+    <a href="index.html" class="tab-item">
+        <span class="tab-icon">🏠</span><span>Home</span>
+    </a>
+    <a href="presupuestador.html" class="tab-item">
+        <span class="tab-icon">💰</span><span>Cotizar</span>
+    </a>
+    <a href="instrumentacion.html" class="tab-item">
+        <span class="tab-icon">📋</span><span>Clínica</span>
+    </a>
+    <a href="catalogo.html" class="tab-item active">
+        <span class="tab-icon">📁</span><span>PDFs</span>
+    </a>
+</nav>
+
+<script src="js/main.js"></script>
 </body>
 
 </html>

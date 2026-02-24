@@ -1,15 +1,17 @@
+# Dependencies
 node_modules/
+
+# Development scripts and temp files
+*.py
+*.json
+!package.json
+*.txt
+!README.md
+
+# OS files
 .DS_Store
-.env
-*.log
+Thumbs.db
+
+# IDE
 .vscode/
 .idea/
-*.swp
-*.swo
-*~
-
-# Unused large assets
-Fresissima/Logos/
-
-# AI Artifacts/Temporary
-.gemini/
