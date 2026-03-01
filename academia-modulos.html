@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Módulos de Formación | Academia Fresissima</title>
+    <title>Guía del Comercial | Manual Fresissima</title>
     <meta name="robots" content="noindex, nofollow">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -100,40 +100,18 @@
             line-height: 1.5;
         }
 
-        /* Progress */
-        .progress-bar {
-            margin-top: 1rem;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50px;
-            height: 8px;
-            overflow: hidden;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: white;
-            border-radius: 50px;
-            transition: width 0.5s ease;
-        }
-
-        .progress-label {
-            font-size: 0.7rem;
-            margin-top: 0.35rem;
-            opacity: 0.8;
-        }
-
         .content {
             padding: 1rem;
         }
 
-        /* Navigation between academy pages */
-        .academy-nav {
+        /* Navigation between manual pages */
+        .manual-nav {
             display: flex;
             gap: 0.5rem;
             margin-bottom: 1rem;
         }
 
-        .academy-nav a {
+        .manual-nav a {
             flex: 1;
             padding: 0.65rem 0.75rem;
             border-radius: var(--radius-sm);
@@ -148,7 +126,7 @@
             transition: all 0.15s;
         }
 
-        .academy-nav a.active {
+        .manual-nav a.active {
             background: var(--teal);
             color: white;
             border-color: var(--teal);
@@ -211,15 +189,7 @@
             padding: 0.2rem 0.5rem;
             border-radius: 50px;
             flex-shrink: 0;
-        }
-
-        .module-badge.completed {
-            background: #F0FFF4;
-            color: var(--success);
-        }
-
-        .module-badge.pending {
-            background: #F7FAFC;
+            background: #EDF2F7;
             color: var(--text-muted);
         }
 
@@ -352,24 +322,20 @@
     <header class="top-bar">
         <a href="index.html">
             <img src="https://fresissima.it/wp-content/uploads/2025/10/Logo-fresissima.png" alt="Fresissima">
-            <span>Academia de Producto</span>
+            <span>Manual de Campo</span>
         </a>
     </header>
 
     <section class="hero">
-        <h1>📚 Módulos de Formación</h1>
-        <p>6 módulos para entender el producto, el mercado y la venta. Completa todos para dominar Fresissima.</p>
-        <div class="progress-bar">
-            <div class="progress-fill" id="progressFill" style="width:0%"></div>
-        </div>
-        <div class="progress-label" id="progressLabel">0 de 6 módulos completados</div>
+        <h1>📖 Guía del Comercial</h1>
+        <p>Todo lo que necesitas saber para vender Fresissima. Consúltalo cuando lo necesites.</p>
     </section>
 
     <main class="content">
-        <!-- Academy sub-nav -->
-        <div class="academy-nav">
+        <!-- Manual sub-nav -->
+        <div class="manual-nav">
             <a href="academia-fresas.html">🔬 Identificador</a>
-            <a href="academia-modulos.html" class="active">📚 Módulos</a>
+            <a href="academia-modulos.html" class="active">📖 Guía</a>
         </div>
 
         <div id="modulesContainer"></div>
@@ -378,8 +344,7 @@
     <nav class="tab-bar">
         <a href="index.html" class="tab-item"><span class="tab-icon">🏠</span><span>Home</span></a>
         <a href="presupuestador.html" class="tab-item"><span class="tab-icon">💰</span><span>Cotizar</span></a>
-        <a href="academia-modulos.html" class="tab-item active"><span
-                class="tab-icon">🎓</span><span>Academia</span></a>
+        <a href="academia-modulos.html" class="tab-item active"><span class="tab-icon">📖</span><span>Manual</span></a>
         <a href="catalogo.html" class="tab-item"><span class="tab-icon">📁</span><span>PDFs</span></a>
     </nav>
 
@@ -567,16 +532,8 @@
         // ========== RENDER ==========
         function renderModules() {
             const container = document.getElementById('modulesContainer');
-            const completed = getCompleted();
-            const total = MODULES.length;
-            const done = completed.length;
-
-            // Progress
-            document.getElementById('progressFill').style.width = `${(done / total) * 100}%`;
-            document.getElementById('progressLabel').textContent = `${done} de ${total} módulos completados`;
 
             container.innerHTML = MODULES.map(m => {
-                const isDone = completed.includes(m.id);
                 return `
                 <div class="module-card" data-id="${m.id}">
                     <div class="module-header" onclick="this.parentElement.classList.toggle('open')">
@@ -585,7 +542,7 @@
                             <div class="module-title">${m.title}</div>
                             <div class="module-sub">${m.sub}</div>
                         </div>
-                        <span class="module-badge ${isDone ? 'completed' : 'pending'}">${isDone ? '✅ Hecho' : 'Pendiente'}</span>
+                        <span class="module-badge">${m.cards.length} fichas</span>
                     </div>
                     <div class="flashcards">
                         ${m.cards.map(c => `
@@ -594,10 +551,7 @@
                                 <div class="flashcard-a">${c.a}</div>
                             </div>
                         `).join('')}
-                        ${m.keyPoint ? `<div class="key-point"><strong>💡 Punto clave:</strong> ${m.keyPoint}</div>` : ''}
-                        <button class="complete-btn ${isDone ? 'unmark' : 'mark'}" onclick="event.stopPropagation(); toggleComplete('${m.id}')">
-                            ${isDone ? '↩ Marcar como pendiente' : '✅ Completar módulo'}
-                        </button>
+                        ${m.keyPoint ? `<div class="key-point"><strong>💡 Recuerda:</strong> ${m.keyPoint}</div>` : ''}
                     </div>
                 </div>
             `;
