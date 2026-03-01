@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Identificador de Fresas | Academia Fresissima</title>
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="https://fresissima.it/wp-content/uploads/2025/10/favicon-fresissima-150x150.png"
+        sizes="192x192">
+
+    <style>
+        :root {
+            --primary: #1A202C;
+            --primary-light: #2D3748;
+            --accent: #FF6B35;
+            --bg: #F0F4F8;
+            --surface: #FFFFFF;
+            --text: #2D3748;
+            --text-muted: #718096;
+            --border: #E2E8F0;
+            --success: #38A169;
+            --blue: #3182CE;
+            --purple: #6B46C1;
+            --teal: #319795;
+            --red: #E53E3E;
+            --yellow: #D69E2E;
+            --font: 'Inter', sans-serif;
+            --mono: 'IBM Plex Mono', monospace;
+            --radius: 16px;
+            --radius-sm: 10px;
+            --shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --tab-h: 64px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            padding-bottom: calc(var(--tab-h) + 16px);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Header */
+        .top-bar {
+            background: var(--primary);
+            color: white;
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .top-bar a {
+            text-decoration: none;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .top-bar img {
+            height: 20px;
+            filter: brightness(0) invert(1);
+        }
+
+        .top-bar span {
+            font-weight: 600;
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #6B46C1 0%, #805AD5 50%, #9F7AEA 100%);
+            color: white;
+            padding: 1.75rem 1.25rem 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: 1.35rem;
+            font-weight: 800;
+            margin-bottom: 0.35rem;
+        }
+
+        .hero p {
+            font-size: 0.8rem;
+            opacity: 0.85;
+            line-height: 1.5;
+        }
+
+        /* Content */
+        .content {
+            padding: 1rem;
+        }
+
+        /* Filter Bar */
+        .filter-bar {
+            display: flex;
+            gap: 0.5rem;
+            overflow-x: auto;
+            padding: 0 0 0.75rem;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+
+        .filter-bar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .filter-chip {
+            flex-shrink: 0;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border: 1.5px solid var(--border);
+            background: var(--surface);
+            color: var(--text-muted);
+            cursor: pointer;
+            touch-action: manipulation;
+            transition: all 0.15s;
+            white-space: nowrap;
+        }
+
+        .filter-chip.active {
+            background: var(--purple);
+            color: white;
+            border-color: var(--purple);
+        }
+
+        /* Section Headers */
+        .section-title {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin: 1.25rem 0 0.75rem;
+        }
+
+        .section-title:first-of-type {
+            margin-top: 0.5rem;
+        }
+
+        /* Bur Cards */
+        .bur-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.75rem;
+        }
+
+        .bur-card {
+            background: var(--surface);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.15s;
+            touch-action: manipulation;
+        }
+
+        .bur-card:active {
+            transform: scale(0.98);
+        }
+
+        .bur-card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem;
+        }
+
+        .bur-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            flex-shrink: 0;
+        }
+
+        .bur-card-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .bur-card-name {
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-bottom: 0.15rem;
+        }
+
+        .bur-card-sub {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        .bur-card-arrow {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        /* Expanded Detail */
+        .bur-detail {
+            display: none;
+            padding: 0 1rem 1rem;
+            border-top: 1px dashed var(--border);
+        }
+
+        .bur-card.open .bur-detail {
+            display: block;
+        }
+
+        .bur-card.open .bur-card-arrow {
+            transform: rotate(90deg);
+        }
+
+        .detail-section {
+            margin-top: 0.75rem;
+        }
+
+        .detail-label {
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--purple);
+            margin-bottom: 0.35rem;
+        }
+
+        .detail-text {
+            font-size: 0.8rem;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .detail-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.35rem;
+            margin-top: 0.35rem;
+        }
+
+        .detail-tag {
+            font-size: 0.65rem;
+            font-weight: 600;
+            padding: 0.2rem 0.6rem;
+            border-radius: 50px;
+            background: #F7FAFC;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+        }
+
+        .rpm-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .rpm-bar-track {
+            flex: 1;
+            height: 6px;
+            background: #EDF2F7;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .rpm-bar-fill {
+            height: 100%;
+            border-radius: 3px;
+            transition: width 0.3s;
+        }
+
+        .rpm-label {
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        /* Tip callout */
+        .tip-box {
+            background: linear-gradient(135deg, #FEFCBF 0%, #FEF9C3 100%);
+            border: 1px solid #F6E05E;
+            border-radius: var(--radius-sm);
+            padding: 0.75rem;
+            margin-top: 0.75rem;
+            font-size: 0.75rem;
+            line-height: 1.5;
+        }
+
+        .tip-box strong {
+            color: #B7791F;
+        }
+
+        .link-presupuestador {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            margin-top: 0.75rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        /* ---- Color Band Demo ---- */
+        .color-band-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .color-swatch {
+            border-radius: 8px;
+            padding: 0.6rem 0.5rem;
+            text-align: center;
+            font-size: 0.65rem;
+            font-weight: 700;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        /* Tab bar */
+        .tab-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: var(--tab-h);
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding-bottom: env(safe-area-inset-bottom, 0);
+            z-index: 100;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .tab-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.2rem;
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.6rem;
+            font-weight: 600;
+            padding: 0.5rem 0.75rem;
+            border-radius: 8px;
+            touch-action: manipulation;
+        }
+
+        .tab-item.active {
+            color: var(--purple);
+        }
+
+        .tab-item:active {
+            background: var(--bg);
+        }
+
+        .tab-icon {
+            font-size: 1.35rem;
+            line-height: 1;
+        }
+
+        /* No results */
+        .no-results {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* Search */
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: var(--surface);
+            border: 2px solid var(--border);
+            border-radius: 50px;
+            padding: 0 1rem;
+            margin-bottom: 0.75rem;
+            transition: border-color 0.2s;
+        }
+
+        .search-box:focus-within {
+            border-color: var(--purple);
+        }
+
+        .search-box svg {
+            color: var(--text-muted);
+            flex-shrink: 0;
+        }
+
+        .search-input {
+            flex: 1;
+            border: none;
+            outline: none;
+            padding: 0.75rem 0.5rem;
+            font-size: 0.875rem;
+            font-family: var(--font);
+            background: transparent;
+        }
+
+        @media (min-width: 768px) {
+            .bur-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .content {
+                max-width: 900px;
+                margin: 0 auto;
+                padding: 1.5rem;
+            }
+
+            .color-band-grid {
+                grid-template-columns: repeat(6, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="top-bar">
+        <a href="index.html">
+            <img src="https://fresissima.it/wp-content/uploads/2025/10/Logo-fresissima.png" alt="Fresissima">
+            <span>Academia de Producto</span>
+        </a>
+    </header>
+
+    <section class="hero">
+        <h1>🔬 Identificador de Fresas</h1>
+        <p>Aprende a diferencial cada tipo de fresa, su material, uso clínico y cuándo recomendarla.</p>
+    </section>
+
+    <main class="content">
+        <!-- Search -->
+        <div class="search-box">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.3-4.3"></path>
+            </svg>
+            <input type="text" class="search-input" id="searchInput" placeholder="Buscar por nombre, material, uso...">
+        </div>
+
+        <!-- Filter chips -->
+        <div class="filter-bar" id="filterBar">
+            <button class="filter-chip active" data-filter="all">Todas</button>
+            <button class="filter-chip" data-filter="forma">Por Forma</button>
+            <button class="filter-chip" data-filter="material">Por Material</button>
+            <button class="filter-chip" data-filter="grano">Por Grano ISO</button>
+            <button class="filter-chip" data-filter="uso">Por Uso Clínico</button>
+            <button class="filter-chip" data-filter="vastago">Por Vástago</button>
+        </div>
+
+        <!-- Dynamic content -->
+        <div id="burContent"></div>
+    </main>
+
+    <nav class="tab-bar">
+        <a href="index.html" class="tab-item"><span class="tab-icon">🏠</span><span>Home</span></a>
+        <a href="presupuestador.html" class="tab-item"><span class="tab-icon">💰</span><span>Cotizar</span></a>
+        <a href="academia-fresas.html" class="tab-item active"><span class="tab-icon">🎓</span><span>Academia</span></a>
+        <a href="catalogo.html" class="tab-item"><span class="tab-icon">📁</span><span>PDFs</span></a>
+    </nav>
+
+    <script>
+        // ============== BUR DATABASE ==============
+        const BURS = [
+            // --- POR FORMA ---
+            {
+                cat: 'forma', name: 'Esférica (Bola)',
+                icon: '⚫', iconBg: '#EBF8FF',
+                sub: 'Forma redonda perfecta. La fresa más versátil.',
+                detail: {
+                    que: 'Cabeza perfectamente esférica. Se numera por décimas de mm (ej: 801 = Ø1.0 mm, 802 = Ø1.2 mm).',
+                    cuando: 'Apertura de cavidades, eliminación de caries, acceso endodóntico. Es la más usada en conservadora.',
+                    noCuando: 'No usar para líneas de terminación en prótesis (deja márgenes redondeados).',
+                    rpm: { min: 200000, max: 450000, label: '200K–450K rpm' },
+                    rpmPercent: 85,
+                    rpmColor: '#E53E3E',
+                    tags: ['Conservadora', 'Endodoncia', 'Caries', 'FG/RA'],
+                    tip: 'La 801-014 es la referencia más vendida del mercado. Si un doctor solo usa una fresa, es esta.',
+                    search: 'presupuestador.html?q=801'
+                }
+            },
+            {
+                cat: 'forma', name: 'Troncocónica',
+                icon: '🔺', iconBg: '#FFF5F0',
+                sub: 'Cono truncado. Para preparaciones protésicas.',
+                detail: {
+                    que: 'Forma de cono invertido con punta plana o redondeada. Crea paredes cónicas ideales para coronas.',
+                    cuando: 'Reducción axial en prótesis fija. Preparación de muñones. Reducción oclusal para coronas.',
+                    noCuando: 'No usar en cavidades pequeñas de conservadora (es demasiado agresiva).',
+                    rpm: { min: 150000, max: 350000, label: '150K–350K rpm' },
+                    rpmPercent: 65,
+                    rpmColor: '#3182CE',
+                    tags: ['Prótesis', 'Coronas', 'Muñones', 'FG'],
+                    tip: 'Ofrece el ángulo de convergencia correcto (4-6°) para retención de coronas sin tallar demasiado.',
+                    search: 'presupuestador.html?q=847'
+                }
+            },
+            {
+                cat: 'forma', name: 'Cilíndrica',
+                icon: '🟦', iconBg: '#EBF8FF',
+                sub: 'Paredes paralelas. Máxima retención.',
+                detail: {
+                    que: 'Cabeza con paredes perfectamente paralelas. Crea cavidades con ángulos rectos.',
+                    cuando: 'Preparación de cavidades con paredes paralelas. Inlays/onlays. Remoción de resinas antiguas.',
+                    noCuando: 'No es ideal para coronas (necesitan convergencia, no paralelismo).',
+                    rpm: { min: 200000, max: 400000, label: '200K–400K rpm' },
+                    rpmPercent: 75,
+                    rpmColor: '#3182CE',
+                    tags: ['Inlays', 'Onlays', 'Cavidades', 'FG'],
+                    tip: 'Si el doctor trabaja con escáner intraoral, las paredes paralelas facilitan el escaneo.',
+                    search: 'presupuestador.html?q=835'
+                }
+            },
+            {
+                cat: 'forma', name: 'Llama / Flama',
+                icon: '🔥', iconBg: '#FFF5F0',
+                sub: 'Punta afilada tipo llama. Acabado y acceso.',
+                detail: {
+                    que: 'Forma alargada que se estrecha hasta una punta fina. Ideal para acceder a zonas difíciles.',
+                    cuando: 'Acabado de márgenes. Líneas de terminación cervical. Contorneo interproximal.',
+                    noCuando: 'No usar para reducción masiva de tejido (demasiado fina, se rompe bajo presión lateral).',
+                    rpm: { min: 200000, max: 400000, label: '200K–400K rpm' },
+                    rpmPercent: 75,
+                    rpmColor: '#D69E2E',
+                    tags: ['Acabado', 'Márgenes', 'Cervical', 'FG'],
+                    tip: 'Muy usada en periodoncia para acceder al surco gingival sin dañar el tejido blando.',
+                    search: 'presupuestador.html?q=863'
+                }
+            },
+            {
+                cat: 'forma', name: 'Pera / Piriforme',
+                icon: '🍐', iconBg: '#F0FFF4',
+                sub: 'Mezcla de esférica y cilíndrica.',
+                detail: {
+                    que: 'Forma intermedia entre bola y cilindro. La base es más ancha que la punta.',
+                    cuando: 'Apertura de cavidades con perfil suave. Remoción de caries subgingival. Odontología mínimamente invasiva.',
+                    noCuando: 'No ideal para líneas de terminación definidas.',
+                    rpm: { min: 200000, max: 450000, label: '200K–450K rpm' },
+                    rpmPercent: 85,
+                    rpmColor: '#38A169',
+                    tags: ['Conservadora', 'Mini-invasiva', 'Caries', 'FG/RA'],
+                    tip: 'Preferida en odontología mínimamente invasiva porque remueve tejido cariado sin crear ángulos agudos.',
+                    search: 'presupuestador.html?q=830'
+                }
+            },
+            {
+                cat: 'forma', name: 'Torpedo / Ovoide',
+                icon: '🏈', iconBg: '#FAF5FF',
+                sub: 'Forma de huevo alargado. Chamfer perfecto.',
+                detail: {
+                    que: 'Cilindro con punta redondeada, forma de "balón de rugby". Crea terminaciones tipo chamfer.',
+                    cuando: 'Línea de terminación chamfer para coronas. Reducción axial. Prótesis sobre implantes.',
+                    noCuando: 'No la uses cuando el doctor pida un shoulder recto (necesitará una cilíndrica).',
+                    rpm: { min: 150000, max: 350000, label: '150K–350K rpm' },
+                    rpmPercent: 65,
+                    rpmColor: '#6B46C1',
+                    tags: ['Prótesis', 'Chamfer', 'Implantes', 'FG'],
+                    tip: '"¿Chamfer o shoulder?" Si el doctor dice chamfer → torpedo. Si dice shoulder → cilíndrica. Pregunta siempre.',
+                    search: 'presupuestador.html?q=879'
+                }
+            },
+            {
+                cat: 'forma', name: 'Cono Invertido',
+                icon: '🔻', iconBg: '#FFF5F0',
+                sub: 'Cono al revés. Para socavados y retención.',
+                detail: {
+                    que: 'La parte más ancha está en la punta, la más estrecha en el vástago. Crea socavados mecánicos.',
+                    cuando: 'Retención mecánica en cavidades clase I y II. Remoción de esmalte debilitado.',
+                    noCuando: 'No usar en preparaciones protésicas (los socavados impiden el asentamiento de la corona).',
+                    rpm: { min: 200000, max: 400000, label: '200K–400K rpm' },
+                    rpmPercent: 75,
+                    rpmColor: '#E53E3E',
+                    tags: ['Retención', 'Clase I/II', 'Esmalte', 'FG/RA'],
+                    tip: 'Cada vez se usa menos porque la adhesión moderna no necesita retención mecánica. Pero los doctores veteranos la siguen pidiendo.',
+                    search: 'presupuestador.html?q=805'
+                }
+            },
+
+            // --- POR MATERIAL ---
+            {
+                cat: 'material', name: 'Diamante Natural',
+                icon: '💎', iconBg: '#EBF8FF',
+                sub: 'Abrasivo por excelencia. Para esmalte y cerámica.',
+                detail: {
+                    que: 'Partículas de diamante natural adheridas a un cuerpo de acero. Corta por ABRASIÓN (raspa la superficie).',
+                    cuando: 'Todo lo que sea duro: esmalte, cerámica, composite curado, disilicato de litio.',
+                    noCuando: 'No ideal para dentina (se emboza) ni para metal (el diamante se desgrena).',
+                    rpm: { min: 300000, max: 450000, label: '300K–450K rpm' },
+                    rpmPercent: 95,
+                    rpmColor: '#3182CE',
+                    tags: ['Esmalte', 'Cerámica', 'Alta velocidad', 'FG'],
+                    tip: 'Fresissima usa diamante NATURAL, no sintético. El natural tiene aristas irregulares que cortan mejor y generan menos calor. Este es el argumento principal de venta.',
+                    search: null
+                }
+            },
+            {
+                cat: 'material', name: 'Carburo de Tungsteno K89',
+                icon: '⚙️', iconBg: '#F0FFF4',
+                sub: 'Corte por lámina. Para dentina, metal y hueso.',
+                detail: {
+                    que: 'Cuerpo de carburo de tungsteno con láminas cortantes (como un cuchillo microscópico). Aleación K89 exclusiva de Fresissima.',
+                    cuando: 'Dentina, metal, amalgama vieja, hueso, composite blando. También para acabado y remoción.',
+                    noCuando: 'No usar sobre esmalte intacto a alta velocidad (las láminas rebotan, no cortan).',
+                    rpm: { min: 5000, max: 40000, label: '5K–40K rpm (RA) o Turbina (FG)' },
+                    rpmPercent: 45,
+                    rpmColor: '#38A169',
+                    tags: ['Dentina', 'Metal', 'Hueso', 'FG/RA/HP'],
+                    tip: 'K89 es la aleación propietaria de Fresissima. Más dura que el carburo estándar, resiste mejor la fractura. ¡Argumento de venta clave!',
+                    search: null
+                }
+            },
+            {
+                cat: 'material', name: 'Disteno (Sinterizado)',
+                icon: '🔷', iconBg: '#FAF5FF',
+                sub: 'Para zirconio sin microfracturas.',
+                detail: {
+                    que: 'Material sinterizado exclusivo de Fresissima. Diseñado específicamente para practicar ajuste de restauraciones de zirconio.',
+                    cuando: 'Ajuste intraoral de coronas/puentes de zirconio. Pulido previo de zirconio.',
+                    noCuando: 'No usar sobre esmalte o composite (está diseñado solo para zirconio).',
+                    rpm: { min: 20000, max: 40000, label: '20K–40K rpm' },
+                    rpmPercent: 35,
+                    rpmColor: '#6B46C1',
+                    tags: ['Zirconio', 'Ajuste', 'Exclusivo', 'RA'],
+                    tip: 'El zirconio es el material del futuro. Ningún competidor tiene Disteno. Si el doctor hace zirconio, vendemos Disteno seguro.',
+                    search: null
+                }
+            },
+            {
+                cat: 'material', name: 'Acero Inoxidable',
+                icon: '🪙', iconBg: '#F7FAFC',
+                sub: 'Económico. Laboratorio y profilaxis.',
+                detail: {
+                    que: 'Cuerpo completamente de acero inoxidable. Más blando que el carburo, se desgasta más rápido.',
+                    cuando: 'Laboratorio (recortar modelos de yeso). Profilaxis (pulido). Uso donde la duración no es crítica.',
+                    noCuando: 'No usar en clínica de alta producción (se desafila rápido).',
+                    rpm: { min: 5000, max: 15000, label: '5K–15K rpm' },
+                    rpmPercent: 20,
+                    rpmColor: '#718096',
+                    tags: ['Laboratorio', 'Profilaxis', 'Económico', 'HP'],
+                    tip: 'No es el producto estrella de Fresissima. Si preguntan por acero, reconócelo y redirige a carburo K89 que dura 10x más.',
+                    search: null
+                }
+            },
+
+            // --- POR GRANO ISO ---
+            {
+                cat: 'grano', name: 'Código de Color ISO (Granulometría)',
+                icon: '🌈', iconBg: '#FEFCBF',
+                sub: 'Sistema universal de anillos de color en el vástago.',
+                detail: {
+                    que: 'Cada fresa de diamante lleva un anillo de color que indica el tamaño de la partícula abrasiva. Más gruesa = más agresiva.',
+                    cuando: 'Siempre que recomiendas una fresa de diamante, debes saber qué grano necesita el doctor.',
+                    noCuando: 'Los carburos NO usan este sistema (tienen su propia clasificación por nº de láminas).',
+                    rpm: { min: 0, max: 0, label: 'Ver tabla de colores ↓' },
+                    rpmPercent: 0,
+                    rpmColor: 'transparent',
+                    tags: ['Diamante', 'ISO', 'Universal', 'Código Color'],
+                    tip: 'Regla simple: Negro/Verde = preparar (quitar mucho). Azul = uso general. Rojo/Amarillo = acabar (dejar fino). Blanco = pulir.',
+                    search: null,
+                    colorBands: [
+                        { color: '#1A1A1A', text: '#FFF', name: 'Negro', grain: 'Super Grueso', use: 'Reducción masiva', microns: '180 μm' },
+                        { color: '#22C55E', text: '#FFF', name: 'Verde', grain: 'Grueso', use: 'Preparación', microns: '151 μm' },
+                        { color: '#3B82F6', text: '#FFF', name: 'Azul', grain: 'Medio', use: 'Uso general', microns: '107 μm' },
+                        { color: '#EF4444', text: '#FFF', name: 'Rojo', grain: 'Fino', use: 'Acabado', microns: '53 μm' },
+                        { color: '#EAB308', text: '#000', name: 'Amarillo', grain: 'Extra Fino', use: 'Súper acabado', microns: '30 μm' },
+                        { color: '#F8F8F8', text: '#333', name: 'Blanco', grain: 'Ultra Fino', use: 'Pulido', microns: '15 μm' }
+                    ]
+                }
+            },
+
+            // --- POR USO ---
+            {
+                cat: 'uso', name: 'Conservadora (Caries)',
+                icon: '🦷', iconBg: '#EBF8FF',
+                sub: 'Remoción de caries y restauraciones.',
+                detail: {
+                    que: 'El workflow más común: abrir cavidad, quitar caries, restaurar con composite. El 60% de la clínica diaria.',
+                    cuando: 'Doctor generalista que hace obturaciones todos los días. Es tu público principal.',
+                    noCuando: '-',
+                    rpm: { min: 200000, max: 450000, label: '200K–450K rpm' },
+                    rpmPercent: 85,
+                    rpmColor: '#3182CE',
+                    tags: ['Esférica 801', 'Pera 830', 'Cono Inv. 805', 'Pulidores'],
+                    tip: 'Kit de venta rápida: 801-014 (esférica media), 830-010 (pera fina), y un set de pulidores. Cubre el 80% de la conservadora.',
+                    search: 'presupuestador.html?q=801'
+                }
+            },
+            {
+                cat: 'uso', name: 'Prótesis Fija (Coronas)',
+                icon: '👑', iconBg: '#FAF5FF',
+                sub: 'Preparación de muñones y terminaciones.',
+                detail: {
+                    que: 'Preparar el diente para recibir una corona o puente. Requiere control milimétrico de la terminación.',
+                    cuando: 'Protesista o generalista que trabaja con laboratorio. Suelen ser los que más gastan en fresas.',
+                    noCuando: '-',
+                    rpm: { min: 150000, max: 350000, label: '150K–350K rpm' },
+                    rpmPercent: 65,
+                    rpmColor: '#6B46C1',
+                    tags: ['Troncocónica 847', 'Torpedo 879', 'Llama 863', 'Chamfer'],
+                    tip: '"¿Haces más chamfer o shoulder?" → esta pregunta te posiciona como experto. Chamfer = torpedo. Shoulder = cilíndrica.',
+                    search: 'presupuestador.html?q=847'
+                }
+            },
+            {
+                cat: 'uso', name: 'Endodoncia',
+                icon: '🔬', iconBg: '#FFF5F0',
+                sub: 'Acceso cameral y localización de conductos.',
+                detail: {
+                    que: 'Abrir el diente para acceder a la pulpa (nervio). Requiere fresas que no perforen el suelo de la cámara.',
+                    cuando: 'Endodoncista o generalista que hace endodoncias. Mercado especializado pero fiel.',
+                    noCuando: '-',
+                    rpm: { min: 200000, max: 400000, label: '200K–400K rpm' },
+                    rpmPercent: 75,
+                    rpmColor: '#E53E3E',
+                    tags: ['Endo-Z', 'Esférica 801', 'Punta Inactiva', 'Gates Glidden'],
+                    tip: 'La Endo-Z es la fresa estrella en endo: su punta es inactiva (no corta hacia abajo), evitando perforaciones.',
+                    search: 'presupuestador.html?q=endo'
+                }
+            },
+            {
+                cat: 'uso', name: 'Cirugía Oral',
+                icon: '🏥', iconBg: '#F0FFF4',
+                sub: 'Osteotomía, extracción, implantes.',
+                detail: {
+                    que: 'Cortar hueso. La fresa debe disipar calor (necrosis ósea a 47°C) y evacuarlo eficientemente.',
+                    cuando: 'Cirujano oral o implantólogo. Compra menos cantidad pero fresas más caras.',
+                    noCuando: '-',
+                    rpm: { min: 800, max: 2000, label: '800–2.000 rpm (implantes) o turbina' },
+                    rpmPercent: 15,
+                    rpmColor: '#38A169',
+                    tags: ['Zekrya', 'Lindemann', 'K89 Cirugía', 'Hueso'],
+                    tip: 'En cirugía, la irrigación es OBLIGATORIA. Si el doctor no irriga, la fresa no es el problema. Recuérdalo con tacto.',
+                    search: 'presupuestador.html?q=zekrya'
+                }
+            },
+            {
+                cat: 'uso', name: 'Ortodoncia',
+                icon: '😁', iconBg: '#FEFCBF',
+                sub: 'Debonding, stripping, remoción adhesivo.',
+                detail: {
+                    que: 'Post-ortodoncia: quitar brackets, limpiar adhesivo, hacer stripping (reducción interproximal).',
+                    cuando: 'Ortodoncista o generalista que retira brackets. Volumen bajo pero recurrente.',
+                    noCuando: '-',
+                    rpm: { min: 5000, max: 40000, label: '5K–40K rpm (RA)' },
+                    rpmPercent: 35,
+                    rpmColor: '#D69E2E',
+                    tags: ['Carburo multilaminar', 'Discos diamantados', 'Pulidores', 'RA'],
+                    tip: 'El stripping se mide en décimas de mm. Los discos de Fresissima tienen grabado el grosor. Argumento de precisión.',
+                    search: 'presupuestador.html?q=strip'
+                }
+            },
+            {
+                cat: 'uso', name: 'Pulido y Acabado',
+                icon: '✨', iconBg: '#F0FFF4',
+                sub: 'Brillo final en composite, cerámica, zirconio.',
+                detail: {
+                    que: 'Última fase de cualquier restauración. Una superficie pulida acumula menos placa y se ve más natural.',
+                    cuando: 'TODOS los doctores pulen. Es la categoría con mayor recurrencia. Venta complementaria perfecta.',
+                    noCuando: '-',
+                    rpm: { min: 5000, max: 15000, label: '5K–15K rpm (RA)' },
+                    rpmPercent: 20,
+                    rpmColor: '#38A169',
+                    tags: ['Copas silicona', 'Discos', '2 pasos', 'RA'],
+                    tip: 'Fresissima tiene sistemas de 2 pasos (vs. 3-4 de la competencia). Menos pasos = menos tiempo en sillón = argumento ganador.',
+                    search: 'presupuestador.html?q=pulido'
+                }
+            },
+
+            // --- POR VÁSTAGO ---
+            {
+                cat: 'vastago', name: 'FG — Friction Grip',
+                icon: '⚡', iconBg: '#FFF5F0',
+                sub: 'Para turbina. Alta velocidad. Ø1.6mm.',
+                detail: {
+                    que: 'Vástago de 1.6mm de diámetro, liso. Se sujeta por fricción dentro de la turbina. Es el más vendido con diferencia.',
+                    cuando: 'Toda preparación con turbina: conservadora, prótesis, endo. 85% de las ventas totales.',
+                    noCuando: 'Nunca en contra-ángulo (no engancha) ni en pieza recta.',
+                    rpm: { min: 300000, max: 450000, label: '300K–450K rpm' },
+                    rpmPercent: 95,
+                    rpmColor: '#E53E3E',
+                    tags: ['Turbina', 'Alta velocidad', 'Ø1.6mm', 'Más vendido'],
+                    tip: 'Si no sabes qué vástago necesita el doctor, pregunta: "¿Lo usas en turbina?" Si dice SÍ → FG.',
+                    search: null
+                }
+            },
+            {
+                cat: 'vastago', name: 'RA — Contra-Ángulo',
+                icon: '🔄', iconBg: '#EBF8FF',
+                sub: 'Para contra-ángulo. Baja velocidad. Ø2.35mm.',
+                detail: {
+                    que: 'Vástago de 2.35mm con muesca de enganche. Se usa en el contra-ángulo (micromotor). Baja velocidad, más control.',
+                    cuando: 'Pulido, acabado, remoción de caries profunda, odontopediatría. Todo lo que necesite control.',
+                    noCuando: 'No poner en turbina (el vástago es demasiado grueso, no entra).',
+                    rpm: { min: 5000, max: 40000, label: '5K–40K rpm' },
+                    rpmPercent: 35,
+                    rpmColor: '#3182CE',
+                    tags: ['Contra-ángulo', 'Baja velocidad', 'Ø2.35mm', 'Pulido'],
+                    tip: 'Los pulidores son casi siempre RA. Si vendes pulidores con fresas de preparación FG, cubres todo el workflow.',
+                    search: null
+                }
+            },
+            {
+                cat: 'vastago', name: 'HP — Pieza de Mano',
+                icon: '✋', iconBg: '#F0FFF4',
+                sub: 'Para pieza recta. Laboratorio. Ø2.35mm largo.',
+                detail: {
+                    que: 'Vástago recto largo de 2.35mm sin muesca. Se usa en la pieza de mano recta. Principalmente laboratorio.',
+                    cuando: 'Laboratorio (recortar modelos, ajustar prótesis fuera de boca). Cirugía (fresas quirúrgicas largas).',
+                    noCuando: 'No se usa habitualmente en clínica general.',
+                    rpm: { min: 5000, max: 30000, label: '5K–30K rpm' },
+                    rpmPercent: 25,
+                    rpmColor: '#38A169',
+                    tags: ['Pieza recta', 'Laboratorio', 'Ø2.35mm largo', 'Cirugía'],
+                    tip: 'Bajo volumen de ventas en clínica. Es más un producto de laboratorio. No lo priorices en visitas a clínicas.',
+                    search: null
+                }
+            }
+        ];
+
+        // ============== RENDER ENGINE ==============
+        let activeFilter = 'all';
+        let searchQuery = '';
+
+        function getFilteredBurs() {
+            let filtered = BURS;
+
+            if (activeFilter !== 'all') {
+                filtered = filtered.filter(b => b.cat === activeFilter);
+            }
+
+            if (searchQuery) {
+                const q = searchQuery.toLowerCase();
+                filtered = filtered.filter(b =>
+                    b.name.toLowerCase().includes(q) ||
+                    b.sub.toLowerCase().includes(q) ||
+                    b.detail.que.toLowerCase().includes(q) ||
+                    b.detail.tags.some(t => t.toLowerCase().includes(q))
+                );
+            }
+
+            return filtered;
+        }
+
+        function renderBurs() {
+            const container = document.getElementById('burContent');
+            const filtered = getFilteredBurs();
+
+            if (filtered.length === 0) {
+                container.innerHTML = '<div class="no-results">No se encontraron resultados. Prueba con otro filtro o término.</div>';
+                return;
+            }
+
+            // Group by category
+            const groups = {};
+            const catLabels = {
+                forma: '📐 Por Forma',
+                material: '🧪 Por Material',
+                grano: '🌈 Por Grano ISO',
+                uso: '🎯 Por Uso Clínico',
+                vastago: '🔧 Por Vástago'
+            };
+
+            filtered.forEach(b => {
+                if (!groups[b.cat]) groups[b.cat] = [];
+                groups[b.cat].push(b);
+            });
+
+            let html = '';
+            for (const [cat, burs] of Object.entries(groups)) {
+                html += `<p class="section-title">${catLabels[cat] || cat}</p>`;
+                html += '<div class="bur-grid">';
+                burs.forEach((b, i) => {
+                    const idx = BURS.indexOf(b);
+                    html += renderBurCard(b, idx);
+                });
+                html += '</div>';
+            }
+
+            container.innerHTML = html;
+
+            // Attach click handlers
+            container.querySelectorAll('.bur-card').forEach(card => {
+                card.addEventListener('click', () => card.classList.toggle('open'));
+            });
+        }
+
+        function renderBurCard(b, idx) {
+            const d = b.detail;
+            let detailHTML = '';
+
+            // Qué es
+            detailHTML += `
+            <div class="detail-section">
+                <div class="detail-label">¿Qué es?</div>
+                <div class="detail-text">${d.que}</div>
+            </div>`;
+
+            // Cuándo usar
+            detailHTML += `
+            <div class="detail-section">
+                <div class="detail-label">✅ Cuándo recomendarla</div>
+                <div class="detail-text">${d.cuando}</div>
+            </div>`;
+
+            // Cuándo NO
+            if (d.noCuando && d.noCuando !== '-') {
+                detailHTML += `
+                <div class="detail-section">
+                    <div class="detail-label">❌ Cuándo NO</div>
+                    <div class="detail-text">${d.noCuando}</div>
+                </div>`;
+            }
+
+            // RPM
+            if (d.rpm.max > 0) {
+                detailHTML += `
+                <div class="detail-section">
+                    <div class="detail-label">⚡ Velocidad recomendada</div>
+                    <div class="rpm-bar">
+                        <div class="rpm-bar-track">
+                            <div class="rpm-bar-fill" style="width:${d.rpmPercent}%; background:${d.rpmColor}"></div>
+                        </div>
+                        <span class="rpm-label">${d.rpm.label}</span>
+                    </div>
+                </div>`;
+            }
+
+            // Color bands (for grano)
+            if (d.colorBands) {
+                detailHTML += `
+                <div class="detail-section">
+                    <div class="detail-label">Tabla de colores ISO</div>
+                    <div class="color-band-grid">
+                        ${d.colorBands.map(c => `
+                            <div class="color-swatch" style="background:${c.color}; color:${c.text}">
+                                <div>${c.name}</div>
+                                <div style="opacity:0.8; font-size:0.55rem; margin-top:2px">${c.grain}</div>
+                                <div style="opacity:0.7; font-size:0.5rem">${c.microns}</div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>`;
+            }
+
+            // Tags
+            detailHTML += `
+            <div class="detail-section">
+                <div class="detail-label">Productos relacionados</div>
+                <div class="detail-tags">
+                    ${d.tags.map(t => `<span class="detail-tag">${t}</span>`).join('')}
+                </div>
+            </div>`;
+
+            // Tip
+            detailHTML += `
+            <div class="tip-box">
+                <strong>💡 Tip de venta:</strong> ${d.tip}
+            </div>`;
+
+            // Link
+            if (d.search) {
+                detailHTML += `
+                <a href="${d.search}" class="link-presupuestador">
+                    💰 Ver en Presupuestador →
+                </a>`;
+            }
+
+            return `
+            <div class="bur-card" data-idx="${idx}">
+                <div class="bur-card-header">
+                    <div class="bur-icon" style="background:${b.iconBg}">${b.icon}</div>
+                    <div class="bur-card-info">
+                        <div class="bur-card-name">${b.name}</div>
+                        <div class="bur-card-sub">${b.sub}</div>
+                    </div>
+                    <div class="bur-card-arrow">›</div>
+                </div>
+                <div class="bur-detail">
+                    ${detailHTML}
+                </div>
+            </div>`;
+        }
+
+        // ============== EVENT HANDLERS ==============
+        document.getElementById('filterBar').addEventListener('click', e => {
+            const chip = e.target.closest('.filter-chip');
+            if (!chip) return;
+
+            document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+            chip.classList.add('active');
+            activeFilter = chip.dataset.filter;
+            renderBurs();
+        });
+
+        document.getElementById('searchInput').addEventListener('input', e => {
+            searchQuery = e.target.value.trim();
+            renderBurs();
+        });
+
+        // Initial render
+        renderBurs();
+    </script>
+</body>
+
+</html>

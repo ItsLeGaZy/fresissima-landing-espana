@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Módulos de Formación | Academia Fresissima</title>
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="https://fresissima.it/wp-content/uploads/2025/10/favicon-fresissima-150x150.png"
+        sizes="192x192">
+
+    <style>
+        :root {
+            --primary: #1A202C;
+            --accent: #FF6B35;
+            --bg: #F0F4F8;
+            --surface: #FFFFFF;
+            --text: #2D3748;
+            --text-muted: #718096;
+            --border: #E2E8F0;
+            --success: #38A169;
+            --blue: #3182CE;
+            --purple: #6B46C1;
+            --teal: #319795;
+            --font: 'Inter', sans-serif;
+            --mono: 'IBM Plex Mono', monospace;
+            --radius: 16px;
+            --radius-sm: 10px;
+            --shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+            --tab-h: 64px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            padding-bottom: calc(var(--tab-h) + 16px);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .top-bar {
+            background: var(--primary);
+            color: white;
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .top-bar a {
+            text-decoration: none;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .top-bar img {
+            height: 20px;
+            filter: brightness(0) invert(1);
+        }
+
+        .top-bar span {
+            font-weight: 600;
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #2C7A7B 0%, #319795 50%, #4FD1C5 100%);
+            color: white;
+            padding: 1.75rem 1.25rem 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: 1.35rem;
+            font-weight: 800;
+            margin-bottom: 0.35rem;
+        }
+
+        .hero p {
+            font-size: 0.8rem;
+            opacity: 0.85;
+            line-height: 1.5;
+        }
+
+        /* Progress */
+        .progress-bar {
+            margin-top: 1rem;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            height: 8px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: white;
+            border-radius: 50px;
+            transition: width 0.5s ease;
+        }
+
+        .progress-label {
+            font-size: 0.7rem;
+            margin-top: 0.35rem;
+            opacity: 0.8;
+        }
+
+        .content {
+            padding: 1rem;
+        }
+
+        /* Navigation between academy pages */
+        .academy-nav {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .academy-nav a {
+            flex: 1;
+            padding: 0.65rem 0.75rem;
+            border-radius: var(--radius-sm);
+            text-align: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-decoration: none;
+            border: 1.5px solid var(--border);
+            background: var(--surface);
+            color: var(--text-muted);
+            touch-action: manipulation;
+            transition: all 0.15s;
+        }
+
+        .academy-nav a.active {
+            background: var(--teal);
+            color: white;
+            border-color: var(--teal);
+        }
+
+        /* Module Cards */
+        .module-card {
+            background: var(--surface);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            margin-bottom: 0.75rem;
+            overflow: hidden;
+        }
+
+        .module-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem;
+            cursor: pointer;
+            touch-action: manipulation;
+        }
+
+        .module-header:active {
+            background: #FAFAFA;
+        }
+
+        .module-num {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .module-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .module-title {
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .module-sub {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            margin-top: 0.1rem;
+        }
+
+        .module-badge {
+            font-size: 0.6rem;
+            font-weight: 700;
+            padding: 0.2rem 0.5rem;
+            border-radius: 50px;
+            flex-shrink: 0;
+        }
+
+        .module-badge.completed {
+            background: #F0FFF4;
+            color: var(--success);
+        }
+
+        .module-badge.pending {
+            background: #F7FAFC;
+            color: var(--text-muted);
+        }
+
+        /* Flashcards container */
+        .flashcards {
+            display: none;
+            padding: 0 1rem 1rem;
+        }
+
+        .module-card.open .flashcards {
+            display: block;
+        }
+
+        .flashcard {
+            background: #F7FAFC;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .flashcard-q {
+            font-weight: 700;
+            font-size: 0.8rem;
+            color: var(--purple);
+            margin-bottom: 0.5rem;
+        }
+
+        .flashcard-a {
+            font-size: 0.8rem;
+            line-height: 1.6;
+            color: var(--text);
+        }
+
+        .key-point {
+            background: linear-gradient(135deg, #FEFCBF 0%, #FEF9C3 100%);
+            border: 1px solid #F6E05E;
+            border-radius: var(--radius-sm);
+            padding: 0.75rem;
+            margin-top: 0.5rem;
+            font-size: 0.75rem;
+            line-height: 1.5;
+        }
+
+        .key-point strong {
+            color: #B7791F;
+        }
+
+        .complete-btn {
+            display: block;
+            width: 100%;
+            padding: 0.75rem;
+            border: none;
+            border-radius: var(--radius-sm);
+            font-family: var(--font);
+            font-weight: 700;
+            font-size: 0.8rem;
+            cursor: pointer;
+            touch-action: manipulation;
+            margin-top: 0.75rem;
+            transition: all 0.15s;
+        }
+
+        .complete-btn.mark {
+            background: var(--teal);
+            color: white;
+        }
+
+        .complete-btn.unmark {
+            background: #F7FAFC;
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+        }
+
+        /* Tab bar */
+        .tab-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: var(--tab-h);
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding-bottom: env(safe-area-inset-bottom, 0);
+            z-index: 100;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .tab-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.2rem;
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.6rem;
+            font-weight: 600;
+            padding: 0.5rem 0.75rem;
+            border-radius: 8px;
+            touch-action: manipulation;
+        }
+
+        .tab-item.active {
+            color: var(--purple);
+        }
+
+        .tab-item:active {
+            background: var(--bg);
+        }
+
+        .tab-icon {
+            font-size: 1.35rem;
+            line-height: 1;
+        }
+
+        @media (min-width: 768px) {
+            .content {
+                max-width: 700px;
+                margin: 0 auto;
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="top-bar">
+        <a href="index.html">
+            <img src="https://fresissima.it/wp-content/uploads/2025/10/Logo-fresissima.png" alt="Fresissima">
+            <span>Academia de Producto</span>
+        </a>
+    </header>
+
+    <section class="hero">
+        <h1>📚 Módulos de Formación</h1>
+        <p>6 módulos para entender el producto, el mercado y la venta. Completa todos para dominar Fresissima.</p>
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill" style="width:0%"></div>
+        </div>
+        <div class="progress-label" id="progressLabel">0 de 6 módulos completados</div>
+    </section>
+
+    <main class="content">
+        <!-- Academy sub-nav -->
+        <div class="academy-nav">
+            <a href="academia-fresas.html">🔬 Identificador</a>
+            <a href="academia-modulos.html" class="active">📚 Módulos</a>
+        </div>
+
+        <div id="modulesContainer"></div>
+    </main>
+
+    <nav class="tab-bar">
+        <a href="index.html" class="tab-item"><span class="tab-icon">🏠</span><span>Home</span></a>
+        <a href="presupuestador.html" class="tab-item"><span class="tab-icon">💰</span><span>Cotizar</span></a>
+        <a href="academia-modulos.html" class="tab-item active"><span
+                class="tab-icon">🎓</span><span>Academia</span></a>
+        <a href="catalogo.html" class="tab-item"><span class="tab-icon">📁</span><span>PDFs</span></a>
+    </nav>
+
+    <script>
+        const MODULES = [
+            {
+                id: 'intro',
+                num: '01',
+                title: 'Bienvenida: Quién es Fresissima',
+                sub: '5 min · La empresa, la fábrica, los valores',
+                color: '#3182CE',
+                cards: [
+                    {
+                        q: '¿Qué es Fresissima?',
+                        a: 'Fabricante italiano de <strong>fresas rotatorias para odontología</strong>, fundado hace 34 años en Turín (Italia). Parte del <strong>Gruppo DAM</strong>.'
+                    },
+                    {
+                        q: '¿Qué nos diferencia?',
+                        a: '<strong>Diamante natural</strong> (no sintético), <strong>carburo K89</strong> (aleación exclusiva más resistente), y <strong>Disteno</strong> (para zirconio, único en el mercado). Todo fabricado en CNC con control ISO 13485.'
+                    },
+                    {
+                        q: '¿Qué marcas tiene el grupo?',
+                        a: '<strong>Fresissima</strong> — fresas diamante y carburo.<br><strong>Dentag</strong> — pulidores y acabado.<br><strong>Vibra</strong> — ultrasonidos y periodoncia.<br><strong>Xtruments</strong> — instrumental manual.'
+                    },
+                    {
+                        q: '¿Dónde se fabrica todo?',
+                        a: 'En la <strong>fábrica propia de Turín, Italia</strong>. No externalizamos. Cada fresa pasa por control de calidad microscopio antes de salir.'
+                    }
+                ],
+                keyPoint: 'Cuando hables con un doctor, empieza siempre con: "Somos fabricantes directos italianos, no distribuidores. Cada fresa se produce en nuestra fábrica de Turín."'
+            },
+            {
+                id: 'producto',
+                num: '02',
+                title: 'El Producto: Tipos y Materiales',
+                sub: '10 min · Fresas, pulidores, materiales',
+                color: '#6B46C1',
+                cards: [
+                    {
+                        q: '¿Cuántos tipos de fresas hay?',
+                        a: 'Dos grandes familias:<br>1. <strong>Diamante</strong> — corta por abrasión (raspa). Para esmalte y cerámica.<br>2. <strong>Carburo</strong> — corta por láminas (como un cuchillo). Para dentina, metal y hueso.'
+                    },
+                    {
+                        q: '¿Qué es la granulometría?',
+                        a: 'El tamaño de las partículas de diamante, indicado por un <strong>anillo de color</strong> en el vástago:<br>Negro = super grueso (preparar)<br>Verde = grueso<br>Azul = medio (general)<br>Rojo = fino (acabar)<br>Amarillo = super fino<br>Blanco = pulir'
+                    },
+                    {
+                        q: '¿Qué es FG, RA y HP?',
+                        a: '<strong>FG (Friction Grip)</strong> — vástago 1.6mm para turbina. 85% de las ventas.<br><strong>RA</strong> — vástago 2.35mm con muesca para contra-ángulo. Pulido y baja velocidad.<br><strong>HP</strong> — vástago recto para laboratorio.'
+                    },
+                    {
+                        q: '¿Qué es K89?',
+                        a: 'La <strong>aleación exclusiva</strong> de carburo de tungsteno de Fresissima. Es un 30% más dura que el carburo estándar, resiste mejor las fracturas y mantiene el filo más tiempo.'
+                    },
+                    {
+                        q: '¿Qué es Disteno?',
+                        a: 'Material <strong>sinterizado exclusivo</strong> de Fresissima para ajustar zirconio en boca sin crear microfracturas. <strong>Ningún competidor lo tiene.</strong> Es nuestro producto más diferenciado.'
+                    }
+                ],
+                keyPoint: 'Las 3 palabras clave de venta: Diamante NATURAL, Carburo K89, Disteno. Si las recuerdas, ya sabes más que el 80% de los comerciales del sector.'
+            },
+            {
+                id: 'mercado',
+                num: '03',
+                title: 'El Mercado: Competencia y Posición',
+                sub: '8 min · Quién compite, cómo diferenciarse',
+                color: '#E53E3E',
+                cards: [
+                    {
+                        q: '¿Quiénes son los competidores?',
+                        a: '<strong>Komet</strong> (Alemania) — Líder de mercado, catálogo enorme, caros.<br><strong>Edenta</strong> (Suiza) — Buena calidad, menos conocidos.<br><strong>Mani</strong> (Japón) — Enfocados en endo.<br><strong>Meisinger</strong> (Alemania) — Precio medio.<br><strong>Jota</strong> (Suiza) — Laboratorio principalmente.'
+                    },
+                    {
+                        q: '¿Por qué elegirnos a nosotros?',
+                        a: '1. <strong>Fabricante directo</strong> = mejor precio que distribuidores de Komet.<br>2. <strong>Diamante natural</strong> = menos calor, mejor corte.<br>3. <strong>K89 exclusivo</strong> = más duración.<br>4. <strong>Disteno</strong> = único para zirconio.<br>5. <strong>Servicio cercano</strong> = tú, el comercial, resuelves en 24h.'
+                    },
+                    {
+                        q: '¿Cómo manejar la objeción "ya trabajo con Komet"?',
+                        a: '"Perfecto, Komet es un buen fabricante. ¿Me permites dejarte 5 fresas para que las pruebes sin compromiso? <strong>Lo que diferencia al diamante natural del sintético se nota en la mano.</strong> Pruébalas en tu próximo caso de prótesis."'
+                    },
+                    {
+                        q: '¿Cuál es nuestro rango de precio?',
+                        a: 'Diamante FG: <strong>€3-12</strong> por fresa (unitaria).<br>Kits/sets: €25-60.<br>Pulidores Dentag: €5-15.<br>Competimos en <strong>precio-rendimiento</strong>, no en precio más bajo absoluto.'
+                    }
+                ],
+                keyPoint: 'Nunca hables mal de Komet. Di: "Son buenos. Nosotros somos fabricantes directos con tecnología propia. ¿Quieres probar la diferencia?"'
+            },
+            {
+                id: 'visita',
+                num: '04',
+                title: 'La Visita: Cómo Presentarse',
+                sub: '8 min · Protocolo de primera visita',
+                color: '#D69E2E',
+                cards: [
+                    {
+                        q: '¿Cómo preparo la visita?',
+                        a: '1. Investiga la clínica (web, redes sociales).<br>2. Identifica especialidades del doctor.<br>3. Prepara un <strong>kit de muestra</strong> personalizado.<br>4. Ten el presupuestador listo en el móvil.<br>5. Lleva vademécums impresos (del catálogo digital).'
+                    },
+                    {
+                        q: '¿Cómo rompo el hielo?',
+                        a: '"Buenos días doctor/a, soy [nombre] de <strong>Fresissima, fabricante italiano de fresas rotatorias</strong>. ¿Tiene 5 minutos para ver algo que puede cambiar su forma de preparar cavidades?"'
+                    },
+                    {
+                        q: '¿Qué preguntas hago?',
+                        a: '1. "¿Qué marca de fresas usa actualmente?"<br>2. "¿Hace más conservadora o prótesis?"<br>3. "¿Trabaja con zirconio?"<br>4. "¿Cuántas fresas consume al mes más o menos?"<br>5. "¿Tiene algún procedimiento donde sienta que la fresa no rinde?"'
+                    },
+                    {
+                        q: '¿Qué dejo siempre?',
+                        a: '1. <strong>Muestra gratuita</strong> (3-5 fresas adaptadas a su perfil).<br>2. Tu tarjeta con <strong>WhatsApp</strong>.<br>3. <strong>Vademécum</strong> de la especialidad que le interese.<br>4. "<strong>Pruébelas esta semana y le llamo el viernes para ver qué tal.</strong>"'
+                    }
+                ],
+                keyPoint: 'La primera visita NO es para vender. Es para DEJAR MUESTRAS y obtener permiso para hacer seguimiento. La venta llega en la segunda o tercera visita.'
+            },
+            {
+                id: 'cierre',
+                num: '05',
+                title: 'El Cierre: Presupuesto y Descuento',
+                sub: '7 min · Cómo cerrar la venta',
+                color: '#38A169',
+                cards: [
+                    {
+                        q: '¿Cómo hago un presupuesto?',
+                        a: 'Usa el <strong>Presupuestador Pro</strong> de esta web. Busca por código, añade al carrito, aplica descuento comercial y genera PDF. Se lo envías por WhatsApp al momento.'
+                    },
+                    {
+                        q: '¿Cuánto descuento puedo ofrecer?',
+                        a: 'Rango estándar: <strong>10-25%</strong> sobre PVP.<br>Clínica nueva: 15-20%.<br>Volumen +100 fresas/mes: hasta 25%.<br><strong>Nunca bajes del margen mínimo sin aprobación.</strong>'
+                    },
+                    {
+                        q: '¿Cómo manejo "es muy caro"?',
+                        a: '"Entiendo. ¿Cuántas fresas desecha al mes por pérdida de corte? Con K89, <strong>cada fresa dura un 30% más</strong>. Si cambia menos fresas al mes, el coste real es menor. ¿Hacemos los números?"'
+                    },
+                    {
+                        q: '¿Cuándo propongo el pedido?',
+                        a: 'Después de que pruebe las muestras. En la visita de seguimiento: "Doctor, ¿qué tal las fresas? ¿Quiere que le prepare un <strong>primer pedido de prueba</strong> con las que mejor le han ido?"'
+                    }
+                ],
+                keyPoint: 'Usa el Presupuestador Pro en el momento de la visita. Generar un PDF en 30 seg delante del doctor transmite profesionalidad y urgencia. No lo hagas "cuando llegue a casa".'
+            },
+            {
+                id: 'postventa',
+                num: '06',
+                title: 'Postventa: Fidelización',
+                sub: '5 min · Seguimiento y recurrencia',
+                color: '#319795',
+                cards: [
+                    {
+                        q: '¿Cuándo hacer seguimiento?',
+                        a: 'Semana 1: "¿Qué tal las muestras?"<br>Mes 1: "¿Necesita reponer?"<br>Mes 3: "¿Probamos algún producto nuevo?"<br>Cada 6 meses: "¿Quiere conocer las novedades?"'
+                    },
+                    {
+                        q: '¿Y si hay una reclamación?',
+                        a: '1. <strong>No discutas, escucha.</strong><br>2. Pide que te devuelva la fresa defectuosa.<br>3. Envíala a Italia para análisis.<br>4. <strong>Repón inmediatamente sin coste.</strong><br>5. La reclamación bien gestionada fideliza más que una venta sin problemas.'
+                    },
+                    {
+                        q: '¿Cómo aumento el ticket medio?',
+                        a: 'Venta cruzada: si compra fresas de diamante, ofrece <strong>pulidores Dentag</strong> (completa el workflow).<br>Si hace implantes, ofrece <strong>Disteno</strong>.<br>Si hace stripping, ofrece <strong>discos Vibra</strong>.'
+                    },
+                    {
+                        q: '¿Qué herramientas tengo aquí?',
+                        a: '✅ <strong>Presupuestador Pro</strong> — cotizaciones al instante.<br>✅ <strong>Identificador de Fresas</strong> — aprende qué vender.<br>✅ <strong>Catálogo PDFs</strong> — vademécums para dejar al doctor.<br>✅ <strong>Contactos rápidos</strong> — soporte directo de Italia.'
+                    }
+                ],
+                keyPoint: 'Un cliente que compra 3 meses seguidos vale más que 10 primeros pedidos. Tu trabajo real empieza DESPUÉS de la primera venta.'
+            }
+        ];
+
+        // ========== PERSISTENCE ==========
+        function getCompleted() {
+            try { return JSON.parse(localStorage.getItem('fres_modules') || '[]'); }
+            catch { return []; }
+        }
+        function setCompleted(arr) {
+            localStorage.setItem('fres_modules', JSON.stringify(arr));
+        }
+        function toggleComplete(id) {
+            const completed = getCompleted();
+            const idx = completed.indexOf(id);
+            if (idx >= 0) completed.splice(idx, 1);
+            else completed.push(id);
+            setCompleted(completed);
+            renderModules();
+        }
+
+        // ========== RENDER ==========
+        function renderModules() {
+            const container = document.getElementById('modulesContainer');
+            const completed = getCompleted();
+            const total = MODULES.length;
+            const done = completed.length;
+
+            // Progress
+            document.getElementById('progressFill').style.width = `${(done / total) * 100}%`;
+            document.getElementById('progressLabel').textContent = `${done} de ${total} módulos completados`;
+
+            container.innerHTML = MODULES.map(m => {
+                const isDone = completed.includes(m.id);
+                return `
+                <div class="module-card" data-id="${m.id}">
+                    <div class="module-header" onclick="this.parentElement.classList.toggle('open')">
+                        <div class="module-num" style="background:${m.color}15; color:${m.color}">${m.num}</div>
+                        <div class="module-info">
+                            <div class="module-title">${m.title}</div>
+                            <div class="module-sub">${m.sub}</div>
+                        </div>
+                        <span class="module-badge ${isDone ? 'completed' : 'pending'}">${isDone ? '✅ Hecho' : 'Pendiente'}</span>
+                    </div>
+                    <div class="flashcards">
+                        ${m.cards.map(c => `
+                            <div class="flashcard">
+                                <div class="flashcard-q">${c.q}</div>
+                                <div class="flashcard-a">${c.a}</div>
+                            </div>
+                        `).join('')}
+                        ${m.keyPoint ? `<div class="key-point"><strong>💡 Punto clave:</strong> ${m.keyPoint}</div>` : ''}
+                        <button class="complete-btn ${isDone ? 'unmark' : 'mark'}" onclick="event.stopPropagation(); toggleComplete('${m.id}')">
+                            ${isDone ? '↩ Marcar como pendiente' : '✅ Completar módulo'}
+                        </button>
+                    </div>
+                </div>
+            `;
+            }).join('');
+        }
+
+        renderModules();
+    </script>
+</body>
+
+</html>
