@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Academia Técnica | Fresissima</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="https://fresissima.it/wp-content/uploads/2025/10/favicon-fresissima-150x150.png"
+        sizes="192x192">
+    <style>
+        :root {
+            --primary: #1A202C;
+            --accent: #FF6B35;
+            --bg: #F0F4F8;
+            --surface: #FFF;
+            --text: #2D3748;
+            --text-muted: #718096;
+            --border: #E2E8F0;
+            --purple: #6B46C1;
+            --teal: #319795;
+            --blue: #3182CE;
+            --green: #38A169;
+            --red: #E53E3E;
+            --yellow: #D69E2E;
+            --font: 'Inter', sans-serif;
+            --mono: 'IBM Plex Mono', monospace;
+            --radius: 16px;
+            --radius-sm: 10px;
+            --shadow: 0 1px 3px rgba(0, 0, 0, .08);
+            --tab-h: 64px
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            padding-bottom: calc(var(--tab-h) + 16px);
+            -webkit-font-smoothing: antialiased
+        }
+
+        .top-bar {
+            background: var(--primary);
+            color: #fff;
+            padding: .75rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: .75rem;
+            position: sticky;
+            top: 0;
+            z-index: 50
+        }
+
+        .top-bar a {
+            text-decoration: none;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: .5rem
+        }
+
+        .top-bar img {
+            height: 20px;
+            filter: brightness(0) invert(1)
+        }
+
+        .top-bar span {
+            font-weight: 600;
+            font-size: .85rem;
+            opacity: .9
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #6B46C1 0%, #805AD5 50%, #9F7AEA 100%);
+            color: #fff;
+            padding: 1.75rem 1.25rem 1.5rem
+        }
+
+        .hero h1 {
+            font-size: 1.35rem;
+            font-weight: 800;
+            margin-bottom: .35rem
+        }
+
+        .hero p {
+            font-size: .8rem;
+            opacity: .85;
+            line-height: 1.5
+        }
+
+        .progress-strip {
+            margin-top: 1rem;
+            display: flex;
+            gap: 3px
+        }
+
+        .progress-dot {
+            flex: 1;
+            height: 4px;
+            border-radius: 2px;
+            background: rgba(255, 255, 255, .25);
+            transition: background .3s
+        }
+
+        .progress-dot.done {
+            background: #fff
+        }
+
+        .progress-text {
+            font-size: .65rem;
+            margin-top: .4rem;
+            opacity: .7
+        }
+
+        .content {
+            padding: 1rem
+        }
+
+        @media(min-width:768px) {
+            .content {
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 1.5rem
+            }
+        }
+
+        /* Chapter Cards */
+        .ch {
+            background: var(--surface);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            margin-bottom: .75rem;
+            overflow: hidden
+        }
+
+        .ch-head {
+            display: flex;
+            align-items: center;
+            gap: .75rem;
+            padding: 1rem;
+            cursor: pointer;
+            touch-action: manipulation
+        }
+
+        .ch-head:active {
+            background: #FAFAFA
+        }
+
+        .ch-num {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: .85rem;
+            flex-shrink: 0
+        }
+
+        .ch-info {
+            flex: 1;
+            min-width: 0
+        }
+
+        .ch-title {
+            font-weight: 700;
+            font-size: .9rem
+        }
+
+        .ch-sub {
+            font-size: .7rem;
+            color: var(--text-muted);
+            margin-top: .1rem
+        }
+
+        .ch-arrow {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            flex-shrink: 0;
+            transition: transform .2s
+        }
+
+        .ch.open .ch-arrow {
+            transform: rotate(90deg)
+        }
+
+        .ch-body {
+            display: none;
+            padding: 0 1rem 1rem
+        }
+
+        .ch.open .ch-body {
+            display: block
+        }
+
+        /* Content Blocks */
+        .block {
+            margin-bottom: 1rem
+        }
+
+        .block-label {
+            font-size: .6rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .8px;
+            padding: .25rem .6rem;
+            border-radius: 50px;
+            display: inline-block;
+            margin-bottom: .4rem
+        }
+
+        .block-label.concepto {
+            background: #EBF8FF;
+            color: var(--blue)
+        }
+
+        .block-label.explicacion {
+            background: #F0FFF4;
+            color: var(--green)
+        }
+
+        .block-label.dentista {
+            background: #FAF5FF;
+            color: var(--purple)
+        }
+
+        .block-label.comercial {
+            background: #FFF5F0;
+            color: var(--accent)
+        }
+
+        .block-label.ejemplo {
+            background: #FEFCBF;
+            color: #B7791F
+        }
+
+        .block-text {
+            font-size: .8rem;
+            line-height: 1.65;
+            color: var(--text)
+        }
+
+        .block-text strong {
+            color: var(--primary)
+        }
+
+        .example-box {
+            background: linear-gradient(135deg, #FEFCBF, #FEF9C3);
+            border: 1px solid #F6E05E;
+            border-radius: var(--radius-sm);
+            padding: .75rem;
+            font-size: .78rem;
+            line-height: 1.6
+        }
+
+        .example-box strong {
+            color: #975A16
+        }
+
+        .info-box {
+            background: #EBF8FF;
+            border: 1px solid #90CDF4;
+            border-radius: var(--radius-sm);
+            padding: .75rem;
+            font-size: .78rem;
+            line-height: 1.6;
+            margin-top: .5rem
+        }
+
+        .info-box strong {
+            color: #2B6CB0
+        }
+
+        .sell-box {
+            background: #FFF5F0;
+            border: 1px solid #FEB2B2;
+            border-radius: var(--radius-sm);
+            padding: .75rem;
+            font-size: .78rem;
+            line-height: 1.6;
+            margin-top: .5rem
+        }
+
+        .sell-box strong {
+            color: #C05621
+        }
+
+        .divider {
+            height: 1px;
+            background: var(--border);
+            margin: .75rem 0
+        }
+
+        /* Tab bar */
+        .tab-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: var(--tab-h);
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding-bottom: env(safe-area-inset-bottom, 0);
+            z-index: 100;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, .05)
+        }
+
+        .tab-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: .2rem;
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: .6rem;
+            font-weight: 600;
+            padding: .5rem .75rem;
+            border-radius: 8px;
+            touch-action: manipulation
+        }
+
+        .tab-item.active {
+            color: var(--purple)
+        }
+
+        .tab-item:active {
+            background: var(--bg)
+        }
+
+        .tab-icon {
+            font-size: 1.35rem;
+            line-height: 1
+        }
+    </style>
+</head>
+
+<body>
+    <header class="top-bar">
+        <a href="index.html">
+            <img src="https://fresissima.it/wp-content/uploads/2025/10/Logo-fresissima.png" alt="Fresissima">
+            <span>Academia Técnica</span>
+        </a>
+    </header>
+
+    <section class="hero">
+        <h1>🎓 Academia para Comerciales</h1>
+        <p>10 capítulos para entender la odontología desde cero y vender fresas con autoridad técnica.</p>
+        <div class="progress-strip" id="progressStrip"></div>
+        <div class="progress-text" id="progressText"></div>
+    </section>
+
+    <main class="content" id="chaptersContainer"></main>
+
+    <nav class="tab-bar">
+        <a href="index.html" class="tab-item"><span class="tab-icon">🏠</span><span>Home</span></a>
+        <a href="presupuestador.html" class="tab-item"><span class="tab-icon">💰</span><span>Cotizar</span></a>
+        <a href="academia.html" class="tab-item active"><span class="tab-icon">🎓</span><span>Academia</span></a>
+        <a href="academia-fresas.html" class="tab-item"><span class="tab-icon">📖</span><span>Manual</span></a>
+        <a href="catalogo.html" class="tab-item"><span class="tab-icon">📁</span><span>PDFs</span></a>
+    </nav>
+
+    <script>
+        const CHAPTERS = [
+            {
+                num: '01', title: 'Anatomía Básica del Diente', sub: 'Lo primero: conocer lo que el dentista trata cada día',
+                color: '#3182CE',
+                blocks: [
+                    { type: 'concepto', text: 'Un diente tiene dos partes visibles: la <strong>corona</strong> (lo que ves en boca) y la <strong>raíz</strong> (dentro del hueso). Está formado por capas: <strong>esmalte</strong> (capa dura externa), <strong>dentina</strong> (capa intermedia) y <strong>pulpa</strong> (nervio y vasos sanguíneos en el centro).' },
+                    { type: 'explicacion', text: 'Piensa en el diente como un huevo: la cáscara es el <strong>esmalte</strong> (durísimo), la clara es la <strong>dentina</strong> (más blanda) y la yema es la <strong>pulpa</strong> (el nervio vivo). Cada capa necesita un tipo de fresa diferente.' },
+                    { type: 'dentista', text: 'El dentista necesita cortar cada capa con precisión sin dañar la siguiente. Si perfora el esmalte demasiado agresivo, genera calor y daña la pulpa. Si trabaja la dentina con la fresa equivocada, causa dolor al paciente.' },
+                    { type: 'comercial', text: 'Cuando un doctor habla de "preparación", está cortando estas capas. Si dice "estoy cerca de pulpa", necesita fresas <strong>finas y de baja agresividad</strong> (grano rojo/amarillo). Si dice "tengo mucho esmalte que quitar", necesita <strong>grano grueso</strong> (verde/negro).' },
+                    { type: 'ejemplo', text: '<strong>Caso real:</strong> Un generalista te dice "necesito fresas para caries profundas". Tú sabes que está trabajando cerca de la pulpa → recomiendas esféricas de grano rojo (fino) en vez de grano azul (medio). El doctor se sorprende de tu conocimiento técnico y confía más en ti.' }
+                ]
+            },
+            {
+                num: '02', title: 'Superficies Dentales', sub: 'El vocabulario que usan los dentistas entre ellos',
+                color: '#6B46C1',
+                blocks: [
+                    { type: 'concepto', text: 'Cada diente tiene 5 superficies con nombres específicos:<br>• <strong>Oclusal/Incisal</strong> — la cara de arriba (donde muerde)<br>• <strong>Vestibular</strong> — la cara que mira al labio/mejilla<br>• <strong>Lingual/Palatina</strong> — la cara que mira a la lengua/paladar<br>• <strong>Mesial</strong> — la cara que mira hacia la línea media <br>• <strong>Distal</strong> — la cara que mira hacia atrás' },
+                    { type: 'explicacion', text: 'Imagina que el diente es una caja con 5 lados. Cada lado se trabaja con fresas diferentes porque el acceso y la visibilidad cambian. Las caras entre dientes (mesial/distal) son las más difíciles de alcanzar.' },
+                    { type: 'dentista', text: 'El dentista describe las caries y preparaciones usando estos nombres. "Caries clase II mesio-oclusal" = una caries que afecta la cara interproximal y la cara de arriba. Necesita fresas que lleguen a zonas estrechas.' },
+                    { type: 'comercial', text: 'Si el doctor dice <strong>"trabajo mucho interproximal"</strong>, necesita fresas tipo <strong>llama o pera</strong> (acceso estrecho). Si dice <strong>"hago mucha oclusal"</strong>, necesita <strong>esféricas y troncocónicas</strong>. Conocer estas palabras te posiciona como alguien que entiende.' },
+                    { type: 'ejemplo', text: '<strong>Caso real:</strong> Un protesista dice "necesito mejorar mis terminaciones a nivel cervical-vestibular". Tú entiendes: quiere fresas para la línea de terminación en la cara externa del diente, cerca de la encía. Le ofreces una torpedo con punta redondeada específica para chamfer cervical.' }
+                ]
+            },
+            {
+                num: '03', title: 'Tejidos Dentales', sub: 'Qué corta la fresa y por qué importa el material',
+                color: '#E53E3E',
+                blocks: [
+                    { type: 'concepto', text: 'Los tres tejidos del diente reaccionan muy diferente al corte:<br><br><strong>Esmalte:</strong> 96% mineral, el tejido más duro del cuerpo humano. Solo se corta bien con <strong>diamante</strong> (abrasión).<br><br><strong>Dentina:</strong> 70% mineral, 20% orgánico, 10% agua. Más blanda, tiene <strong>túbulos</strong> (tubitos microscópicos conectados al nervio). Se corta mejor con <strong>carburo</strong> (láminas).<br><br><strong>Pulpa:</strong> Tejido vivo (nervio + vasos). <strong>Nunca se corta a propósito</strong>, excepto en endodoncia.' },
+                    { type: 'explicacion', text: 'El esmalte es como cortar cristal: necesitas algo más duro (diamante). La dentina es como cortar madera: necesitas un cuchillo afilado (carburo con láminas). Si tomas el camino contrario — carburo en esmalte o diamante en dentina profunda — el resultado es malo.' },
+                    { type: 'dentista', text: 'El doctor cambia de fresa según la capa que está cortando. Empieza con <strong>diamante</strong> para atravesar el esmalte, y muchas veces cambia a <strong>carburo</strong> para la dentina (menos calor, menos vibración, más control cerca de la pulpa).' },
+                    { type: 'comercial', text: '<strong>Argumento de venta clave:</strong> "¿Usas diamante para todo o cambias a carburo en dentina?" Si dice que usa diamante para todo, explícale que el diamante en dentina se <strong>emboza</strong> (los túbulos de dentina tapan las partículas) y pierde eficiencia. El carburo K89 corta dentina limpiamente sin embozarse.' },
+                    { type: 'ejemplo', text: '<strong>Caso real:</strong> Un doctor joven usa la misma fresa de diamante para todo el procedimiento. Le ofreces un kit con esférica diamante (para esmalte) + esférica carburo K89 (para dentina). Le demuestras que con K89 corta dentina en la mitad de tiempo, con menos vibración y menos riesgo de dañar la pulpa. Primera compra asegurada.' }
+                ]
+            },
+            {
+                num: '04', title: 'Materiales Dentales', sub: 'Lo que el dentista pone después de usar la fresa',
+                color: '#D69E2E',
+                blocks: [
+                    { type: 'concepto', text: 'Después de cortar con la fresa, el dentista restaura con materiales:<br><br><strong>Composite (resina):</strong> El más usado. Se pega al diente y se endurece con luz. Color del diente.<br><strong>Cerámica/Porcelana:</strong> Coronas y carillas hechas en laboratorio. Muy estéticas.<br><strong>Zirconio:</strong> Más resistente que la cerámica. Es el material del futuro para prótesis.<br><strong>Metal:</strong> Cada vez menos usado, pero aún presente en prótesis removible y algunos puentes.<br><strong>Amalgama:</strong> El empaste gris antiguo. Casi en desuso.' },
+                    { type: 'explicacion', text: 'La fresa prepara, el material restaura. Pero cada material exige una <strong>preparación diferente</strong>: el composite necesita cavidades conservadoras (fresas finas). La cerámica necesita reducciones amplias (fresas gruesas). El zirconio necesita ajuste preciso (fresas de Disteno).' },
+                    { type: 'dentista', text: 'El doctor elige el material según el caso: composite para caries pequeñas, cerámica para estética, zirconio para resistencia. Cada elección cambia las fresas que necesita.' },
+                    { type: 'comercial', text: '<strong>Pregunta clave:</strong> "¿Trabajas mucho con zirconio?" Si dice SÍ → tienes la puerta abierta para Disteno (exclusivo Fresissima). Si dice composite → ofrece el kit conservadora. Si dice cerámica → ofrece troncocónicas para preparación + diamante fino para ajuste.' },
+                    { type: 'ejemplo', text: '<strong>Caso real:</strong> Un protesista está pasándose de cerámica a zirconio pero se queja de que sus fresas de diamante normales no ajustan bien el zirconio (saltan chispas, microcrack). Le presentas <strong>Disteno</strong>: material sinterizado exclusivo que ajusta zirconio sin microfracturas. Nadie más lo tiene. Cierre casi automático.' }
+                ]
+            },
+            {
+                num: '05', title: 'Instrumental Rotatorio', sub: 'Las máquinas donde se montan tus fresas',
+                color: '#38A169',
+                blocks: [
+                    { type: 'concepto', text: 'El dentista usa tres tipos de máquinas rotatorias:<br><br><strong>Turbina:</strong> 300.000-450.000 rpm. Usa aire comprimido. Fresas con vástago <strong>FG</strong> (1.6mm). Para cortar esmalte y hacer preparaciones. Es la que "suena" en el dentista.<br><br><strong>Contra-ángulo:</strong> 5.000-40.000 rpm. Usa micromotor eléctrico. Fresas con vástago <strong>RA</strong> (2.35mm con muesca). Para pulido, acabado, dentina profunda.<br><br><strong>Pieza de mano recta:</strong> 5.000-30.000 rpm. Fresas con vástago <strong>HP</strong> (2.35mm sin muesca). Principalmente laboratorio y cirugía.' },
+                    { type: 'explicacion', text: 'La turbina es como un taladro de alta velocidad (para materiales duros). El contra-ángulo es como una lijadora de detalle (para acabados). La pieza recta es para trabajo fuera de boca. Cada una requiere un tipo de vástago diferente — <strong>no son intercambiables</strong>.' },
+                    { type: 'dentista', text: 'El doctor invierte €3.000-15.000 en su instrumental rotatorio. Lo cuida mucho. Necesita fresas que no dañen sus turbinas (bien centradas, sin vibración excesiva). Una fresa de mala calidad puede arruinar un cabezal de €800.' },
+                    { type: 'comercial', text: '<strong>Pregunta obligatoria:</strong> "¿Lo usas en turbina o en contra-ángulo?" La respuesta define el vástago: turbina = <strong>FG</strong>, contra-ángulo = <strong>RA</strong>. El 85% de las fresas se venden en FG. Si no sabes esto, pierdes credibilidad al instante.' },
+                    { type: 'ejemplo', text: '<strong>Caso real:</strong> Un doctor te pide "fresas para su pieza". Tú preguntas: "¿Pieza de mano recta o contra-ángulo?" Él dice contra-ángulo. Le ofreces RA. Si no hubieras preguntado, podrías haber enviado HP (que no le entra). Esa pregunta simple demuestra que sabes lo que vendes.' }
+                ]
+            },
+            {
+                num: '06', title: 'Tipos de Fresas: Diamante vs Carburo', sub: 'Las dos familias que debes dominar',
+                color: '#3182CE',
+                blocks: [
+                    { type: 'concepto', text: '<strong>Fresa de diamante:</strong> Partículas de diamante pegadas a un cuerpo metálico. Corta por <strong>abrasión</strong> (raspa la superficie). Ideal para materiales duros: esmalte, cerámica, composite curado.<br><br><strong>Fresa de carburo de tungsteno:</strong> Cuerpo sólido con <strong>láminas cortantes</strong> (como cuchillas microscópicas). Corta por <strong>sección</strong> (rebanada). Ideal para materiales blandos: dentina, metal, hueso, amalgama.' },
+                    { type: 'explicacion', text: 'El diamante es como papel de lija de alta calidad: raspa lo duro eficientemente. El carburo es como un bisturí: corta lo blando limpiamente. Usar el incorrecto es como lijar mantequilla (no funciona) o cortar piedra con un cuchillo (rompes la herramienta).' },
+                    { type: 'dentista', text: 'Los dentistas expertos combinan ambos en el mismo procedimiento: diamante para abrir (esmalte), carburo para limpiar (dentina), diamante fino para acabar (pulir el margen). Los que usan solo diamante para todo pierden tiempo y eficiencia.' },
+                    { type: 'comercial', text: '<strong>Fresissima usa diamante NATURAL.</strong> El sintético tiene partículas uniformes (cortan peor). El natural tiene aristas <strong>irregulares</strong> que multiplican los puntos de corte, generan MENOS calor y duran MÁS. Este es el argumento #1 de diferenciación.<br><br>En carburo, Fresissima usa la aleación <strong>K89</strong> (exclusiva): 30% más dura que el carburo estándar, mantiene el filo más cortes.' },
+                    { type: 'ejemplo', text: '<strong>Caso real:</strong> Un doctor se queja de que "las fresas de diamante se gastan rápido". Tú comparas: "¿Usa diamante sintético?" (probablemente sí si usa marcas económicas). Le dejas 3 fresas de diamante natural Fresissima para que pruebe. La diferencia se nota en el primer corte: más suave, menos vibración, dura más sesiones. Convencido.' }
+                ]
+            },
+            {
+                num: '07', title: 'Formas de Fresas y Uso Clínico', sub: 'Cada forma tiene un por qué',
+                color: '#6B46C1',
+                blocks: [
+                    { type: 'concepto', text: 'Las formas principales y su uso:<br><br>⚫ <strong>Esférica (801)</strong> — Caries, acceso endo. La más vendida.<br>🔺 <strong>Troncocónica (847)</strong> — Muñones para coronas. Paredes cónicas.<br>🟦 <strong>Cilíndrica (835)</strong> — Paredes paralelas. Inlays/onlays.<br>🔥 <strong>Llama (863)</strong> — Márgenes finos. Acceso interproximal.<br>🍐 <strong>Pera (830)</strong> — Caries subgingival. Mínimamente invasiva.<br>🏈 <strong>Torpedo (879)</strong> — Chamfer. Prótesis sobre implantes.<br>🔻 <strong>Cono invertido (805)</strong> — Retención mecánica. Cada vez menos usado.' },
+                    { type: 'explicacion', text: 'La forma de la fresa deja una "huella" en el diente. Esférica = hueco redondo. Troncocónica = paredes en ángulo. Cilíndrica = paredes rectas. El dentista elige la forma según qué tipo de cavidad o preparación necesita crear.' },
+                    { type: 'dentista', text: 'Un protesista usa sobre todo troncocónicas y torpedos. Un generalista usa sobre todo esféricas y peras. Un endodoncista usa esféricas especiales con punta inactiva (Endo-Z). Conocer su especialidad te dice qué formas venderle.' },
+                    { type: 'comercial', text: '<strong>Regla de oro:</strong><br>Generalista → esférica 801 + pera 830<br>Protesista → troncocónica 847 + torpedo 879<br>Endodoncista → esférica 801 + Endo-Z<br>Cirujano → Zekrya + Lindemann<br><br>Si solo recuerdas una referencia: <strong>la 801-014 es la fresa más vendida del mundo</strong>.' },
+                    { type: 'ejemplo', text: '<strong>Caso real:</strong> Llegas a una clínica y el doctor dice "hago de todo". Tú preguntas: "¿Qué porcentaje es conservadora y qué porcentaje prótesis?" Si dice 70-30, le armas un kit con 5 esféricas + 2 troncocónicas + 1 torpedo + set de pulidores. Has personalizado la oferta en 30 segundos.' }
+                ]
+            },
+            {
+                num: '08', title: 'Procedimientos Dentales Comunes', sub: 'Lo que el dentista hace todos los días con tus fresas',
+                color: '#E53E3E',
+                blocks: [
+                    { type: 'concepto', text: 'Los procedimientos que más consumen fresas:<br><br>🦷 <strong>Obturación (empaste):</strong> Quitar caries + restaurar con composite. 60% de la clínica diaria. Fresas: esférica diamante → esférica carburo → pulidores.<br><br>👑 <strong>Corona/Puente:</strong> Reducir el diente para cementar una funda. 20% de la clínica. Fresas: troncocónica gruesa → torpedo → llama para acabar.<br><br>🔬 <strong>Endodoncia:</strong> Quitar el nervio. 10%. Fresas: esférica para acceso → Endo-Z → instrumentos de endo.<br><br>😁 <strong>Estética:</strong> Carillas, blanqueamiento previo. 5%. Fresas: diamante ultrafino para preparación mínima.<br><br>🏥 <strong>Cirugía/Implantes:</strong> Cortar hueso. 5%. Fresas: carburo quirúrgicas + irrigación obligatoria.' },
+                    { type: 'explicacion', text: 'Cada procedimiento es un <strong>workflow</strong> con fresas específicas. El doctor no usa UNA fresa, usa una SECUENCIA: primero una gruesa para preparar, luego una media para dar forma, luego una fina para acabar. Vender la secuencia completa multiplica tu ticket.' },
+                    { type: 'dentista', text: 'El doctor busca eficiencia: menos cambios de fresa = menos tiempo en sillón = más pacientes al día. Los kits pre-configurados por procedimiento le ahorran tiempo y decisiones.' },
+                    { type: 'comercial', text: '<strong>No vendas fresas sueltas, vende workflows.</strong><br><br>Kit Conservadora: 801-014 azul + 801-010 rojo + copa pulido = €18<br>Kit Corona: 847-016 verde + 879-014 azul + 863-012 rojo = €22<br>Kit Endo: 801-014 + Endo-Z + Gates = €15<br><br>El ticket medio sube un 40% vendiendo kits vs fresas unitarias.' },
+                    { type: 'ejemplo', text: '<strong>Caso real:</strong> Un doctor te pide "10 esféricas 801-014". En vez de solo tomar el pedido, le preguntas: "¿Quieres también las de acabado rojo y un set de pulidores para completar el workflow de conservadora?" 6 de cada 10 dicen que sí. Tu factura pasa de €35 a €55.' }
+                ]
+            },
+            {
+                num: '09', title: 'Cómo Elegir la Fresa Correcta', sub: 'El diagrama decisión que te convierte en consultor',
+                color: '#D69E2E',
+                blocks: [
+                    { type: 'concepto', text: 'Cuatro preguntas para recomendar la fresa perfecta:<br><br><strong>1. ¿Qué procedimiento?</strong> → Define la FORMA<br>Conservadora → esférica. Prótesis → troncocónica. Acabado → llama.<br><br><strong>2. ¿Qué tejido/material corta?</strong> → Define DIAMANTE o CARBURO<br>Esmalte/cerámica → diamante. Dentina/metal → carburo K89.<br><br><strong>3. ¿Preparar, dar forma o acabar?</strong> → Define el GRANO<br>Preparar → verde/negro. Dar forma → azul. Acabar → rojo/amarillo.<br><br><strong>4. ¿Turbina o contra-ángulo?</strong> → Define el VÁSTAGO<br>Turbina → FG. Contra-ángulo → RA.' },
+                    { type: 'explicacion', text: 'Con estas 4 preguntas puedes recomendar cualquier fresa del catálogo sin ser dentista. Es como un GPS: cada pregunta te acerca más al destino correcto.' },
+                    { type: 'dentista', text: 'Cuando un comercial le recomienda la fresa correcta con criterio técnico, el doctor deja de verte como "un vendedor más" y te ve como un <strong>consultor de confianza</strong>. Eso fideliza más que cualquier descuento.' },
+                    { type: 'comercial', text: '<strong>Memoriza esta secuencia:</strong><br>PROCEDIMIENTO → MATERIAL → FASE → VÁSTAGO<br><br>Ejemplo: "Hago coronas de zirconio en turbina, fase de preparación"<br>→ Corona = troncocónica<br>→ Zirconio = diamante (preparación) + Disteno (ajuste)<br>→ Preparación = grano verde<br>→ Turbina = FG<br>Resultado: <strong>847-016 FG verde + Disteno RA</strong>' },
+                    { type: 'ejemplo', text: '<strong>Caso real:</strong> Un doctor nuevo te dice "no sé qué fresas pedir, acabo de abrir la clínica". En vez de darle un catálogo de 200 páginas, le haces las 4 preguntas: "¿70% conservadora? ¿Trabajas con composite? ¿Turbina Kavo?" En 2 minutos le armas un kit de inicio de 15 fresas que cubre el 90% de su trabajo diario. Primer pedido de €150 y un cliente para años.' }
+                ]
+            },
+            {
+                num: '10', title: 'Cómo Hablar con un Dentista', sub: 'Comunicación técnica que genera confianza y ventas',
+                color: '#319795',
+                blocks: [
+                    { type: 'concepto', text: 'El dentista ha estudiado 5-6 años de carrera. Respeta al comercial que <strong>sabe de lo que habla</strong> y rechaza al que solo "lee el catálogo". La diferencia está en usar el <strong>vocabulario correcto</strong> y hacer las <strong>preguntas adecuadas</strong>.' },
+                    { type: 'explicacion', text: 'No necesitas saber operar. Necesitas saber <strong>escuchar y traducir</strong>: cuando el doctor describe su problema clínico, tú lo traduces en el producto exacto de tu catálogo. Eso es lo que ningún otro comercial hace.' },
+                    { type: 'dentista', text: 'El dentista valora:<br>✅ Que sepas qué es un chamfer vs shoulder<br>✅ Que preguntes "¿turbina o contra-ángulo?"<br>✅ Que recomiendes por criterio técnico, no por margen<br>✅ Que dejes muestras y hagas seguimiento<br><br>El dentista rechaza:<br>❌ Que digas "esta fresa es buena para todo"<br>❌ Que no sepas qué vástago necesita<br>❌ Que solo hables de precio sin hablar de rendimiento' },
+                    { type: 'comercial', text: '<strong>Frases que generan confianza:</strong><br><br>"¿Hace más chamfer o shoulder en sus preparaciones?"<br>"¿Ha probado cambiar a carburo para la fase de dentina?"<br>"Con diamante natural la generación de calor es un 20% menor"<br>"Le dejo 5 unidades para que las pruebe esta semana. Le llamo el viernes."<br><br><strong>Frases que destruyen confianza:</strong><br>"Esta fresa es la mejor" (sin explicar por qué)<br>"Es más barata que Komet" (competir solo por precio)<br>"Todos nuestros clientes están contentos" (genérico)' },
+                    { type: 'ejemplo', text: '<strong>Caso real:</strong> Llegas a una clínica donde usan Komet. El doctor dice "estoy contento con lo que tengo". Tú NO insistes. Dices: "Perfecto, Komet es un buen fabricante. Solo le pido que pruebe 3 fresas nuestras de diamante natural en su próximo caso de prótesis. <strong>La diferencia la va a notar en la mano.</strong> Si no le convence, no vuelvo a insistir." El 70% acepta la prueba. El 50% de esos acaba comprando.' }
+                ]
+            }
+        ];
+
+        // ========== RENDER ==========
+        function renderChapters() {
+            const container = document.getElementById('chaptersContainer');
+            const read = getRead();
+
+            // Progress dots
+            const strip = document.getElementById('progressStrip');
+            strip.innerHTML = CHAPTERS.map((_, i) =>
+                `<div class="progress-dot ${read.includes(i) ? 'done' : ''}"></div>`
+            ).join('');
+            document.getElementById('progressText').textContent =
+                `${read.length} de ${CHAPTERS.length} capítulos leídos`;
+
+            container.innerHTML = CHAPTERS.map((ch, i) => {
+                const blockHTML = ch.blocks.map(b => {
+                    const labels = {
+                        concepto: '📘 Concepto',
+                        explicacion: '💡 Explicación sencilla',
+                        dentista: '🦷 Por qué importa al dentista',
+                        comercial: '🎯 Lo que debe saber el comercial',
+                        ejemplo: '🏥 Ejemplo real en clínica'
+                    };
+                    const isExample = b.type === 'ejemplo';
+                    const isSell = b.type === 'comercial';
+                    const boxClass = isExample ? 'example-box' : (isSell ? 'sell-box' : '');
+                    return `
+                    <div class="block">
+                        <div class="block-label ${b.type}">${labels[b.type]}</div>
+                        <div class="${boxClass || 'block-text'}">${b.text}</div>
+                    </div>
+                `;
+                }).join('<div class="divider"></div>');
+
+                return `
+                <div class="ch" data-idx="${i}">
+                    <div class="ch-head" onclick="toggleCh(this)">
+                        <div class="ch-num" style="background:${ch.color}15;color:${ch.color}">${ch.num}</div>
+                        <div class="ch-info">
+                            <div class="ch-title">${ch.title}</div>
+                            <div class="ch-sub">${ch.sub}</div>
+                        </div>
+                        <div class="ch-arrow">›</div>
+                    </div>
+                    <div class="ch-body">${blockHTML}</div>
+                </div>
+            `;
+            }).join('');
+        }
+
+        function toggleCh(el) {
+            const card = el.parentElement;
+            const idx = parseInt(card.dataset.idx);
+            card.classList.toggle('open');
+            if (card.classList.contains('open')) markRead(idx);
+        }
+
+        // Persistence
+        function getRead() {
+            try { return JSON.parse(localStorage.getItem('fres_academy_read') || '[]'); }
+            catch { return []; }
+        }
+        function markRead(idx) {
+            const read = getRead();
+            if (!read.includes(idx)) {
+                read.push(idx);
+                localStorage.setItem('fres_academy_read', JSON.stringify(read));
+                // Update dots
+                document.querySelectorAll('.progress-dot')[idx]?.classList.add('done');
+                document.getElementById('progressText').textContent =
+                    `${read.length} de ${CHAPTERS.length} capítulos leídos`;
+            }
+        }
+
+        renderChapters();
+    </script>
+</body>
+
+</html>
